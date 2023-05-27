@@ -34,7 +34,7 @@ public class Logger {
 	private static String filePath;
 	private static PrintWriter writer;
 
-	public static void activateLoggingToFile(String path) {
+	public static void activateLoggingToFile(String path, boolean printLogDir) {
 		try {
 			Files.createDirectories(Paths.get(path));
 		} catch (IOException e) {
@@ -61,6 +61,7 @@ public class Logger {
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
+		if (printLogDir) logInfo(String.format("Logging file at '%s'", f.getAbsolutePath()));
 		logToFile = true;
 	}
 
