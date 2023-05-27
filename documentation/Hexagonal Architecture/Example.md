@@ -14,7 +14,7 @@ public class HelloWorldModule {
 ``` java
 package org.app.hexagonal.test;  
   
-public interface IHelloWorldProtocol {  
+wpublic interface IHelloWorldProtocol {  
 	public void helloWorld();  
 }
 ```

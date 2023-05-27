@@ -5,302 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="added documentation">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/app.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/appearance.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/community-plugins.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/core-plugins-migration.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/core-plugins.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/graph.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/hotkeys.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/calendar/data.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/calendar/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/calendar/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/dataview/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/dataview/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/dataview/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/file-tree-alternative/data.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/file-tree-alternative/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/file-tree-alternative/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/file-tree-alternative/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-admonition/data.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-admonition/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-admonition/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-admonition/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/css/layout.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/css/mattropolis.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/css/vs2015.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/dist/fontawesome/all.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/dist/reset.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/dist/reveal.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/dist/reveal.esm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/dist/reveal.esm.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/dist/reveal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/dist/reveal.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/dist/theme/beige.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/dist/theme/black.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/dist/theme/blood.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/dist/theme/consult.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/dist/theme/fonts/lato/lato.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/dist/theme/fonts/league-gothic/league-gothic.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/dist/theme/fonts/source-sans-pro/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/dist/theme/fonts/source-sans-pro/source-sans-pro-italic.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/dist/theme/fonts/source-sans-pro/source-sans-pro-italic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/dist/theme/fonts/source-sans-pro/source-sans-pro-italic.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/dist/theme/fonts/source-sans-pro/source-sans-pro-regular.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/dist/theme/fonts/source-sans-pro/source-sans-pro-regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/dist/theme/fonts/source-sans-pro/source-sans-pro-regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/dist/theme/fonts/source-sans-pro/source-sans-pro-semibold.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/dist/theme/fonts/source-sans-pro/source-sans-pro-semibold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/dist/theme/fonts/source-sans-pro/source-sans-pro-semibold.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/dist/theme/fonts/source-sans-pro/source-sans-pro-semibolditalic.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/dist/theme/fonts/source-sans-pro/source-sans-pro-semibolditalic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/dist/theme/fonts/source-sans-pro/source-sans-pro-semibolditalic.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/dist/theme/fonts/source-sans-pro/source-sans-pro.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/dist/theme/league.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/dist/theme/mattropolis.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/dist/theme/moon.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/dist/theme/night.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/dist/theme/serif.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/dist/theme/simple.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/dist/theme/sky.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/dist/theme/solarized.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/dist/theme/white.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/distVersion.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/chalkboard/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/chalkboard/_style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/chalkboard/img/blackboard.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/chalkboard/img/boardmarker-black.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/chalkboard/img/boardmarker-blue.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/chalkboard/img/boardmarker-green.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/chalkboard/img/boardmarker-orange.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/chalkboard/img/boardmarker-purple.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/chalkboard/img/boardmarker-red.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/chalkboard/img/boardmarker-yellow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/chalkboard/img/chalk-blue.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/chalkboard/img/chalk-green.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/chalkboard/img/chalk-orange.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/chalkboard/img/chalk-purple.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/chalkboard/img/chalk-red.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/chalkboard/img/chalk-white.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/chalkboard/img/chalk-yellow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/chalkboard/img/sponge.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/chalkboard/img/whiteboard.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/chalkboard/plugin (copy).js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/chalkboard/plugin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/chalkboard/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/chart/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/chart/chart.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/chart/plugin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/customcontrols/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/customcontrols/plugin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/customcontrols/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/elapsed-time-bar/elapsed-time-bar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/highlight/highlight.esm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/highlight/highlight.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/highlight/monokai.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/highlight/plugin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/highlight/zenburn.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/markdown/markdown.esm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/markdown/markdown.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/markdown/plugin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/katex.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/math.esm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/math.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/a11y/assistive-mml.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/a11y/complexity.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/a11y/explorer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/a11y/semantic-enrich.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/adaptors/liteDOM.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/core.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/input/asciimath.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/input/mml.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/input/mml/entities.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/input/mml/extensions/mml3.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/input/mml/extensions/mml3.sef.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/input/tex-base.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/input/tex-full.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/input/tex.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/input/tex/extensions/action.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/input/tex/extensions/all-packages.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/input/tex/extensions/ams.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/input/tex/extensions/amscd.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/input/tex/extensions/autoload.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/input/tex/extensions/bbox.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/input/tex/extensions/boldsymbol.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/input/tex/extensions/braket.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/input/tex/extensions/bussproofs.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/input/tex/extensions/cancel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/input/tex/extensions/centernot.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/input/tex/extensions/color.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/input/tex/extensions/colortbl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/input/tex/extensions/colorv2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/input/tex/extensions/configmacros.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/input/tex/extensions/enclose.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/input/tex/extensions/extpfeil.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/input/tex/extensions/gensymb.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/input/tex/extensions/html.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/input/tex/extensions/mathtools.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/input/tex/extensions/mhchem.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/input/tex/extensions/newcommand.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/input/tex/extensions/noerrors.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/input/tex/extensions/noundefined.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/input/tex/extensions/physics.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/input/tex/extensions/require.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/input/tex/extensions/setoptions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/input/tex/extensions/tagformat.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/input/tex/extensions/textcomp.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/input/tex/extensions/textmacros.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/input/tex/extensions/unicode.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/input/tex/extensions/upgreek.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/input/tex/extensions/verb.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/latest.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/loader.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/mml-chtml.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/mml-svg.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/node-main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/output/chtml.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/output/chtml/fonts/tex.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/output/chtml/fonts/woff-v2/MathJax_AMS-Regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Bold.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/output/chtml/fonts/woff-v2/MathJax_Fraktur-Bold.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/output/chtml/fonts/woff-v2/MathJax_Fraktur-Regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/output/chtml/fonts/woff-v2/MathJax_Main-Bold.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/output/chtml/fonts/woff-v2/MathJax_Main-Italic.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/output/chtml/fonts/woff-v2/MathJax_Math-BoldItalic.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/output/chtml/fonts/woff-v2/MathJax_Math-Regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/output/chtml/fonts/woff-v2/MathJax_SansSerif-Bold.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/output/chtml/fonts/woff-v2/MathJax_SansSerif-Italic.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/output/chtml/fonts/woff-v2/MathJax_SansSerif-Regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/output/chtml/fonts/woff-v2/MathJax_Script-Regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/output/chtml/fonts/woff-v2/MathJax_Size1-Regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/output/chtml/fonts/woff-v2/MathJax_Size2-Regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/output/chtml/fonts/woff-v2/MathJax_Size3-Regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/output/chtml/fonts/woff-v2/MathJax_Size4-Regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/output/chtml/fonts/woff-v2/MathJax_Typewriter-Regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/output/chtml/fonts/woff-v2/MathJax_Vector-Regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/output/chtml/fonts/woff-v2/MathJax_Zero.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/output/svg.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/output/svg/fonts/tex.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/sre/mathmaps/de.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/sre/mathmaps/en.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/sre/mathmaps/es.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/sre/mathmaps/fr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/sre/mathmaps/hi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/sre/mathmaps/it.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/sre/mathmaps/nemeth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/sre/sre-node.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/sre/sre_browser.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/startup.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/tex-chtml-full.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/tex-chtml.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/tex-mml-chtml.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/tex-mml-svg.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/tex-svg-full.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/tex-svg.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/ui/lazy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/ui/menu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax/ui/safe.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/mathjax3.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/math/plugin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/menu/CONTRIBUTING.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/menu/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/menu/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/menu/bower.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/menu/gulpfile.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/menu/menu.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/menu/menu.esm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/menu/menu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/menu/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/menu/plugin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/mermaid/mermaid.esm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/mermaid/mermaid.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/mermaid/plugin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/notes/notes.esm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/notes/notes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/notes/plugin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/notes/speaker-view.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/search/plugin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/search/search.esm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/search/search.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/zoom/plugin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/zoom/zoom.esm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/plugin/zoom/zoom.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/template/embed.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-advanced-slides/template/reveal.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-excalidraw-plugin/data.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-excalidraw-plugin/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-excalidraw-plugin/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-excalidraw-plugin/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-kanban/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-kanban/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-kanban/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-markmind/data.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-markmind/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-markmind/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-markmind/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-mind-map/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-mind-map/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-minimal-settings/data.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-minimal-settings/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-minimal-settings/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-minimal-settings/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-outliner/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-outliner/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-outliner/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-style-settings/data.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-style-settings/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-style-settings/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-style-settings/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-tasks-plugin/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-tasks-plugin/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/obsidian-tasks-plugin/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/oz-image-plugin/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/oz-image-plugin/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/oz-image-plugin/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/sliding-panes-obsidian/data.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/sliding-panes-obsidian/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/sliding-panes-obsidian/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/sliding-panes-obsidian/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/table-editor-obsidian/data.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/table-editor-obsidian/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/table-editor-obsidian/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/table-editor-obsidian/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/templater-obsidian/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/templater-obsidian/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/plugins/templater-obsidian/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/snippets/custom-rainbow-colors.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/snippets/extended-colorschemes.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/snippets/floating-search-bar.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/snippets/floating-status-bar.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/snippets/its-frontmatter.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/snippets/minimal-cards.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/snippets/notion-cards.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/themes/Minimal/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/themes/Minimal/theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/workspace" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/.obsidian/workspace.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/Hexagonal Architecture/Adapter.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/Hexagonal Architecture/Basic Structure.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/Hexagonal Architecture/Example.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/Hexagonal Architecture/Module.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/Hexagonal Architecture/Port.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/Hexagonal Architecture/Protocol.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/buil2.gradle" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/app/utils/Logger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/Hexagonal Architecture/Example.md" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/Hexagonal Architecture/Example.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -341,6 +48,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$USER_HOME$/.jdks/corretto-17.0.7/lib/src.zip!/java.base/java/util/function/Function.java" root0="SKIP_INSPECTION" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -360,7 +70,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "vcs.Git"
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -370,8 +80,24 @@
       <recent name="$PROJECT_DIR$/lib/ecs" />
       <recent name="$PROJECT_DIR$/build/classes/java/main/ecs" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.app" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.LoggerTest">
+    <configuration name="LoggerTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.app.utils.LoggerTest" />
+      <module name="javaengine.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.app.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.app.hexagonal.test.Main" />
       <module name="javaengine.main" />
@@ -387,6 +113,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.LoggerTest" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -428,7 +155,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685196546521</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added documentation">
+      <created>1685196838770</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1685196838770</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
