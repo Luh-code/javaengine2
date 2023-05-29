@@ -3,15 +3,11 @@ package org.app.window;
 import org.app.utils.Logger;
 import org.lwjgl.Version;
 
-import org.lwjgl.*;
 import org.lwjgl.glfw.*;
 import org.lwjgl.opengl.*;
 import org.lwjgl.system.*;
 
-import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
-import java.nio.charset.Charset;
-import java.util.Arrays;
 import java.util.Objects;
 
 import static org.lwjgl.glfw.Callbacks.*;
@@ -108,7 +104,7 @@ public class WindowManager {
             if ( success.get(0) == GL_FALSE )
             {
                 String log = glGetShaderInfoLog(shader);
-                Logger.logError("An error occured whilst compiling a shader: " + log);
+                Logger.logError("An error occurred whilst compiling a shader: " + log);
             }
         }
 
@@ -140,23 +136,26 @@ public class WindowManager {
         glBufferData(GL_ARRAY_BUFFER, vertices, GL_STATIC_DRAW);
 
         // Create the Vertex Shader
-        CharSequence vertexShaderSource = "#version 330 core\n" +
-                "layout (location = 0) in vec3 aPos;\n" +
-                "\n" +
-                "void main()\n" +
-                "{\n" +
-                "    gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n" +
-                "}";
+        CharSequence vertexShaderSource = """
+                #version 330 core
+                layout (location = 0) in vec3 aPos;
+
+                void main()
+                {
+                    gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);
+                }""";
         int vertexShader = compileShader(GL_VERTEX_SHADER, vertexShaderSource);
 
         // Create Fragment Shader
-        CharSequence fragmentShaderSource = "#version 330 core\n" +
-                "out vec4 FragColor;\n" +
-                "\n" +
-                "void main()\n" +
-                "{\n" +
-                "    FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n" +
-                "} \n";
+        CharSequence fragmentShaderSource = """
+                #version 330 core
+                out vec4 FragColor;
+
+                void main()
+                {
+                    FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);
+                }\s
+                """;
         int fragmentShader = compileShader(GL_FRAGMENT_SHADER, fragmentShaderSource);
 
         // Create Shader Program

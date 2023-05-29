@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="Some HexHelper stuff">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="Finished Hello Triangle application">
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/window/WindowManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/window/WindowManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -233,7 +232,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685388394658</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Finished Hello Triangle application">
+      <created>1685394478288</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1685394478288</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -258,7 +264,8 @@
     <MESSAGE value="Finished Hello Window Program" />
     <MESSAGE value="Added a safe variant of HexHelper::connect to HexHelper, named HexHelper::connect_s" />
     <MESSAGE value="Some HexHelper stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="Some HexHelper stuff" />
+    <MESSAGE value="Finished Hello Triangle application" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished Hello Triangle application" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
