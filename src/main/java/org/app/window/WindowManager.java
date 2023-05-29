@@ -8,12 +8,15 @@ import org.lwjgl.glfw.*;
 import org.lwjgl.opengl.*;
 import org.lwjgl.system.*;
 
+import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
+import java.nio.charset.Charset;
+import java.util.Arrays;
 import java.util.Objects;
 
 import static org.lwjgl.glfw.Callbacks.*;
 import static org.lwjgl.glfw.GLFW.*;
-import static org.lwjgl.opengl.GL11.*;
+import static org.lwjgl.opengl.GL42.*;
 import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -33,9 +36,9 @@ public class WindowManager {
         glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);
         glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
         glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
         glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-        Logger.logDebug("Using OpenGL 4.1");
+        Logger.logDebug("Using OpenGL 4.2");
 
         // Create window
         window = glfwCreateWindow(1280, 720, "Java Engine", NULL, NULL);
@@ -78,17 +81,129 @@ public class WindowManager {
         Logger.logInfo("Window initialized");
     }
 
+    public int compileShader(int shaderType, CharSequence shaderSource)
+    {
+        // Check if shaderType is valid
+        switch ( shaderType ) {
+            case GL_VERTEX_SHADER:
+            case GL_FRAGMENT_SHADER:
+                break;
+            default:
+                Logger.logError("'" + shaderType + "' not recognized as valid shader Type");
+                return -1;
+        }
+
+        // Create Shader
+        int shader = glCreateShader(shaderType);
+
+        // Compile shader
+        glShaderSource(shader, shaderSource);
+        glCompileShader(shader);
+
+        // Control if shader compiled properly
+        try ( MemoryStack stack = stackPush() ) {
+            IntBuffer success = stack.mallocInt(1);
+            glGetShaderiv(shader, GL_COMPILE_STATUS, success);
+
+            if ( success.get(0) == GL_FALSE )
+            {
+                String log = glGetShaderInfoLog(shader);
+                Logger.logError("An error occured whilst compiling a shader: " + log);
+            }
+        }
+
+        return shader;
+    }
+
     public void loop()
     {
         // Required by LWJGL to allow for interoperation with GLFW's OpenGL context
         GL.createCapabilities();
 
         // Set clear color
-        glClearColor(1.0f, 0.0f, 0.0f, 0.0f);
+        glClearColor(0.1f, 0.1f, 0.1f, 0.0f);
+
+        // Vertex Array
+        float[] vertices = {
+                -0.5f, -0.5f,  0.0f,
+                0.5f, -0.5f,  0.0f,
+                0.0f,  0.5f,  0.0f
+        };
+
+        // Create Vertex Array Object
+        int VAO = glGenVertexArrays();
+        glBindVertexArray(VAO);
+
+        // Create Vertex Buffer Object
+        int VBO = glGenBuffers();
+        glBindBuffer(GL_ARRAY_BUFFER, VBO);
+        glBufferData(GL_ARRAY_BUFFER, vertices, GL_STATIC_DRAW);
+
+        // Create the Vertex Shader
+        CharSequence vertexShaderSource = "#version 330 core\n" +
+                "layout (location = 0) in vec3 aPos;\n" +
+                "\n" +
+                "void main()\n" +
+                "{\n" +
+                "    gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n" +
+                "}";
+        int vertexShader = compileShader(GL_VERTEX_SHADER, vertexShaderSource);
+
+        // Create Fragment Shader
+        CharSequence fragmentShaderSource = "#version 330 core\n" +
+                "out vec4 FragColor;\n" +
+                "\n" +
+                "void main()\n" +
+                "{\n" +
+                "    FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n" +
+                "} \n";
+        int fragmentShader = compileShader(GL_FRAGMENT_SHADER, fragmentShaderSource);
+
+        // Create Shader Program
+        int shaderProgram = glCreateProgram();
+        glAttachShader(shaderProgram, vertexShader);
+        glAttachShader(shaderProgram, fragmentShader);
+        glLinkProgram(shaderProgram);
+
+        // Control if program linked properly
+        try ( MemoryStack stack = stackPush() ) {
+            IntBuffer success = stack.mallocInt(1);
+            glGetProgramiv(shaderProgram, GL_LINK_STATUS, success);
+
+            if ( success.get(0) == GL_FALSE )
+            {
+                String log = glGetProgramInfoLog(shaderProgram);
+                Logger.logError("An error occurred whilst linking a shaderProgram: " + log);
+            }
+        }
+
+        // Set OpenGL to use shaderProgram
+        glUseProgram(shaderProgram);
+
+        // Delete shaders (not longer required after linking)
+        glDeleteShader(vertexShader);
+        glDeleteShader(fragmentShader);
+
+        // Set up Vertex Attributes
+        /*
+        Parameters in order:
+        1. Position (layout = 0)
+        2. Amt of values per vertex (vec3 = 3 values)
+        3. Type of data
+        4. Normalized values? (if true limits range from -1 to 1)
+        5. Stride (data taken up by each vertex in bytes)
+        6. Offset (becomes useful when data is added to the Vertex Attributes later)
+         */
+        glVertexAttribPointer(0, 3, GL_FLOAT, false, 3 * 4, 0);
+        glEnableVertexAttribArray(0); // Selects which vertex Attribute array to use
 
         // Main loop
         while ( !glfwWindowShouldClose(window) ) {
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear the framebuffer
+
+            glUseProgram(shaderProgram);
+            glBindVertexArray(VAO);
+            glDrawArrays(GL_TRIANGLES, 0, 3);
 
             glfwSwapBuffers(window); // swap the color buffers
 
