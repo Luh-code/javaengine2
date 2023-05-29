@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="Added a safe variant of HexHelper::connect to HexHelper, named HexHelper::connect_s">
+    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="Some HexHelper stuff">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/hexagonal/HexHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/hexagonal/HexHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/hexagonal/test/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/hexagonal/test/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/window/WindowManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/window/WindowManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +92,7 @@
       <recent name="org.app" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.WindowManager">
     <configuration name="LoggerTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.app.utils.LoggerTest" />
       <module name="javaengine.main" />
@@ -227,7 +226,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685365323620</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Some HexHelper stuff">
+      <created>1685388394658</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1685388394658</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -251,7 +257,8 @@
     <MESSAGE value="Tweaks to the logger and window creation" />
     <MESSAGE value="Finished Hello Window Program" />
     <MESSAGE value="Added a safe variant of HexHelper::connect to HexHelper, named HexHelper::connect_s" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a safe variant of HexHelper::connect to HexHelper, named HexHelper::connect_s" />
+    <MESSAGE value="Some HexHelper stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="Some HexHelper stuff" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
