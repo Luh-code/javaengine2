@@ -8,8 +8,8 @@ public class Main {
         HelloWorldModule module = new HelloWorldModule();
         TestHelloWorldAdapter adapter = new TestHelloWorldAdapter();
         HexHelper.connect_module(port, module);
-        HexHelper.connect(port, adapter);
-
-        adapter.helloWorld();
+        if ( HexHelper.connect_s(port, adapter) >= 0 ) {
+            adapter.helloWorld();
+        }
     }
 }

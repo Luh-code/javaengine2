@@ -22,7 +22,7 @@ public class Port <M, A> implements IPort{
         return adapter;
     }
 
-    public int isEmpty() {
+    public int getStatus() {
         return  (this.module != null ? PortStatus.HAS_MODULE : 0) |
                 (this.adapter != null ? PortStatus.HAS_ADAPTER : 0);
     }

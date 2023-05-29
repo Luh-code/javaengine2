@@ -8,4 +8,9 @@ public class HelloWorldPort extends Port<HelloWorldModule, IHelloWorldProtocol> 
     public void helloWorld() {
         getModule().helloWorld();
     }
+
+    @Override
+    public int test() {
+        return ((IHelloWorldProtocol)getAdapter()).test();
+    }
 }

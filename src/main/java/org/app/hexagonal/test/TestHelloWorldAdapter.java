@@ -7,4 +7,9 @@ public class TestHelloWorldAdapter extends Adapter<IHelloWorldProtocol> implemen
     public void helloWorld() {
         getPort().helloWorld();
     }
+
+    @Override
+    public int test() {
+        return 0;
+    }
 }

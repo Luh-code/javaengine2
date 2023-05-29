@@ -1,5 +1,7 @@
 package org.app.hexagonal.test;
 
-public interface IHelloWorldProtocol {
+import org.app.hexagonal.ControlledProtocol;
+
+public interface IHelloWorldProtocol extends ControlledProtocol {
     void helloWorld();
 }
