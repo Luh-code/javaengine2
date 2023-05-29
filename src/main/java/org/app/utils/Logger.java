@@ -33,6 +33,7 @@ public class Logger {
 	private static PrintWriter writer;
 
 	public static void activateLoggingToFile(String path, boolean printLogDir) {
+		if (logToFile) return;
 		try {
 			Files.createDirectories(Paths.get(path));
 		} catch (IOException e) {
