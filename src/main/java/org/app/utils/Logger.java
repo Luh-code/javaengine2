@@ -1,15 +1,12 @@
 package org.app.utils;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.function.Function;
-import java.util.function.Supplier;
 
+@SuppressWarnings("unused")
 public class Logger {
 	private static final String ANSI_RESET = "\u001B[0m";
 	private static final String ANSI_BLACK = "\u001B[30m";
@@ -32,6 +29,7 @@ public class Logger {
 
 	private static boolean logToFile = false;
 	private static String filePath;
+	public static final CustomPrintStream printStream = new CustomPrintStream(System.out, true);
 	private static PrintWriter writer;
 
 	public static void activateLoggingToFile(String path, boolean printLogDir) {
@@ -73,12 +71,14 @@ public class Logger {
 	private static void printLine(String text, String lvl, String col) {
 		lvl += "]";
 		String templateString = String.format("%s[%7s %s%s\n", "%s", lvl, text, "%s");
-		System.out.printf(templateString, col, ANSI_RESET);
+		printStream.printf(templateString, col, ANSI_RESET);
 
 		if (!logToFile) return;
 		writer.printf("%12s  "+templateString, new SimpleDateFormat("HH-mm-ss:SSS").format(new java.util.Date()), "", "");
 		writer.flush();
 	}
+
+	public static void logEmpty() {}
 
 	public static void logDebug(String text) {
 		printLine(text, "Debug", ANSI_CYAN);
@@ -98,5 +98,31 @@ public class Logger {
 
 	public static void logCrit(String text) {
 		printLine(text, "!Crit", ANSI_RED_BACKGROUND + ANSI_BLACK);
+	}
+
+	public static CallbackPrintStream getDebugStream() {
+		CallbackPrintStream ps = new CallbackPrintStream(printStream, true);
+		ps.setLogFunc(Logger::logDebug);
+		return ps;
+	}
+	public static CallbackPrintStream getInfoStream() {
+		CallbackPrintStream ps = new CallbackPrintStream(printStream, true);
+		ps.setLogFunc(Logger::logInfo);
+		return ps;
+	}
+	public static CallbackPrintStream getWarnStream() {
+		CallbackPrintStream ps = new CallbackPrintStream(printStream, true);
+		ps.setLogFunc(Logger::logWarn);
+		return ps;
+	}
+	public static CallbackPrintStream getErrorStream() {
+		CallbackPrintStream ps = new CallbackPrintStream(printStream, true);
+		ps.setLogFunc(Logger::logError);
+		return ps;
+	}
+	public static CallbackPrintStream getCritStream() {
+		CallbackPrintStream ps = new CallbackPrintStream(printStream, true);
+		ps.setLogFunc(Logger::logCrit);
+		return ps;
 	}
 }
