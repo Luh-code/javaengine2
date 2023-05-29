@@ -100,6 +100,15 @@ public class Logger {
 		printLine(text, "!Crit", ANSI_RED_BACKGROUND + ANSI_BLACK);
 	}
 
+	public static <T extends Exception> void logAndThrow(String text, Class<T> c) {
+		logCrit(text);
+		try {
+			throw c.getDeclaredConstructor(String.class).newInstance(text);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+
 	public static CallbackPrintStream getDebugStream() {
 		CallbackPrintStream ps = new CallbackPrintStream(printStream, true);
 		ps.setLogFunc(Logger::logDebug);

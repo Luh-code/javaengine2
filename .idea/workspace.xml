@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="added an option to display the path to the log in the console">
+    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="added custom PrintStreams to logger for callbacks, added WindowManager.java">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/utils/Logger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/utils/Logger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/window/WindowManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/window/WindowManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,7 +180,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685219856390</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="added custom PrintStreams to logger for callbacks, added WindowManager.java">
+      <created>1685356167248</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1685356167248</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -199,7 +207,8 @@
     <MESSAGE value="added documentation" />
     <MESSAGE value="added a logger with support for console and file" />
     <MESSAGE value="added an option to display the path to the log in the console" />
-    <option name="LAST_COMMIT_MESSAGE" value="added an option to display the path to the log in the console" />
+    <MESSAGE value="added custom PrintStreams to logger for callbacks, added WindowManager.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="added custom PrintStreams to logger for callbacks, added WindowManager.java" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
