@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="Finished Hello Window Program">
+    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="Added a safe variant of HexHelper::connect to HexHelper, named HexHelper::connect_s">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/hexagonal/HexHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/hexagonal/HexHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/hexagonal/Port.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/hexagonal/Port.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/hexagonal/test/HelloWorldPort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/hexagonal/test/HelloWorldPort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/hexagonal/test/IHelloWorldProtocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/hexagonal/test/IHelloWorldProtocol.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/hexagonal/test/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/hexagonal/test/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/hexagonal/test/TestHelloWorldAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/hexagonal/test/TestHelloWorldAdapter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +46,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
@@ -69,18 +70,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/media/para/Projects/triolingo&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "window",
+    "last_opened_file_path": "/media/para/Projects/triolingo",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/ecs" />
@@ -219,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685362827222</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Added a safe variant of HexHelper::connect to HexHelper, named HexHelper::connect_s">
+      <created>1685365323620</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1685365323620</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -242,7 +250,8 @@
     <MESSAGE value="added custom PrintStreams to logger for callbacks, added WindowManager.java" />
     <MESSAGE value="Tweaks to the logger and window creation" />
     <MESSAGE value="Finished Hello Window Program" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished Hello Window Program" />
+    <MESSAGE value="Added a safe variant of HexHelper::connect to HexHelper, named HexHelper::connect_s" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a safe variant of HexHelper::connect to HexHelper, named HexHelper::connect_s" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

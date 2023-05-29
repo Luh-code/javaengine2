@@ -14,7 +14,7 @@ public class HexHelper {
      * @param <M> The Module Type
      * @param <A> The Adapter Type
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("unused, unchecked")
     public static <M, A> void connect(Port<M, A> port, Adapter<A> adapter) {
         port.setAdapter(adapter);
         adapter.setPort((A)port);
@@ -34,7 +34,7 @@ public class HexHelper {
      * @param <M> The Module Type
      * @param <A> The Adapter Type
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("unused, unchecked, UnusedReturnValue")
     public static <M, A> int connect_s(Port<M, A> port, Adapter<A> adapter) {
         // Check if port already has adapter
         if ( (port.getStatus() & PortStatus.HAS_ADAPTER) == PortStatus.HAS_ADAPTER ) {
@@ -57,7 +57,7 @@ public class HexHelper {
         // Check for Test return type
         int ret = 0;
         try {
-            ret = (int)(m.invoke((A)port));
+            ret = (int)(m.invoke(port));
         } catch (IllegalAccessException | InvocationTargetException e) {
             Logger.logAndThrow(e.getMessage(), RuntimeException.class);
         }
@@ -74,16 +74,34 @@ public class HexHelper {
         return ret;
     }
 
+    @SuppressWarnings("unused")
     public static <M, A> void disconnect(Port<M, A> port, Adapter<A> adapter) {
         port.setAdapter(null);
         adapter.setPort(null);
+        Logger.logDebug("Disconnected adapter '" + adapter + "' from port '" + port + "'");
     }
 
+    @SuppressWarnings("unused, UnusedReturnValue")
+    public static <M, A> int disconnect_s(Port<M, A> port, Adapter<A> adapter) {
+        if ( port.getAdapter() == null ) {
+            Logger.logWarn("No adapter to disconnect found on port '" + port + "' ");
+            return 1;
+        }
+        if ( adapter.getPort() != port ) {
+            Logger.logError("Adapter mismatch: adapter '" + adapter + "' is not connected to port '" + port + "'");
+            return -1;
+        }
+        disconnect(port, adapter);
+        return 0;
+    }
+
+    @SuppressWarnings("unused")
     public static <M, A> void connect_module(Port<M, A> port, M module)
     {
         port.setModule(module);
     }
 
+    @SuppressWarnings("unused")
     public static <M, A> void disconnect_module(Port<M, A> port)
     {
         port.setModule(null);
