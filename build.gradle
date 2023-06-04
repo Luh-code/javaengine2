@@ -25,6 +25,9 @@ switch (OperatingSystem.current()) {
 
 repositories {
     mavenCentral()
+    maven {
+        url "https://raw.githubusercontent.com/kotlin-graphics/mary/master"
+    }
 }
 
 dependencies {
@@ -120,6 +123,8 @@ dependencies {
     runtimeOnly "org.lwjgl:lwjgl-yoga::$lwjglNatives"
     runtimeOnly "org.lwjgl:lwjgl-zstd::$lwjglNatives"
     testImplementation("io.github.spair:imgui-java-app:1.86.10")
+
+    implementation("kotlin.graphics:glm:0.9.9.1-7")
 }
 
 test {
