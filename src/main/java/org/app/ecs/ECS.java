@@ -1,7 +1,5 @@
 package org.app.ecs;
 
-//import java.sql.Array;
-
 import java.lang.reflect.Array;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -11,8 +9,9 @@ import java.util.Queue;
 import static org.app.utils.Logger.*;
 
 
+@SuppressWarnings("unused")
 public class ECS {
-    public static final int MAX_ENTITES = 1000;
+    public static final int MAX_ENTITIES = 1000;
     public static final int MAX_COMPONENTS = 1000;
 
     public interface IComponentArray {
@@ -24,8 +23,8 @@ public class ECS {
         //----- Members -----
 
         private T[] array;
-        private Map<Entity, Integer> entityToIndexMap = new HashMap<>(MAX_ENTITES);
-        private Map<Integer, Entity> indexToEntityMap = new HashMap<>(MAX_ENTITES);
+        private Map<Entity, Integer> entityToIndexMap = new HashMap<>(MAX_ENTITIES);
+        private Map<Integer, Entity> indexToEntityMap = new HashMap<>(MAX_ENTITIES);
         int size = 0;
 
         //----- Methods -----
@@ -89,8 +88,8 @@ public class ECS {
 
         //----- Members -----
 
-        private Map<String, Integer> componentTypes = new HashMap<>(MAX_ENTITES);
-        private Map<String, IComponentArray> componentArrays = new HashMap<>(MAX_ENTITES);
+        private Map<String, Integer> componentTypes = new HashMap<>(MAX_ENTITIES);
+        private Map<String, IComponentArray> componentArrays = new HashMap<>(MAX_ENTITIES);
 
         private int nextComponentType = 0;
 
@@ -155,20 +154,20 @@ public class ECS {
         //---- Members -----
 
         private Queue<Entity> availableEntities = new LinkedList<>();
-        private Signature[] signatures = new Signature[MAX_ENTITES];
+        private Signature[] signatures = new Signature[MAX_ENTITIES];
         private int livingEntityCount = 0;
 
         //----- Methods -----
 
         public EntityManager() {
-            for (int i = 0; i < MAX_ENTITES; i++) {
+            for (int i = 0; i < MAX_ENTITIES; i++) {
                 availableEntities.offer(new Entity(i));
                 signatures[i] = new Signature();
             }
         }
 
         public Entity createEntity() {
-            if (livingEntityCount >= MAX_ENTITES) {
+            if (livingEntityCount >= MAX_ENTITIES) {
                 logError("Tried to create new Entity, when entity limit is reached!");
                 assert (false);
             }
@@ -178,7 +177,7 @@ public class ECS {
         }
 
         public void destroyEntity(Entity e) {
-            if (e.getId() >= MAX_ENTITES) {
+            if (e.getId() >= MAX_ENTITIES) {
                 logError("Tried to delete out-of-range entity: " + e.getId());
                 return;
             }
@@ -190,7 +189,7 @@ public class ECS {
         }
 
         public void setSignature(Entity e, Signature b) {
-            if (e.getId() >= MAX_ENTITES) {
+            if (e.getId() >= MAX_ENTITIES) {
                 logError("Tried to delete out-of-range entity: " + e.getId());
                 return;
             }
@@ -199,7 +198,7 @@ public class ECS {
         }
 
         public Signature getSignature(Entity e) {
-            if (e.getId() >= MAX_ENTITES) {
+            if (e.getId() >= MAX_ENTITIES) {
                 logError("Tried to delete out-of-range entity: " + e.getId());
                 assert (false);
             }
