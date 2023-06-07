@@ -315,7 +315,7 @@ public class ECS {
         public <T> void registerResourceType(Class<? extends T> c) {
             String typeName = c.getSimpleName();
             if (resourceArrays.containsKey(typeName)) {
-                logError("Tried to register same recource type multiple times");
+                logError("Tried to register same resource type multiple times");
                 assert (false);
             }
 
@@ -379,6 +379,16 @@ public class ECS {
         componentManager.registerComponent(c);
     }
 
+    public <T> void registerComponent_s(Class<? extends T> c) {
+        String typeName = c.getSimpleName();
+
+        if (componentManager.componentTypes.containsKey(typeName)) {
+            logWarn("Tried to register component type multiple times (safe)");
+            return;
+        }
+        registerResourceType(c);
+    }
+
     public <T> int getComponentType(Class<? extends T> c) {
         return componentManager.getComponentType(c);
     }
@@ -427,6 +437,15 @@ public class ECS {
 
     public <T> void registerResourceType(Class<? extends T> c) {
         resourceManager.registerResourceType(c);
+    }
+
+    public <T>  void registerResourceType_s(Class<? extends T> c) {
+        String typeName = c.getSimpleName();
+        if (resourceManager.resourceArrays.containsKey(typeName)) {
+            logWarn("Tried to register same resource type multiple times (safe)");
+            return;
+        }
+        registerResourceType(c);
     }
 
     public <T> T getResource(String key, Class<? extends T> c) {
