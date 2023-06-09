@@ -10,17 +10,38 @@ import org.app.ecs.ECS;
 import org.app.ecs.Entity;
 import org.app.ecs.Signature;
 import org.app.utils.Logger;
+import org.lwjgl.Version;
+import org.lwjgl.opengl.GL;
 
 import static org.app.utils.Logger.*;
+import static org.lwjgl.glfw.GLFW.*;
+import static org.lwjgl.opengl.GL42.*;
 
 public class RenderingTest {
     public static void main(String[] args) {
         // Set up logger
         Logger.activateLoggingToFile("logs/", true);
 
-        logInfo("Setting up scene...");
+        // Set up OpenGL
+        logInfo("Setting up OpenGL and GLFW...");
+        insetLog();
 
-        tabDown();
+        Logger.logDebug("LWJGL Version: " + Version.getVersion());
+
+        final long window = GLManager.init();
+
+        // Required by LWJGL to allow for interoperation with GLFW's OpenGL context
+        GL.createCapabilities();
+
+        // Set clear color
+        glClearColor(0.1f, 0.1f, 0.1f, 0.0f);
+
+        outsetLog();
+        logInfo("OpenGL and GLFW set up successfully");
+
+        logInfo("Setting up scene...");
+        insetLog();
+
         // Set up ECS
         logDebug("Setting up ECS...");
         ECS ecs = new ECS();
@@ -29,7 +50,7 @@ public class RenderingTest {
         ecs.registerResourceType_s(Material.class);
         ecs.registerComponent_s(Actor.class);
         // Register Systems
-        ecs.registerSystem_s(RenderSystem.class);
+        RenderSystem renderSystem = ecs.registerSystem_s(RenderSystem.class, ecs);
         Signature renderSystemSignature = new Signature();
         renderSystemSignature.flipBit(ecs.getComponentType(Actor.class));
         ecs.setSystemSignature(renderSystemSignature, RenderSystem.class);
@@ -47,6 +68,13 @@ public class RenderingTest {
                 new Vertex(new Vec3(-.5, .5, .5)),
         };
 
+        Vertex[] quadVertices = {
+                new Vertex(new Vec3(.5, .5, .0)),
+                new Vertex(new Vec3(.5, -.5, .0)),
+                new Vertex(new Vec3(-.5, -.5, .0)),
+                new Vertex(new Vec3(-.5, .5, .0)),
+        };
+
         int[] cubeIndices = {
                 0, 1, 3, 3, 1, 2,
                 1, 5, 2, 2, 5, 6,
@@ -56,10 +84,34 @@ public class RenderingTest {
                 4, 5, 0, 0, 5, 1
         };
 
+        int[] quadIndices = {
+                0, 1, 3,
+                1, 2, 3
+        };
+
         Mesh cubeMesh = new Mesh(cubeVertices, cubeIndices);
+        cubeMesh.genBuffers();
         ecs.setResource("cubeMesh", cubeMesh);
 
-        Material cubeMaterial = new Material();
+        CharSequence vertexShaderSource = """
+                #version 330 core
+                layout (location = 0) in vec3 aPos;
+
+                void main()
+                {
+                    gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);
+                }""";
+        CharSequence fragmentShaderSource = """
+                #version 330 core
+                out vec4 FragColor;
+
+                void main()
+                {
+                    FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);
+                }\s
+                """;
+        Material cubeMaterial = new Material(vertexShaderSource, fragmentShaderSource);
+        cubeMaterial.compile();
         ecs.setResource("cubeMaterial", cubeMaterial);
 
         // Create entities
@@ -72,10 +124,18 @@ public class RenderingTest {
                 ecs.getResource("cubeMesh", Mesh.class),
                 ecs.getResource("cubeMaterial", Material.class)
         );
-        tabUp();
-        logDebug("Scene set up successfully");
 
         ecs.addComponent(cube, a);
+
+        outsetLog();
+        logDebug("Scene set up successfully");
+
+        // Loop
+        logInfo("Setup complete, starting Program...");
+
+        while ( !glfwWindowShouldClose(window) ) {
+            renderSystem.render(window);
+        }
 
         // Clean up Scene
         ecs.deleteAllResources();

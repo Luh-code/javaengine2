@@ -9,6 +9,11 @@ public class Vertex {
         this.translation = translation;
     }
 
+    public float[] getFloats()
+    {
+        return translation.getArray();
+    }
+
     public Vec3 getTranslation() {
         return translation;
     }

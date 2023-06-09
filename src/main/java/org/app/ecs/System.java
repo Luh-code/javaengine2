@@ -6,7 +6,7 @@ import java.util.Set;
 public class System {
 	//----- Members -----
 
-	public Set entities = new HashSet();
+	public Set<Entity> entities = new HashSet<>();
 
 	//----- Methods -----
 

@@ -1,12 +1,14 @@
 package org.app.ecs;
 
 import java.lang.reflect.Array;
+import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Queue;
 
 import static org.app.utils.Logger.*;
+import java.lang.reflect.Constructor;
 
 
 @SuppressWarnings("unused")
@@ -215,7 +217,8 @@ public class ECS {
 
         //----- Methods -----
 
-        public <T> T registerSystem(Class<? extends T> c) {
+        @SuppressWarnings("unchecked")
+        public <T> T registerSystem(Class<? extends T> c, Object... args) {
             String typeName = c.getSimpleName();
 
             if (systems.containsKey(typeName)) {
@@ -225,10 +228,9 @@ public class ECS {
 
             T system;
             try {
-                system = c.newInstance();
-            } catch (InstantiationException e) {
-                throw new RuntimeException(e);
-            } catch (IllegalAccessException e) {
+                Constructor<?> cst = c.getConstructors()[0];
+                system = (T) cst.newInstance(args);
+            } catch (InstantiationException | IllegalAccessException | InvocationTargetException e) {
                 throw new RuntimeException(e);
             }
             systems.put(typeName, (System) system);
@@ -421,11 +423,11 @@ public class ECS {
 
     //--- System Manager ---
 
-    public <T> T registerSystem(Class<? extends T> c) {
-        return systemManager.registerSystem(c);
+    public <T> T registerSystem(Class<? extends T> c, Object... args)  {
+        return systemManager.registerSystem(c, args);
     }
 
-    public <T> T registerSystem_s(Class<? extends T> c) {
+    public <T> T registerSystem_s(Class<? extends T> c, Object... args)  {
         String typeName = c.getSimpleName();
 
         if (systemManager.systems.containsKey(typeName)) {
@@ -433,7 +435,7 @@ public class ECS {
             return null;
         }
         logDebug("Registering '" + c.getSimpleName() + "' as system in ECS '" + this + "'");
-        return registerSystem(c);
+        return registerSystem(c, args);
     }
 
     public <T> void setSystemSignature(Signature s, Class<? extends T> c) {

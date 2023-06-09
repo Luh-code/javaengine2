@@ -86,11 +86,11 @@ public class Logger {
 		writer.flush();
 	}
 
-	public static void tabDown()
+	public static void insetLog()
 	{
 		tabamt++;
 	}
-	public static void tabUp()
+	public static void outsetLog()
 	{
 		tabamt = max(0, tabamt-1);
 	}

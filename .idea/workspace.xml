@@ -4,16 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="Added Mesh, Material, Texture, Vertex, Actor and Camera">
+    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="Removed Generic Resources and Components, tested ECS, updated logger to have support for insets, added RenderingSystem(WIP)">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/components/Actor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/components/Actor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/components/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/components/Camera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/components/IComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/components/Component.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/data/IResource.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/RenderSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/RenderSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/data/Material.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/data/Material.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/data/Mesh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/data/Mesh.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/data/Texture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/data/Texture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/data/Vertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/data/Vertex.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/ecs/ECS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/ecs/ECS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/ecs/System.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/ecs/System.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/utils/Logger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/utils/Logger.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -293,7 +293,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686163520731</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Removed Generic Resources and Components, tested ECS, updated logger to have support for insets, added RenderingSystem(WIP)">
+      <created>1686300960784</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1686300960784</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -322,7 +329,8 @@
     <MESSAGE value="Fixed a few warnings" />
     <MESSAGE value="Added ECS" />
     <MESSAGE value="Added Mesh, Material, Texture, Vertex, Actor and Camera" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Mesh, Material, Texture, Vertex, Actor and Camera" />
+    <MESSAGE value="Removed Generic Resources and Components, tested ECS, updated logger to have support for insets, added RenderingSystem(WIP)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed Generic Resources and Components, tested ECS, updated logger to have support for insets, added RenderingSystem(WIP)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
