@@ -8,6 +8,7 @@ import org.lwjgl.system.MemoryStack;
 import java.nio.IntBuffer;
 import java.util.Objects;
 
+import static org.lwjgl.glfw.Callbacks.glfwFreeCallbacks;
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.GL_FALSE;
 import static org.lwjgl.opengl.GL20.*;
@@ -73,7 +74,7 @@ public class GLManager {
         // Make the window visible
         glfwShowWindow(window);
 
-        Logger.logInfo("Window initialized");
+        Logger.logDebug("Window initialized");
         return window;
     }
 
@@ -109,5 +110,18 @@ public class GLManager {
         }
 
         return shader;
+    }
+
+    public static void cleanup(long window)
+    {
+        // Free window callbacks and destroy the window
+        glfwFreeCallbacks(window);
+        glfwDestroyWindow(window);
+
+        // Terminate GLFW and the error Callback
+        glfwTerminate();
+        Objects.requireNonNull(glfwSetErrorCallback(null)).free();
+
+        Logger.logDebug("Window destroyed");
     }
 }

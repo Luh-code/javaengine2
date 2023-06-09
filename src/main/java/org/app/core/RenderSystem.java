@@ -30,6 +30,22 @@ public class RenderSystem extends System {
         glBindVertexArray(0);
     }
 
+    /**
+     * Changes the Drawing Mode of OpenGL to Wireframe
+     */
+    public void activateWireframe()
+    {
+        glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    }
+
+    /**
+     * Changes the Drawing Mode of OpenGL to Fill
+     */
+    public void activateFill()
+    {
+        glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+    }
+
     public void render(long window)
     {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear the framebuffer

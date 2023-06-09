@@ -45,10 +45,12 @@ public class RenderingTest {
         // Set up ECS
         logDebug("Setting up ECS...");
         ECS ecs = new ECS();
+
         // Register Types
         ecs.registerResourceType_s(Mesh.class);
         ecs.registerResourceType_s(Material.class);
         ecs.registerComponent_s(Actor.class);
+
         // Register Systems
         RenderSystem renderSystem = ecs.registerSystem_s(RenderSystem.class, ecs);
         Signature renderSystemSignature = new Signature();
@@ -128,17 +130,33 @@ public class RenderingTest {
         ecs.addComponent(cube, a);
 
         outsetLog();
-        logDebug("Scene set up successfully");
+        logInfo("Scene set up successfully");
 
         // Loop
         logInfo("Setup complete, starting Program...");
+        insetLog();
 
+        // Configure renderSystem
+        renderSystem.activateFill();
+
+        // Main loop
         while ( !glfwWindowShouldClose(window) ) {
             renderSystem.render(window);
         }
 
-        // Clean up Scene
+        outsetLog();
+        logInfo("Program finished");
+
+        // Cleanup
+        logInfo("Cleaning up program...");
+        insetLog();
+
+        GLManager.cleanup(window);
+
         ecs.deleteAllResources();
+
+        outsetLog();
+        logInfo("Program cleaned up successfully");
 
         // Shut down logger
         Logger.deactivateLoggingToFile();
