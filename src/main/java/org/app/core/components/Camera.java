@@ -2,10 +2,8 @@ package org.app.core.components;
 
 import glm_.vec3.Vec3;
 import glm_.vec4.Vec4;
-import org.app.core.data.Material;
-import org.app.core.data.Mesh;
 
-public class Camera implements IComponent {
+public class Camera extends Component {
     private Vec3 translation;
     private Vec4 rotation;
     private float fov;

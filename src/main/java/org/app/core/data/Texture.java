@@ -1,5 +1,5 @@
 package org.app.core.data;
 
-public class Texture implements IResource {
+public class Texture {
     //! implement
 }

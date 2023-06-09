@@ -5,7 +5,7 @@ import glm_.vec4.Vec4;
 import org.app.core.data.Material;
 import org.app.core.data.Mesh;
 
-public class Actor implements IComponent {
+public class Actor extends Component {
     private Vec3 translation;
     private Vec4 rotation;
     private Mesh mesh;

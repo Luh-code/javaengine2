@@ -145,7 +145,7 @@ public class ECS {
 
         public void entityDestroyed(Entity e) {
             for (int i = 0; i < componentArrays.size(); i++) {
-                componentArrays.get(i).entityDestroyed(e);
+                componentArrays.get(String.valueOf(i)).entityDestroyed(e);
             }
         }
     }
@@ -190,7 +190,7 @@ public class ECS {
 
         public void setSignature(Entity e, Signature b) {
             if (e.getId() >= MAX_ENTITIES) {
-                logError("Tried to delete out-of-range entity: " + e.getId());
+                logError("Tried to access out-of-range entity: " + e.getId());
                 return;
             }
 
@@ -199,8 +199,8 @@ public class ECS {
 
         public Signature getSignature(Entity e) {
             if (e.getId() >= MAX_ENTITIES) {
-                logError("Tried to delete out-of-range entity: " + e.getId());
-                assert (false);
+                logError("Tried to access out-of-range entity: " + e.getId());
+                assert true;
             }
 
             return signatures[e.getId()];
@@ -353,7 +353,6 @@ public class ECS {
         entityManager = new EntityManager();
         systemManager = new SystemManager();
         resourceManager = new ResourceManager();
-        logInfo("ECS initialized");
     }
 
     //--- Entity Manager ---
@@ -386,7 +385,8 @@ public class ECS {
             logWarn("Tried to register component type multiple times (safe)");
             return;
         }
-        registerResourceType(c);
+        logDebug("Registering '" + c.getSimpleName() + "' as component in ECS '" + this + "'");
+        registerComponent(c);
     }
 
     public <T> int getComponentType(Class<? extends T> c) {
@@ -425,6 +425,17 @@ public class ECS {
         return systemManager.registerSystem(c);
     }
 
+    public <T> T registerSystem_s(Class<? extends T> c) {
+        String typeName = c.getSimpleName();
+
+        if (systemManager.systems.containsKey(typeName)) {
+            logWarn("Tried registering same system multiple times (safe)");
+            return null;
+        }
+        logDebug("Registering '" + c.getSimpleName() + "' as system in ECS '" + this + "'");
+        return registerSystem(c);
+    }
+
     public <T> void setSystemSignature(Signature s, Class<? extends T> c) {
         systemManager.setSignature(s, c);
     }
@@ -445,6 +456,7 @@ public class ECS {
             logWarn("Tried to register same resource type multiple times (safe)");
             return;
         }
+        logDebug("Registering '" + c.getSimpleName() + "' as resource in ECS '" + this + "'");
         registerResourceType(c);
     }
 

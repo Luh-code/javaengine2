@@ -1,6 +1,6 @@
 package org.app.core.data;
 
-public class Mesh implements IResource {
+public class Mesh {
     private Vertex[] vertices;
 
     private int[] indices;
