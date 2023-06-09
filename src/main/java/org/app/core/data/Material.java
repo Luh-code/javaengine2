@@ -4,12 +4,13 @@ import org.app.utils.Logger;
 import org.lwjgl.system.MemoryStack;
 
 import java.nio.IntBuffer;
+import java.util.Objects;
 
 import static org.app.core.GLManager.compileShader;
 import static org.lwjgl.opengl.GL42.*;
 import static org.lwjgl.system.MemoryStack.stackPush;
 
-public class Material {
+public class Material implements AutoCloseable {
     private CharSequence vertexShaderSource;
     private CharSequence fragmentShaderSource;
     private int shaderProgram;
@@ -65,5 +66,10 @@ public class Material {
 
     public void setShaderProgram(int shaderProgram) {
         this.shaderProgram = shaderProgram;
+    }
+
+    @Override
+    public void close() throws Exception {
+        glDeleteProgram(shaderProgram);
     }
 }
