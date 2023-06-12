@@ -4,35 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="Added rendering modes to RenderSystem.java, added cleanup after completion, cleaned up console">
+    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="Made Mesh AutoClosable">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/2023-05-27-18-42-46 - 0.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/2023-05-27-22-26-43 - 0.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/2023-05-27-22-27-10 - 0.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/2023-05-29-10-46-08 - 0.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/2023-05-29-10-48-18 - 0.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/2023-05-29-11-42-03 - 0.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/2023-05-29-11-42-33 - 0.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/2023-05-29-11-43-55 - 0.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/2023-05-29-11-46-27 - 0.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/2023-06-09-10-13-20 - 0.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/2023-06-09-10-14-03 - 0.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/2023-06-09-10-14-42 - 0.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/2023-06-09-10-15-03 - 0.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/2023-06-09-10-31-56 - 0.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/2023-06-09-10-35-44 - 0.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/2023-06-09-10-36-02 - 0.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/2023-06-09-10-36-58 - 0.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/2023-06-09-10-37-34 - 0.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/2023-06-09-10-37-35 - 0.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/2023-06-09-10-42-40 - 0.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/2023-06-09-10-48-02 - 0.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/2023-06-09-10-48-20 - 0.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/2023-06-09-10-48-21 - 0.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/2023-06-09-10-48-23 - 0.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/2023-06-09-10-54-21 - 0.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/data/Material.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/data/Material.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/RenderSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/RenderSystem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -332,7 +306,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686311135176</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Made Mesh AutoClosable">
+      <created>1686312153594</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1686312153594</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -364,7 +345,8 @@
     <MESSAGE value="Removed Generic Resources and Components, tested ECS, updated logger to have support for insets, added RenderingSystem(WIP)" />
     <MESSAGE value="Added GLManager and RenderingSystem, added Indexed draw calls" />
     <MESSAGE value="Added rendering modes to RenderSystem.java, added cleanup after completion, cleaned up console" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added rendering modes to RenderSystem.java, added cleanup after completion, cleaned up console" />
+    <MESSAGE value="Made Mesh AutoClosable" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made Mesh AutoClosable" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
