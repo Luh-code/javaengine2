@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="Made Mesh AutoClosable">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/RenderSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/RenderSystem.java" afterDir="false" />
-    </list>
+    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="Small adjustments" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,7 +44,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="window" />
+        <entry key="$PROJECT_DIR$" value="renderSystem" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -313,7 +310,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686312153594</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Small adjustments">
+      <created>1686595639278</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1686595639278</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -346,7 +350,8 @@
     <MESSAGE value="Added GLManager and RenderingSystem, added Indexed draw calls" />
     <MESSAGE value="Added rendering modes to RenderSystem.java, added cleanup after completion, cleaned up console" />
     <MESSAGE value="Made Mesh AutoClosable" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made Mesh AutoClosable" />
+    <MESSAGE value="Small adjustments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Small adjustments" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
