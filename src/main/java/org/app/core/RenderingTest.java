@@ -64,21 +64,21 @@ public class RenderingTest {
         // Define Resources
         logDebug("Setting up resources...");
         Vertex[] cubeVertices = {
-                new Vertex(new Vec3(-.5, -.5, -.5)),
-                new Vertex(new Vec3(.5, -.5, -.5)),
-                new Vertex(new Vec3(.5, .5, -.5)),
-                new Vertex(new Vec3(-.5, .5, -.5)),
-                new Vertex(new Vec3(-.5, -.5, .5)),
-                new Vertex(new Vec3(.5, -.5, .5)),
-                new Vertex(new Vec3(.5, .5, .5)),
-                new Vertex(new Vec3(-.5, .5, .5)),
+                new Vertex(new Vec3(-.5, -.5, -.5), new Vec3(1.f, .0f, .0f)),
+                new Vertex(new Vec3(.5, -.5, -.5), new Vec3(.5f, .5f, .0f)),
+                new Vertex(new Vec3(.5, .5, -.5), new Vec3(.0f, .1f, .0f)),
+                new Vertex(new Vec3(-.5, .5, -.5), new Vec3(0.f, .5f, .5f)),
+                new Vertex(new Vec3(-.5, -.5, .5), new Vec3(0.f, .0f, 1.f)),
+                new Vertex(new Vec3(.5, -.5, .5), new Vec3(.5f, .0f, .5f)),
+                new Vertex(new Vec3(.5, .5, .5), new Vec3(1.f, .0f, .0f)),
+                new Vertex(new Vec3(-.5, .5, .5), new Vec3(.5f, .5f, .0f)),
         };
 
         Vertex[] quadVertices = {
-                new Vertex(new Vec3(.5, .5, .0)),
-                new Vertex(new Vec3(.5, -.5, .0)),
-                new Vertex(new Vec3(-.5, -.5, .0)),
-                new Vertex(new Vec3(-.5, .5, .0)),
+                new Vertex(new Vec3(.5, .5, .0), new Vec3(1.f, .0f, .0f)),
+                new Vertex(new Vec3(.5, -.5, .0), new Vec3(.5f, .5f, .0f)),
+                new Vertex(new Vec3(-.5, -.5, .0), new Vec3(.0f, .1f, .0f)),
+                new Vertex(new Vec3(-.5, .5, .0), new Vec3(0.f, .5f, .5f)),
         };
 
         int[] cubeIndices = {
@@ -105,31 +105,36 @@ public class RenderingTest {
             CharSequence vertexShaderSource = """
                     #version 330 core
                     layout (location = 0) in vec3 aPos;
+                    layout (location = 1) in vec3 aCol;
                     
                     out vec4 vertexColor;
 
                     void main()
                     {
                         gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);
-                        vertexColor = vec4(0.5, 0.0, 0.0, 1.0);
+                        //vertexColor = vec4(1.0, 0.5, 0.2, 1.0);
+                        vertexColor = vec4(aCol, 1.0);
                     }""";
             Shader vertexShader = new Shader(ShaderType.SHADER_TYPE_VERTEX, vertexShaderSource);
             CharSequence fragmentShaderSource = """
                     #version 330 core
                     out vec4 FragColor;
                     
-                    uniform vec4 ourColor;
+                    in vec4 vertexColor;
+                    uniform vec4 myColor;
 
                     void main()
                     {
-                        FragColor = ourColor;//vec4(1.0f, 0.5f, 0.2f, 1.0f);
+                        //FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);
+                        FragColor = vertexColor;
+                        //FragColor = myColor;
                     }\s
                     """;
             Shader fragmentShader = new Shader(ShaderType.SHADER_TYPE_FRAGMENT, fragmentShaderSource);
             shaderProgram = new ShaderProgram(vertexShader, fragmentShader, (rs, sp) -> {
                 float timeValue = (float) glfwGetTime();
                 float greenValue = (float) ((sin(timeValue) / 2.0f) + 0.5f);
-                int vertexColorLocation = glGetUniformLocation(sp.getShaderProgram(), "ourColor");
+                int vertexColorLocation = glGetUniformLocation(sp.getShaderProgram(), "myColor");
                 glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
             });
         }
