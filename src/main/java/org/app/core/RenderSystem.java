@@ -3,6 +3,7 @@ package org.app.core;
 import org.app.core.components.Actor;
 import org.app.core.data.Material;
 import org.app.core.data.Mesh;
+import org.app.core.data.shader.ShaderProgram;
 import org.app.ecs.Entity;
 import org.app.ecs.ECS;
 import org.app.ecs.System;
@@ -24,11 +25,17 @@ public class RenderSystem extends System {
      */
     private void drawElement(Entity e)
     {
+        // Set up references for eoa
         Actor actor = ecs.getComponent(Actor.class, e);
         Mesh mesh = actor.getMesh();
         Material material = actor.getMaterial();
+        ShaderProgram shaderProgram = material.getShaderProgram();
 
-        glUseProgram(material.getShaderProgram().getShaderProgram());
+        // Update shader uniforms if needed
+        shaderProgram.updateUniforms(this);
+
+        // Render
+        glUseProgram(shaderProgram.getShaderProgram());
         glBindVertexArray(mesh.getVAO());
         glDrawElements(GL_TRIANGLES, mesh.getIndices().length, GL_UNSIGNED_INT, 0);
         glBindVertexArray(0);

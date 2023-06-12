@@ -55,6 +55,12 @@ public class ShaderProgram implements AutoCloseable {
         this.fragmentShader = null;
     }
 
+    public void updateUniforms(RenderSystem renderSystem)
+    {
+        if ( uniformUpdater == null ) return;
+        uniformUpdater.accept(renderSystem, this);
+    }
+
     public int getShaderProgram() {
         return shaderProgram;
     }
