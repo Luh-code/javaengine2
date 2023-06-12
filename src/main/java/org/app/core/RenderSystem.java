@@ -31,11 +31,10 @@ public class RenderSystem extends System {
         Material material = actor.getMaterial();
         ShaderProgram shaderProgram = material.getShaderProgram();
 
+        glUseProgram(shaderProgram.getShaderProgram());
         // Update shader uniforms if needed
         shaderProgram.updateUniforms(this);
-
-        // Render
-        glUseProgram(shaderProgram.getShaderProgram());
+        // Bind the rest and render
         glBindVertexArray(mesh.getVAO());
         glDrawElements(GL_TRIANGLES, mesh.getIndices().length, GL_UNSIGNED_INT, 0);
         glBindVertexArray(0);

@@ -16,6 +16,7 @@ import org.app.utils.Logger;
 import org.lwjgl.Version;
 import org.lwjgl.opengl.GL;
 
+import static java.lang.Math.sin;
 import static org.app.utils.Logger.*;
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL42.*;
@@ -104,23 +105,33 @@ public class RenderingTest {
             CharSequence vertexShaderSource = """
                     #version 330 core
                     layout (location = 0) in vec3 aPos;
+                    
+                    out vec4 vertexColor;
 
                     void main()
                     {
                         gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);
+                        vertexColor = vec4(0.5, 0.0, 0.0, 1.0);
                     }""";
             Shader vertexShader = new Shader(ShaderType.SHADER_TYPE_VERTEX, vertexShaderSource);
             CharSequence fragmentShaderSource = """
                     #version 330 core
                     out vec4 FragColor;
+                    
+                    uniform vec4 ourColor;
 
                     void main()
                     {
-                        FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);
+                        FragColor = ourColor;//vec4(1.0f, 0.5f, 0.2f, 1.0f);
                     }\s
                     """;
             Shader fragmentShader = new Shader(ShaderType.SHADER_TYPE_FRAGMENT, fragmentShaderSource);
-            shaderProgram = new ShaderProgram(vertexShader, fragmentShader, null);
+            shaderProgram = new ShaderProgram(vertexShader, fragmentShader, (rs, sp) -> {
+                float timeValue = (float) glfwGetTime();
+                float greenValue = (float) ((sin(timeValue) / 2.0f) + 0.5f);
+                int vertexColorLocation = glGetUniformLocation(sp.getShaderProgram(), "ourColor");
+                glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
+            });
         }
 
         Material cubeMaterial = new Material(shaderProgram);
