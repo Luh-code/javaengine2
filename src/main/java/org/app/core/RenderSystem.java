@@ -28,7 +28,7 @@ public class RenderSystem extends System {
         Mesh mesh = actor.getMesh();
         Material material = actor.getMaterial();
 
-        glUseProgram(material.getShaderProgram());
+        glUseProgram(material.getShaderProgram().getShaderProgram());
         glBindVertexArray(mesh.getVAO());
         glDrawElements(GL_TRIANGLES, mesh.getIndices().length, GL_UNSIGNED_INT, 0);
         glBindVertexArray(0);

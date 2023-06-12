@@ -6,6 +6,9 @@ import org.app.core.components.Actor;
 import org.app.core.data.Material;
 import org.app.core.data.Mesh;
 import org.app.core.data.Vertex;
+import org.app.core.data.shader.Shader;
+import org.app.core.data.shader.ShaderProgram;
+import org.app.core.data.shader.ShaderType;
 import org.app.ecs.ECS;
 import org.app.ecs.Entity;
 import org.app.ecs.Signature;
@@ -95,24 +98,32 @@ public class RenderingTest {
         cubeMesh.genBuffers();
         ecs.setResource("cubeMesh", cubeMesh);
 
-        CharSequence vertexShaderSource = """
-                #version 330 core
-                layout (location = 0) in vec3 aPos;
+        // Create the shader program
+        ShaderProgram shaderProgram;
+        {
+            CharSequence vertexShaderSource = """
+                    #version 330 core
+                    layout (location = 0) in vec3 aPos;
 
-                void main()
-                {
-                    gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);
-                }""";
-        CharSequence fragmentShaderSource = """
-                #version 330 core
-                out vec4 FragColor;
+                    void main()
+                    {
+                        gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);
+                    }""";
+            Shader vertexShader = new Shader(ShaderType.SHADER_TYPE_VERTEX, vertexShaderSource);
+            CharSequence fragmentShaderSource = """
+                    #version 330 core
+                    out vec4 FragColor;
 
-                void main()
-                {
-                    FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);
-                }\s
-                """;
-        Material cubeMaterial = new Material(vertexShaderSource, fragmentShaderSource);
+                    void main()
+                    {
+                        FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);
+                    }\s
+                    """;
+            Shader fragmentShader = new Shader(ShaderType.SHADER_TYPE_FRAGMENT, fragmentShaderSource);
+            shaderProgram = new ShaderProgram(vertexShader, fragmentShader, null);
+        }
+
+        Material cubeMaterial = new Material(shaderProgram);
         cubeMaterial.compile();
         ecs.setResource("cubeMaterial", cubeMaterial);
 
