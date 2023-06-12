@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="Some HexHelper stuff">
+    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="Made Mesh AutoClosable">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/window/WindowManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/window/WindowManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/RenderSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/RenderSystem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,15 +39,15 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="window" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -69,18 +69,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "window",
-    "last_opened_file_path": "/media/para/Projects/triolingo",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;renderSystem&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/media/para/Projects/triolingo&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/ecs" />
@@ -91,8 +91,11 @@
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="org.app" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.app.core.components" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.WindowManager">
+  <component name="RunManager" selected="Application.RenderingTest">
     <configuration name="LoggerTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.app.utils.LoggerTest" />
       <module name="javaengine.main" />
@@ -119,6 +122,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RenderingTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.app.core.RenderingTest" />
+      <module name="javaengine.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.app.core.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="WindowManager" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.app.window.WindowManager" />
       <module name="javaengine.main" />
@@ -134,6 +150,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.RenderingTest" />
         <item itemvalue="Application.WindowManager" />
         <item itemvalue="Application.LoggerTest" />
         <item itemvalue="Application.Main" />
@@ -233,7 +250,70 @@
       <option name="project" value="LOCAL" />
       <updated>1685388394658</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Finished Hello Triangle application">
+      <created>1685394478288</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1685394478288</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Fixed a few warnings">
+      <created>1685394636059</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1685394636059</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Added ECS">
+      <created>1685895458677</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1685895458677</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Added ECS">
+      <created>1686001220469</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1686001220469</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Added Mesh, Material, Texture, Vertex, Actor and Camera">
+      <created>1686163520731</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1686163520731</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Removed Generic Resources and Components, tested ECS, updated logger to have support for insets, added RenderingSystem(WIP)">
+      <created>1686300960784</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1686300960784</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Added GLManager and RenderingSystem, added Indexed draw calls">
+      <created>1686310522542</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1686310522543</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Added rendering modes to RenderSystem.java, added cleanup after completion, cleaned up console">
+      <created>1686311135176</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1686311135176</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Made Mesh AutoClosable">
+      <created>1686312153594</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1686312153594</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -258,7 +338,15 @@
     <MESSAGE value="Finished Hello Window Program" />
     <MESSAGE value="Added a safe variant of HexHelper::connect to HexHelper, named HexHelper::connect_s" />
     <MESSAGE value="Some HexHelper stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="Some HexHelper stuff" />
+    <MESSAGE value="Finished Hello Triangle application" />
+    <MESSAGE value="Fixed a few warnings" />
+    <MESSAGE value="Added ECS" />
+    <MESSAGE value="Added Mesh, Material, Texture, Vertex, Actor and Camera" />
+    <MESSAGE value="Removed Generic Resources and Components, tested ECS, updated logger to have support for insets, added RenderingSystem(WIP)" />
+    <MESSAGE value="Added GLManager and RenderingSystem, added Indexed draw calls" />
+    <MESSAGE value="Added rendering modes to RenderSystem.java, added cleanup after completion, cleaned up console" />
+    <MESSAGE value="Made Mesh AutoClosable" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made Mesh AutoClosable" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

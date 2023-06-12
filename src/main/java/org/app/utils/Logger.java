@@ -6,6 +6,8 @@ import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.function.Function;
 
+import static java.lang.Math.max;
+
 @SuppressWarnings("unused")
 public class Logger {
 	private static final String ANSI_RESET = "\u001B[0m";
@@ -31,6 +33,7 @@ public class Logger {
 	private static String filePath;
 	public static final CustomPrintStream printStream = new CustomPrintStream(System.out, true);
 	private static PrintWriter writer;
+	private static int tabamt = 0;
 
 	public static void activateLoggingToFile(String path, boolean printLogDir) {
 		if (logToFile) return;
@@ -71,12 +74,25 @@ public class Logger {
 	
 	private static void printLine(String text, String lvl, String col) {
 		lvl += "]";
-		String templateString = String.format("%s[%7s %s%s\n", "%s", lvl, text, "%s");
+		String tabString = "";
+		for (int i = 0; i < tabamt; i++) {
+			tabString+="\t";
+		}
+		String templateString = String.format("%s[%7s %s%s%s\n", "%s", lvl, tabString, text, "%s");
 		printStream.printf(templateString, col, ANSI_RESET);
 
 		if (!logToFile) return;
 		writer.printf("%12s  "+templateString, new SimpleDateFormat("HH-mm-ss:SSS").format(new java.util.Date()), "", "");
 		writer.flush();
+	}
+
+	public static void insetLog()
+	{
+		tabamt++;
+	}
+	public static void outsetLog()
+	{
+		tabamt = max(0, tabamt-1);
 	}
 
 	public static void logEmpty() {}
