@@ -1,6 +1,7 @@
 package org.app.core;
 
 import glm_.vec3.Vec3;
+import glm_.vec3.Vec3i;
 import glm_.vec4.Vec4;
 import org.app.core.components.Actor;
 import org.app.core.data.Material;
@@ -134,8 +135,7 @@ public class RenderingTest {
             shaderProgram = new ShaderProgram(vertexShader, fragmentShader, (rs, sp) -> {
                 float timeValue = (float) glfwGetTime();
                 float greenValue = (float) ((sin(timeValue) / 2.0f) + 0.5f);
-                int vertexColorLocation = glGetUniformLocation(sp.getShaderProgram(), "myColor");
-                glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
+                sp.setFloat4("myColor", new Vec4(0.0f, greenValue, 0.0f, 1.0f));
             });
         }
 

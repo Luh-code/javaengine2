@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="Updated and tested per-frame uniform updates">
+    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="Implemented Vertex Color">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/data/Mesh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/data/Mesh.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/data/Vertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/data/Vertex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/data/shader/ShaderProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/data/shader/ShaderProgram.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -351,7 +348,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686604818689</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Implemented Vertex Color">
+      <created>1686606383128</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1686606383128</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -389,7 +393,8 @@
     <MESSAGE value="added a more modular shader architecture" />
     <MESSAGE value="Added per-frame uniform updates" />
     <MESSAGE value="Updated and tested per-frame uniform updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated and tested per-frame uniform updates" />
+    <MESSAGE value="Implemented Vertex Color" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented Vertex Color" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
