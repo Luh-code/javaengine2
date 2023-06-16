@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="Added additional helper methods to ShaderProgram.java to make updating uniforms easier">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/RenderSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/RenderSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/data/shader/Shader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/data/shader/Shader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/data/shader/ShaderProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/data/shader/ShaderProgram.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/data/shader/ShaderType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/data/shader/ShaderType.java" afterDir="false" />
-    </list>
+    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="cleanup" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -383,7 +374,21 @@
       <option name="project" value="LOCAL" />
       <updated>1686607371065</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Added importing shaders from files and probably some other stuff I forgot">
+      <created>1686914493268</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1686914493268</updated>
+    </task>
+    <task id="LOCAL-00030" summary="cleanup">
+      <created>1686914647318</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1686914647318</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -398,8 +403,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="lotta stuff" />
-    <MESSAGE value="fixed two warnings" />
     <MESSAGE value="added documentation" />
     <MESSAGE value="added a logger with support for console and file" />
     <MESSAGE value="added an option to display the path to the log in the console" />
@@ -423,7 +426,9 @@
     <MESSAGE value="Updated and tested per-frame uniform updates" />
     <MESSAGE value="Implemented Vertex Color" />
     <MESSAGE value="Added additional helper methods to ShaderProgram.java to make updating uniforms easier" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added additional helper methods to ShaderProgram.java to make updating uniforms easier" />
+    <MESSAGE value="Added importing shaders from files and probably some other stuff I forgot" />
+    <MESSAGE value="cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="cleanup" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
