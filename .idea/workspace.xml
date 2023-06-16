@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="added more insets and outsets into log">
+    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="Added contructors for data arrays to Vertex and for Mesh. Added UV Attribute to Vertex">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/data/Mesh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/data/Mesh.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/data/Vertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/data/Vertex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/data/Texture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/data/Texture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/utils/Logger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/utils/Logger.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -394,7 +395,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686921587825</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Added contructors for data arrays to Vertex and for Mesh. Added UV Attribute to Vertex">
+      <created>1686938883074</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1686938883074</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -409,7 +417,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added a logger with support for console and file" />
     <MESSAGE value="added an option to display the path to the log in the console" />
     <MESSAGE value="added custom PrintStreams to logger for callbacks, added WindowManager.java" />
     <MESSAGE value="Tweaks to the logger and window creation" />
@@ -434,7 +441,8 @@
     <MESSAGE value="Added importing shaders from files and probably some other stuff I forgot" />
     <MESSAGE value="cleanup" />
     <MESSAGE value="added more insets and outsets into log" />
-    <option name="LAST_COMMIT_MESSAGE" value="added more insets and outsets into log" />
+    <MESSAGE value="Added contructors for data arrays to Vertex and for Mesh. Added UV Attribute to Vertex" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added contructors for data arrays to Vertex and for Mesh. Added UV Attribute to Vertex" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

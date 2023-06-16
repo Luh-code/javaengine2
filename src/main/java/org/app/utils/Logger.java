@@ -1,6 +1,7 @@
 package org.app.utils;
 
 import java.io.*;
+import java.lang.reflect.InvocationTargetException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
@@ -117,11 +118,18 @@ public class Logger {
 		printLine(text, "!Crit", ANSI_RED_BACKGROUND + ANSI_BLACK);
 	}
 
-	public static <T extends Exception> void logAndThrow(String text, Class<T> c) {
+	public static <T extends Throwable> void logAndThrow(String text, T c) {
 		logCrit(text);
 		try {
-			throw c.getDeclaredConstructor(String.class).newInstance(text);
-		} catch (Exception e) {
+			throw c;
+		} catch (Throwable e) {
+			throw new RuntimeException(e);
+		}
+	}
+	public static <T extends Exception> void logAndThrow(String text, Class<T> c) {
+		try {
+			logAndThrow(text, c.getDeclaredConstructor(String.class).newInstance(text));
+		} catch (InvocationTargetException | InstantiationException | IllegalAccessException | NoSuchMethodException e) {
 			throw new RuntimeException(e);
 		}
 	}

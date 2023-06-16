@@ -1,12 +1,14 @@
 package org.app.core;
 
 import glm_.vec2.Vec2;
+import glm_.vec2.Vec2i;
 import glm_.vec3.Vec3;
 import glm_.vec3.Vec3i;
 import glm_.vec4.Vec4;
 import org.app.core.components.Actor;
 import org.app.core.data.Material;
 import org.app.core.data.Mesh;
+import org.app.core.data.Texture;
 import org.app.core.data.Vertex;
 import org.app.core.data.shader.Shader;
 import org.app.core.data.shader.ShaderProgram;
@@ -58,6 +60,7 @@ public class RenderingTest {
         // Register Types
         ecs.registerResourceType_s(Mesh.class);
         ecs.registerResourceType_s(Material.class);
+        ecs.registerResourceType_s(Texture.class);
         ecs.registerComponent_s(Actor.class);
 
         // Register Systems
@@ -143,6 +146,9 @@ public class RenderingTest {
                 sp.setFloat4("myColor", new Vec4(0.0f, greenValue, 0.0f, 1.0f));
             });
         }
+
+        Texture wallTexture = new Texture("src/main/resources/textures/wall.jpg", new Vec2i(512, 512));
+        ecs.setResource("wallTexture", wallTexture);
 
         Material cubeMaterial = new Material(shaderProgram);
         cubeMaterial.compile();
