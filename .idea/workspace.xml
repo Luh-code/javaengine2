@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="Made Mesh AutoClosable">
+    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="Added additional helper methods to ShaderProgram.java to make updating uniforms easier">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/RenderSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/RenderSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/data/shader/Shader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/data/shader/Shader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/data/shader/ShaderProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/data/shader/ShaderProgram.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/data/shader/ShaderType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/data/shader/ShaderType.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +53,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="window" />
+        <entry key="$PROJECT_DIR$" value="renderSystem" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -55,7 +61,9 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$USER_HOME$/.jdks/corretto-17.0.7/lib/src.zip!/java.base/java/io/FilterOutputStream.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$USER_HOME$/.jdks/corretto-17.0.7/lib/src.zip!/java.base/java/io/PrintStream.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.jdks/corretto-17.0.7/lib/src.zip!/java.base/java/lang/Class.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$USER_HOME$/.jdks/corretto-17.0.7/lib/src.zip!/java.base/java/lang/System.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.jdks/corretto-17.0.7/lib/src.zip!/java.base/java/lang/reflect/Constructor.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$USER_HOME$/.jdks/corretto-17.0.7/lib/src.zip!/java.base/java/util/function/Function.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -73,8 +81,8 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;renderSystem&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/media/para/Projects/triolingo&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;modularShaders&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/media/para/Projects/leEngine/javaengine&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
@@ -127,7 +135,7 @@
       <module name="javaengine.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.app.core.*" />
+          <option name="PATTERN" value="org.app.core.data.shader.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -148,12 +156,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="javaengine" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="javaengine" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.RenderingTest" />
         <item itemvalue="Application.WindowManager" />
-        <item itemvalue="Application.LoggerTest" />
+        <item itemvalue="Application.RenderingTest" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.LoggerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -313,7 +334,56 @@
       <option name="project" value="LOCAL" />
       <updated>1686312153594</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Small adjustments">
+      <created>1686595639278</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1686595639278</updated>
+    </task>
+    <task id="LOCAL-00023" summary="created Branch modularShaders">
+      <created>1686595829305</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1686595829305</updated>
+    </task>
+    <task id="LOCAL-00024" summary="added a more modular shader architecture">
+      <created>1686603876555</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1686603876555</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Added per-frame uniform updates">
+      <created>1686604120806</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1686604120806</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Updated and tested per-frame uniform updates">
+      <created>1686604818689</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1686604818689</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Implemented Vertex Color">
+      <created>1686606383128</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1686606383128</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Added additional helper methods to ShaderProgram.java to make updating uniforms easier">
+      <created>1686607371065</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1686607371065</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -346,7 +416,14 @@
     <MESSAGE value="Added GLManager and RenderingSystem, added Indexed draw calls" />
     <MESSAGE value="Added rendering modes to RenderSystem.java, added cleanup after completion, cleaned up console" />
     <MESSAGE value="Made Mesh AutoClosable" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made Mesh AutoClosable" />
+    <MESSAGE value="Small adjustments" />
+    <MESSAGE value="created Branch modularShaders" />
+    <MESSAGE value="added a more modular shader architecture" />
+    <MESSAGE value="Added per-frame uniform updates" />
+    <MESSAGE value="Updated and tested per-frame uniform updates" />
+    <MESSAGE value="Implemented Vertex Color" />
+    <MESSAGE value="Added additional helper methods to ShaderProgram.java to make updating uniforms easier" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added additional helper methods to ShaderProgram.java to make updating uniforms easier" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -1,11 +1,15 @@
 package org.app.core;
 
 import glm_.vec3.Vec3;
+import glm_.vec3.Vec3i;
 import glm_.vec4.Vec4;
 import org.app.core.components.Actor;
 import org.app.core.data.Material;
 import org.app.core.data.Mesh;
 import org.app.core.data.Vertex;
+import org.app.core.data.shader.Shader;
+import org.app.core.data.shader.ShaderProgram;
+import org.app.core.data.shader.ShaderType;
 import org.app.ecs.ECS;
 import org.app.ecs.Entity;
 import org.app.ecs.Signature;
@@ -13,6 +17,9 @@ import org.app.utils.Logger;
 import org.lwjgl.Version;
 import org.lwjgl.opengl.GL;
 
+import java.io.File;
+
+import static java.lang.Math.sin;
 import static org.app.utils.Logger.*;
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL42.*;
@@ -60,21 +67,21 @@ public class RenderingTest {
         // Define Resources
         logDebug("Setting up resources...");
         Vertex[] cubeVertices = {
-                new Vertex(new Vec3(-.5, -.5, -.5)),
-                new Vertex(new Vec3(.5, -.5, -.5)),
-                new Vertex(new Vec3(.5, .5, -.5)),
-                new Vertex(new Vec3(-.5, .5, -.5)),
-                new Vertex(new Vec3(-.5, -.5, .5)),
-                new Vertex(new Vec3(.5, -.5, .5)),
-                new Vertex(new Vec3(.5, .5, .5)),
-                new Vertex(new Vec3(-.5, .5, .5)),
+                new Vertex(new Vec3(-.5, -.5, -.5), new Vec3(1.f, .0f, .0f)),
+                new Vertex(new Vec3(.5, -.5, -.5), new Vec3(.5f, .5f, .0f)),
+                new Vertex(new Vec3(.5, .5, -.5), new Vec3(.0f, .1f, .0f)),
+                new Vertex(new Vec3(-.5, .5, -.5), new Vec3(0.f, .5f, .5f)),
+                new Vertex(new Vec3(-.5, -.5, .5), new Vec3(0.f, .0f, 1.f)),
+                new Vertex(new Vec3(.5, -.5, .5), new Vec3(.5f, .0f, .5f)),
+                new Vertex(new Vec3(.5, .5, .5), new Vec3(1.f, .0f, .0f)),
+                new Vertex(new Vec3(-.5, .5, .5), new Vec3(.5f, .5f, .0f)),
         };
 
         Vertex[] quadVertices = {
-                new Vertex(new Vec3(.5, .5, .0)),
-                new Vertex(new Vec3(.5, -.5, .0)),
-                new Vertex(new Vec3(-.5, -.5, .0)),
-                new Vertex(new Vec3(-.5, .5, .0)),
+                new Vertex(new Vec3(.5, .5, .0), new Vec3(1.f, .0f, .0f)),
+                new Vertex(new Vec3(.5, -.5, .0), new Vec3(.5f, .5f, .0f)),
+                new Vertex(new Vec3(-.5, -.5, .0), new Vec3(.0f, .1f, .0f)),
+                new Vertex(new Vec3(-.5, .5, .0), new Vec3(0.f, .5f, .5f)),
         };
 
         int[] cubeIndices = {
@@ -95,24 +102,21 @@ public class RenderingTest {
         cubeMesh.genBuffers();
         ecs.setResource("cubeMesh", cubeMesh);
 
-        CharSequence vertexShaderSource = """
-                #version 330 core
-                layout (location = 0) in vec3 aPos;
+        // Create the shader program
+        ShaderProgram shaderProgram;
+        {
+            File vertexShaderFile = new File("src/main/resources/shader/testShader.vert");
+            Shader vertexShader = new Shader(ShaderType.SHADER_TYPE_VERTEX, vertexShaderFile);
+            File fragmentShaderFile = new File("src/main/resources/shader/testShader.frag");
+            Shader fragmentShader = new Shader(ShaderType.SHADER_TYPE_FRAGMENT, fragmentShaderFile);
+            shaderProgram = new ShaderProgram(vertexShader, fragmentShader, (rs, sp) -> {
+                float timeValue = (float) glfwGetTime();
+                float greenValue = (float) ((sin(timeValue) / 2.0f) + 0.5f);
+                sp.setFloat4("myColor", new Vec4(0.0f, greenValue, 0.0f, 1.0f));
+            });
+        }
 
-                void main()
-                {
-                    gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);
-                }""";
-        CharSequence fragmentShaderSource = """
-                #version 330 core
-                out vec4 FragColor;
-
-                void main()
-                {
-                    FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);
-                }\s
-                """;
-        Material cubeMaterial = new Material(vertexShaderSource, fragmentShaderSource);
+        Material cubeMaterial = new Material(shaderProgram);
         cubeMaterial.compile();
         ecs.setResource("cubeMaterial", cubeMaterial);
 
