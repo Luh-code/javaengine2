@@ -51,6 +51,7 @@ public class RenderingTest {
 
         // Set up ECS
         logDebug("Setting up ECS...");
+        insetLog();
         ECS ecs = new ECS();
 
         // Register Types
@@ -63,9 +64,11 @@ public class RenderingTest {
         Signature renderSystemSignature = new Signature();
         renderSystemSignature.flipBit(ecs.getComponentType(Actor.class));
         ecs.setSystemSignature(renderSystemSignature, RenderSystem.class);
+        outsetLog();
 
         // Define Resources
         logDebug("Setting up resources...");
+        insetLog();
         Vertex[] cubeVertices = {
                 new Vertex(new Vec3(-.5, -.5, -.5), new Vec3(1.f, .0f, .0f)),
                 new Vertex(new Vec3(.5, -.5, -.5), new Vec3(.5f, .5f, .0f)),
@@ -119,9 +122,11 @@ public class RenderingTest {
         Material cubeMaterial = new Material(shaderProgram);
         cubeMaterial.compile();
         ecs.setResource("cubeMaterial", cubeMaterial);
+        outsetLog();
 
         // Create entities
         logDebug("Setting up entities...");
+        insetLog();
         Entity cube = ecs.createEntity();
 
         Actor a = new Actor(
@@ -132,6 +137,7 @@ public class RenderingTest {
         );
 
         ecs.addComponent(cube, a);
+        outsetLog();
 
         outsetLog();
         logInfo("Scene set up successfully");
