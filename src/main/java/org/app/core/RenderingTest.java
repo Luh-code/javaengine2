@@ -3,7 +3,6 @@ package org.app.core;
 import glm_.vec2.Vec2;
 import glm_.vec2.Vec2i;
 import glm_.vec3.Vec3;
-import glm_.vec3.Vec3i;
 import glm_.vec4.Vec4;
 import org.app.core.components.Actor;
 import org.app.core.data.Material;
@@ -97,22 +96,15 @@ public class RenderingTest {
         };
 
         float[] cubeVertices3 = {
-            //  Translation           Color               UV
-                -.5f, -.5f, -.5f,     1.f, .0f, .0f,      .0f, .0f,
-                 .5f, -.5f, -.5f,     .5f, .5f, .0f,      1.f, .0f,
-                 .5f,  .5f, -.5f,     .0f, .1f, .0f,      1.f, 1.f,
-                -.5f,  .5f, -.5f,     0.f, .5f, .5f,      .0f, 1.f,
-                -.5f, -.5f,  .5f,     0.f, .0f, 1.f,      .0f, 1.f,
-                 .5f, -.5f,  .5f,     .5f, .0f, .5f,      1.f, 1.f,
-                 .5f,  .5f,  .5f,     1.f, .0f, .0f,      1.f, .0f,
-                -.5f,  .5f,  .5f,     .5f, .5f, .0f,      .0f, .0f,
-        };
-
-        Vertex[] quadVertices = {
-                new Vertex(new Vec3(.5, .5, .0), new Vec3(1.f, .0f, .0f), new Vec2(.0f, .0f)),
-                new Vertex(new Vec3(.5, -.5, .0), new Vec3(.5f, .5f, .0f), new Vec2(1.f, .0f)),
-                new Vertex(new Vec3(-.5, -.5, .0), new Vec3(.0f, .1f, .0f), new Vec2(1.f, 1.f)),
-                new Vertex(new Vec3(-.5, .5, .0), new Vec3(0.f, .5f, .5f), new Vec2(.0f, 1.f)),
+            //  Translation             Color               UV
+                -.5f, -.5f, -.5f,       1.f, .0f, .0f,      .0f, .0f,
+                 .5f, -.5f, -.5f,       .5f, .5f, .0f,      1.f, .0f,
+                 .5f,  .5f, -.5f,       .0f, .1f, .0f,      1.f, 1.f,
+                -.5f,  .5f, -.5f,       0.f, .5f, .5f,      .0f, 1.f,
+                -.5f, -.5f,  .5f,       0.f, .0f, 1.f,      .0f, 1.f,
+                 .5f, -.5f,  .5f,       .5f, .0f, .5f,      1.f, 1.f,
+                 .5f,  .5f,  .5f,       1.f, .0f, .0f,      1.f, .0f,
+                -.5f,  .5f,  .5f,       .5f, .5f, .0f,      .0f, .0f,
         };
 
         int[] cubeIndices = {
@@ -124,14 +116,38 @@ public class RenderingTest {
                 4, 5, 0, 0, 5, 1
         };
 
+        Vertex[] quadVertices = {
+                new Vertex(new Vec3(.5, .5, .0), new Vec3(1.f, .0f, .0f), new Vec2(.0f, .0f)),
+                new Vertex(new Vec3(.5, -.5, .0), new Vec3(.0f, 1.f, .0f), new Vec2(1.f, .0f)),
+                new Vertex(new Vec3(-.5, -.5, .0), new Vec3(.0f, .0f, .1f), new Vec2(1.f, 1.f)),
+                new Vertex(new Vec3(-.5, .5, .0), new Vec3(1.f, 1.f, .0f), new Vec2(.0f, 1.f)),
+        };
+
         int[] quadIndices = {
                 0, 1, 3,
                 1, 2, 3
         };
 
+        float[] triangleVertices = {
+            //  Translation             Color               UV
+                 .0f,  .5f,  .0f,       1.f, .0f, .0f,      .5f, 1.f,
+                -.5f, -.5f,  .0f,       .0f, 1.f, .0f,      .0f, .0f,
+                 .5f, -.5f,  .0f,       .0f, .0f, 1.f,      1.f, .0f,
+        };
+
+        int[] triangleIndices = {
+                0, 1, 2,
+        };
+
         Mesh cubeMesh = new Mesh(cubeVertices3, cubeIndices);
         cubeMesh.genBuffers();
         ecs.setResource("cubeMesh", cubeMesh);
+        Mesh quadMesh = new Mesh(quadVertices, quadIndices);
+        quadMesh.genBuffers();
+        ecs.setResource("quadMesh", quadMesh);
+        Mesh triangleMesh = new Mesh(triangleVertices, triangleIndices);
+        triangleMesh.genBuffers();
+        ecs.setResource("triangleMesh", triangleMesh);
 
         // Create the shader program
         ShaderProgram shaderProgram;
@@ -143,14 +159,20 @@ public class RenderingTest {
             shaderProgram = new ShaderProgram(vertexShader, fragmentShader, (rs, sp) -> {
                 float timeValue = (float) glfwGetTime();
                 float greenValue = (float) ((sin(timeValue) / 2.0f) + 0.5f);
-                sp.setFloat4("myColor", new Vec4(0.0f, greenValue, 0.0f, 1.0f));
+                //sp.setFloat4("myColor", new Vec4(0.0f, greenValue, 0.0f, 1.0f));
+                sp.setInt("texture1", 0);
             });
         }
 
-        Texture wallTexture = new Texture("src/main/resources/textures/wall.jpg", new Vec2i(512, 512));
+        Texture wallTexture = new Texture(
+                "src/main/resources/textures/wall.jpg",
+                new Vec2i(512, 512),
+                new Vec2i(GL_REPEAT, GL_REPEAT),
+                new Vec2i(GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR)
+        );
         ecs.setResource("wallTexture", wallTexture);
 
-        Material cubeMaterial = new Material(shaderProgram);
+        Material cubeMaterial = new Material(shaderProgram, wallTexture);
         cubeMaterial.compile();
         ecs.setResource("cubeMaterial", cubeMaterial);
         outsetLog();
@@ -163,7 +185,7 @@ public class RenderingTest {
         Actor a = new Actor(
                 new Vec3(.0, .0, .0),
                 new Vec4(.0, .0, .0, .0),
-                ecs.getResource("cubeMesh", Mesh.class),
+                ecs.getResource("quadMesh", Mesh.class),
                 ecs.getResource("cubeMaterial", Material.class)
         );
 

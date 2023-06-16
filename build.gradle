@@ -129,8 +129,6 @@ dependencies {
     // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
     implementation 'org.apache.commons:commons-lang3:3.0'
     implementation 'commons-io:commons-io:2.13.0'
-
-    //implementation 'org.l33tlabs.twl:pngdecoder'
 }
 
 test {

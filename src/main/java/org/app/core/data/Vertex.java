@@ -44,7 +44,8 @@ public class Vertex {
 
     public float[] getFloats()
     {
-        return ArrayUtils.addAll(translation.getArray(), color.getArray());
+        return ArrayUtils.addAll(translation.getArray(),
+                ArrayUtils.addAll(color.getArray(), uv.getArray()));
     }
 
     /**

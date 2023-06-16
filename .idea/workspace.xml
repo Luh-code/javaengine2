@@ -4,12 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="Added contructors for data arrays to Vertex and for Mesh. Added UV Attribute to Vertex">
+    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="Added image reading (see https://github.com/LWJGL/lwjgl3/blob/master/modules/samples/src/test/java/org/lwjgl/demo/stb/Image.java)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/RenderSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/RenderSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/data/Material.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/data/Material.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/data/Mesh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/data/Mesh.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/data/Texture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/data/Texture.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/utils/Logger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/utils/Logger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/data/Vertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/data/Vertex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/shader/testShader.frag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/shader/testShader.frag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/shader/testShader.vert" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/shader/testShader.vert" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -402,7 +407,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686938883074</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Added image reading (see https://github.com/LWJGL/lwjgl3/blob/master/modules/samples/src/test/java/org/lwjgl/demo/stb/Image.java)">
+      <created>1686943128864</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1686943128864</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -417,7 +429,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added an option to display the path to the log in the console" />
     <MESSAGE value="added custom PrintStreams to logger for callbacks, added WindowManager.java" />
     <MESSAGE value="Tweaks to the logger and window creation" />
     <MESSAGE value="Finished Hello Window Program" />
@@ -442,7 +453,19 @@
     <MESSAGE value="cleanup" />
     <MESSAGE value="added more insets and outsets into log" />
     <MESSAGE value="Added contructors for data arrays to Vertex and for Mesh. Added UV Attribute to Vertex" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added contructors for data arrays to Vertex and for Mesh. Added UV Attribute to Vertex" />
+    <MESSAGE value="Added image reading (see https://github.com/LWJGL/lwjgl3/blob/master/modules/samples/src/test/java/org/lwjgl/demo/stb/Image.java)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added image reading (see https://github.com/LWJGL/lwjgl3/blob/master/modules/samples/src/test/java/org/lwjgl/demo/stb/Image.java)" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/app/core/RenderSystem.java</url>
+          <line>46</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

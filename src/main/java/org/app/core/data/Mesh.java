@@ -52,18 +52,20 @@ public class Mesh {
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
         glBufferData(GL_ELEMENT_ARRAY_BUFFER, this.getIndices(), GL_STATIC_DRAW);
 
-        glVertexAttribPointer(0, 3, GL_FLOAT, false, 6 * 4, 0);
+        glVertexAttribPointer(0, 3, GL_FLOAT, false, 8 * 4, 0);
         glEnableVertexAttribArray(0);
-        glVertexAttribPointer(1, 3, GL_FLOAT, false, 6 * 4, 3*4);
+        glVertexAttribPointer(1, 3, GL_FLOAT, false, 8 * 4, 3*4);
         glEnableVertexAttribArray(1);
+        glVertexAttribPointer(2, 2, GL_FLOAT, false, 8 * 4, 6*4);
+        glEnableVertexAttribArray(2);
     }
 
     public float[] getFloats() {
-        float[] floats = new float[vertices.length*6];
+        float[] floats = new float[vertices.length*Vertex.getDataSize()];
         for (int i = 0; i < vertices.length; i++) {
-            int offset = i*6;
+            int offset = i*Vertex.getDataSize();
             float[] vertex = vertices[i].getFloats();
-            System.arraycopy(vertex, 0, floats, offset, 6);
+            System.arraycopy(vertex, 0, floats, offset, Vertex.getDataSize());
         }
         return floats;
     }
