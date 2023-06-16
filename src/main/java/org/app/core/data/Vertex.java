@@ -1,9 +1,9 @@
 package org.app.core.data;
 
 import glm_.vec3.Vec3;
-import glm_.vec4.Vec4;
 import org.apache.commons.lang3.ArrayUtils;
 
+@SuppressWarnings("unused")
 public class Vertex {
     private Vec3 translation;
     private Vec3 color;
