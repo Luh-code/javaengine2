@@ -17,6 +17,8 @@ import org.app.utils.Logger;
 import org.lwjgl.Version;
 import org.lwjgl.opengl.GL;
 
+import java.io.File;
+
 import static java.lang.Math.sin;
 import static org.app.utils.Logger.*;
 import static org.lwjgl.glfw.GLFW.*;
@@ -103,35 +105,10 @@ public class RenderingTest {
         // Create the shader program
         ShaderProgram shaderProgram;
         {
-            CharSequence vertexShaderSource = """
-                    #version 330 core
-                    layout (location = 0) in vec3 aPos;
-                    layout (location = 1) in vec3 aCol;
-                    
-                    out vec4 vertexColor;
-
-                    void main()
-                    {
-                        gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);
-                        //vertexColor = vec4(1.0, 0.5, 0.2, 1.0);
-                        vertexColor = vec4(aCol, 1.0);
-                    }""";
-            Shader vertexShader = new Shader(ShaderType.SHADER_TYPE_VERTEX, vertexShaderSource);
-            CharSequence fragmentShaderSource = """
-                    #version 330 core
-                    out vec4 FragColor;
-                    
-                    in vec4 vertexColor;
-                    uniform vec4 myColor;
-
-                    void main()
-                    {
-                        //FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);
-                        FragColor = vertexColor;
-                        //FragColor = myColor;
-                    }\s
-                    """;
-            Shader fragmentShader = new Shader(ShaderType.SHADER_TYPE_FRAGMENT, fragmentShaderSource);
+            File vertexShaderFile = new File("src/main/resources/shader/testShader.vert");
+            Shader vertexShader = new Shader(ShaderType.SHADER_TYPE_VERTEX, vertexShaderFile);
+            File fragmentShaderFile = new File("src/main/resources/shader/testShader.frag");
+            Shader fragmentShader = new Shader(ShaderType.SHADER_TYPE_FRAGMENT, fragmentShaderFile);
             shaderProgram = new ShaderProgram(vertexShader, fragmentShader, (rs, sp) -> {
                 float timeValue = (float) glfwGetTime();
                 float greenValue = (float) ((sin(timeValue) / 2.0f) + 0.5f);

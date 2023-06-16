@@ -64,6 +64,11 @@ public class ShaderProgram implements AutoCloseable {
         this.fragmentShader = null;
     }
 
+    public void use()
+    {
+        glUseProgram(this.shaderProgram);
+    }
+
     public int getUniformLocation(String name)
     {
         return glGetUniformLocation(shaderProgram, name);

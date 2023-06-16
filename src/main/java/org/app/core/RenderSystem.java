@@ -31,7 +31,7 @@ public class RenderSystem extends System {
         Material material = actor.getMaterial();
         ShaderProgram shaderProgram = material.getShaderProgram();
 
-        glUseProgram(shaderProgram.getShaderProgram());
+        shaderProgram.use();
         // Update shader uniforms if needed
         shaderProgram.updateUniforms(this);
         // Bind the rest and render
