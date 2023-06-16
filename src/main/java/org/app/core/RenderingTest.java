@@ -1,5 +1,6 @@
 package org.app.core;
 
+import glm_.vec2.Vec2;
 import glm_.vec3.Vec3;
 import glm_.vec3.Vec3i;
 import glm_.vec4.Vec4;
@@ -70,21 +71,45 @@ public class RenderingTest {
         logDebug("Setting up resources...");
         insetLog();
         Vertex[] cubeVertices = {
-                new Vertex(new Vec3(-.5, -.5, -.5), new Vec3(1.f, .0f, .0f)),
-                new Vertex(new Vec3(.5, -.5, -.5), new Vec3(.5f, .5f, .0f)),
-                new Vertex(new Vec3(.5, .5, -.5), new Vec3(.0f, .1f, .0f)),
-                new Vertex(new Vec3(-.5, .5, -.5), new Vec3(0.f, .5f, .5f)),
-                new Vertex(new Vec3(-.5, -.5, .5), new Vec3(0.f, .0f, 1.f)),
-                new Vertex(new Vec3(.5, -.5, .5), new Vec3(.5f, .0f, .5f)),
-                new Vertex(new Vec3(.5, .5, .5), new Vec3(1.f, .0f, .0f)),
-                new Vertex(new Vec3(-.5, .5, .5), new Vec3(.5f, .5f, .0f)),
+                new Vertex(new Vec3(-.5, -.5, -.5), new Vec3(1.f, .0f, .0f), new Vec2(.0f, .0f)),
+                new Vertex(new Vec3(.5, -.5, -.5), new Vec3(.5f, .5f, .0f), new Vec2(1.f, .0f)),
+                new Vertex(new Vec3(.5, .5, -.5), new Vec3(.0f, .1f, .0f), new Vec2(1.f, 1.f)),
+                new Vertex(new Vec3(-.5, .5, -.5), new Vec3(0.f, .5f, .5f), new Vec2(.0f, 1.f)),
+                new Vertex(new Vec3(-.5, -.5, .5), new Vec3(0.f, .0f, 1.f), new Vec2(.0f, 1.f)),
+                new Vertex(new Vec3(.5, -.5, .5), new Vec3(.5f, .0f, .5f), new Vec2(1.f, 1.f)),
+                new Vertex(new Vec3(.5, .5, .5), new Vec3(1.f, .0f, .0f), new Vec2(1.f, .0f)),
+                new Vertex(new Vec3(-.5, .5, .5), new Vec3(.5f, .5f, .0f), new Vec2(.0f, .0f)),
+        };
+
+        Vertex[] cubeVertices2 = {
+                //                       Translation            Color               UV
+                new Vertex( new float[] { -.5f, -.5f, -.5f,     1.f, .0f, .0f,      .0f, .0f} ),
+                new Vertex( new float[] {  .5f, -.5f, -.5f,     .5f, .5f, .0f,      1.f, .0f } ),
+                new Vertex( new float[] {  .5f,  .5f, -.5f,     .0f, .1f, .0f,      1.f, 1.f } ),
+                new Vertex( new float[] { -.5f,  .5f, -.5f,     0.f, .5f, .5f,      .0f, 1.f } ),
+                new Vertex( new float[] { -.5f, -.5f,  .5f,     0.f, .0f, 1.f,      .0f, 1.f }),
+                new Vertex( new float[] {  .5f, -.5f,  .5f,     .5f, .0f, .5f,      1.f, 1.f } ),
+                new Vertex( new float[] {  .5f,  .5f,  .5f,     1.f, .0f, .0f,      1.f, .0f } ),
+                new Vertex( new float[] { -.5f,  .5f,  .5f,     .5f, .5f, .0f,      .0f, .0f } ),
+        };
+
+        float[] cubeVertices3 = {
+            //  Translation           Color               UV
+                -.5f, -.5f, -.5f,     1.f, .0f, .0f,      .0f, .0f,
+                 .5f, -.5f, -.5f,     .5f, .5f, .0f,      1.f, .0f,
+                 .5f,  .5f, -.5f,     .0f, .1f, .0f,      1.f, 1.f,
+                -.5f,  .5f, -.5f,     0.f, .5f, .5f,      .0f, 1.f,
+                -.5f, -.5f,  .5f,     0.f, .0f, 1.f,      .0f, 1.f,
+                 .5f, -.5f,  .5f,     .5f, .0f, .5f,      1.f, 1.f,
+                 .5f,  .5f,  .5f,     1.f, .0f, .0f,      1.f, .0f,
+                -.5f,  .5f,  .5f,     .5f, .5f, .0f,      .0f, .0f,
         };
 
         Vertex[] quadVertices = {
-                new Vertex(new Vec3(.5, .5, .0), new Vec3(1.f, .0f, .0f)),
-                new Vertex(new Vec3(.5, -.5, .0), new Vec3(.5f, .5f, .0f)),
-                new Vertex(new Vec3(-.5, -.5, .0), new Vec3(.0f, .1f, .0f)),
-                new Vertex(new Vec3(-.5, .5, .0), new Vec3(0.f, .5f, .5f)),
+                new Vertex(new Vec3(.5, .5, .0), new Vec3(1.f, .0f, .0f), new Vec2(.0f, .0f)),
+                new Vertex(new Vec3(.5, -.5, .0), new Vec3(.5f, .5f, .0f), new Vec2(1.f, .0f)),
+                new Vertex(new Vec3(-.5, -.5, .0), new Vec3(.0f, .1f, .0f), new Vec2(1.f, 1.f)),
+                new Vertex(new Vec3(-.5, .5, .0), new Vec3(0.f, .5f, .5f), new Vec2(.0f, 1.f)),
         };
 
         int[] cubeIndices = {
@@ -101,7 +126,7 @@ public class RenderingTest {
                 1, 2, 3
         };
 
-        Mesh cubeMesh = new Mesh(cubeVertices, cubeIndices);
+        Mesh cubeMesh = new Mesh(cubeVertices3, cubeIndices);
         cubeMesh.genBuffers();
         ecs.setResource("cubeMesh", cubeMesh);
 

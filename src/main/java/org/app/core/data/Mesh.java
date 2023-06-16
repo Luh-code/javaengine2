@@ -1,5 +1,8 @@
 package org.app.core.data;
 
+import org.apache.commons.lang3.ArrayUtils;
+import org.app.utils.Logger;
+
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL42.*;
 
@@ -13,6 +16,27 @@ public class Mesh {
 
     public Mesh(Vertex[] vertices, int[] indices) {
         this.vertices = vertices;
+        this.indices = indices;
+    }
+
+    public Mesh(float[] vertexData, int[] indices) {
+        // Check if the data supplied is satisfactory
+        int vertexAmt = vertexData.length/Vertex.getDataSize();
+        if ( vertexData.length%Vertex.getDataSize() != 0 ) {
+            Logger.logError("Wrong amt of vertex data supplied. Expected "
+                    + vertexAmt*Vertex.getDataSize() + " - received " + vertexData.length);
+        }
+
+        // Convert data into Vertices
+        Vertex[] vertices1 = new Vertex[vertexAmt];
+        for ( int i = 0; i < vertexAmt; i++ ) {
+            vertices1[i] = new Vertex(ArrayUtils.subarray(vertexData,
+                    i*Vertex.getDataSize(),
+                    (i+1)*Vertex.getDataSize()));
+        }
+
+        // Assign arrays to Attributes
+        this.vertices = vertices1;
         this.indices = indices;
     }
 
