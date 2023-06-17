@@ -226,7 +226,9 @@ public class RenderingTest {
                 view = glmi.translate(view, new Vec3(0.0f, 0.0f, -3.0f));
 
                 Mat4 projection = glmi.perspective((float) toRadians(45.0f),
-                        1280.0f/720.0f, 0.1f, 100.0f);
+                        (float)GLManager.getScreenSize().getX()/(float)GLManager.getScreenSize().getY(),
+                        0.1f, 100.0f
+                );
 
                 sp.setMat4("model", model);
                 sp.setMat4("view", view);

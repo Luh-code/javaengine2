@@ -1,7 +1,9 @@
 package org.app.core;
 
+import glm_.vec2.Vec2i;
 import org.app.utils.Logger;
 import org.lwjgl.glfw.GLFWErrorCallback;
+import org.lwjgl.glfw.GLFWFramebufferSizeCallback;
 import org.lwjgl.glfw.GLFWVidMode;
 import org.lwjgl.system.MemoryStack;
 
@@ -17,6 +19,8 @@ import static org.lwjgl.system.MemoryStack.stackPush;
 import static org.lwjgl.system.MemoryUtil.NULL;
 
 public class GLManager {
+    private static Vec2i screenSize = new Vec2i(1280, 720);
+
     public static long init() {
         long window;
 
@@ -68,6 +72,7 @@ public class GLManager {
 
         // Make the OPENGL context current
         glfwMakeContextCurrent(window);
+        glfwSetFramebufferSizeCallback(window, GLManager::framebuffer_size_callback);
         // Enable V-Sync
         glfwSwapInterval(1);
 
@@ -123,5 +128,14 @@ public class GLManager {
         Objects.requireNonNull(glfwSetErrorCallback(null)).free();
 
         Logger.logDebug("Window destroyed");
+    }
+
+    public static void framebuffer_size_callback(long window, int w, int h) {
+        glViewport(0, 0, w, h);
+        screenSize = new Vec2i(w, h);
+    }
+
+    public static Vec2i getScreenSize() {
+        return screenSize;
     }
 }
