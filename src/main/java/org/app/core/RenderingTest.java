@@ -117,9 +117,9 @@ public class RenderingTest {
         };
 
         Vertex[] quadVertices = {
-                new Vertex(new Vec3(.5, .5, .0), new Vec3(1.f, .0f, .0f), new Vec2(.0f, .0f)),
+                new Vertex(new Vec3(.5, .5, .0), new Vec3(1.f, .0f, .0f), new Vec2(1.f, 1.f)),
                 new Vertex(new Vec3(.5, -.5, .0), new Vec3(.0f, 1.f, .0f), new Vec2(1.f, .0f)),
-                new Vertex(new Vec3(-.5, -.5, .0), new Vec3(.0f, .0f, .1f), new Vec2(1.f, 1.f)),
+                new Vertex(new Vec3(-.5, -.5, .0), new Vec3(.0f, .0f, .1f), new Vec2(.0f, .0f)),
                 new Vertex(new Vec3(-.5, .5, .0), new Vec3(1.f, 1.f, .0f), new Vec2(.0f, 1.f)),
         };
 
@@ -161,18 +161,26 @@ public class RenderingTest {
                 float greenValue = (float) ((sin(timeValue) / 2.0f) + 0.5f);
                 //sp.setFloat4("myColor", new Vec4(0.0f, greenValue, 0.0f, 1.0f));
                 sp.setInt("texture1", 0);
+                sp.setInt("texture2", 1);
             });
         }
 
         Texture wallTexture = new Texture(
                 "src/main/resources/textures/wall.jpg",
-                new Vec2i(512, 512),
                 new Vec2i(GL_REPEAT, GL_REPEAT),
-                new Vec2i(GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR)
+                new Vec2i(GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR),
+                GL_TEXTURE0
         );
         ecs.setResource("wallTexture", wallTexture);
+        Texture wallTexture2 = new Texture(
+                "src/main/resources/textures/wall2.jpg",
+                new Vec2i(GL_REPEAT, GL_REPEAT),
+                new Vec2i(GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR),
+                GL_TEXTURE1
+        );
+        ecs.setResource("wallTexture2", wallTexture2);
 
-        Material cubeMaterial = new Material(shaderProgram, wallTexture);
+        Material cubeMaterial = new Material(shaderProgram, new Texture[] { wallTexture, wallTexture2 });
         cubeMaterial.compile();
         ecs.setResource("cubeMaterial", cubeMaterial);
         outsetLog();

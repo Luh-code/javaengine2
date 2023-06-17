@@ -37,20 +37,23 @@ public class Texture {
     private Vec2i filter;
 
     private int texture;
+    private int textureUnit;
+    public static int maxTextureUnits = 16;
 
-    public Texture(String file, Vec2i size, Vec2i wrap, Vec2i filter) {
+    public Texture(String file, Vec2i wrap, Vec2i filter, int textureUnit) {
         setWrap(wrap);
         setFilter(filter);
+        setTextureUnit(textureUnit);
 
         // Read image from specified location
-        ByteBuffer imageBuffer;
-
-        try {
-            imageBuffer = ioResourceToByteBuffer(file, size.getX()*size.getY()*3);
-        } catch (IOException e) {
-            Logger.logAndThrow("An Error occurred whilst reading in an image", new RuntimeException(e));
-            return;
-        }
+//        ByteBuffer imageBuffer;
+//
+//        try {
+//            imageBuffer = ioResourceToByteBuffer(file, size.getX()*size.getY()*3);
+//        } catch (IOException e) {
+//            Logger.logAndThrow("An Error occurred whilst reading in an image", new RuntimeException(e));
+//            return;
+//        }
 
         // Get Metadata and populate Attributes
         try (MemoryStack stack = MemoryStack.stackPush()) {
@@ -162,6 +165,11 @@ public class Texture {
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, filter.getY());
     }
 
+    public void apply() {
+        glActiveTexture(textureUnit);
+        glBindTexture(GL_TEXTURE_2D, getTexture());
+    }
+
     public ByteBuffer getImage() {
         return image;
     }
@@ -248,5 +256,28 @@ public class Texture {
 
     public int getTexture() {
         return texture;
+    }
+
+    public void setTexture(int texture) {
+        this.texture = texture;
+    }
+
+    public int getTextureUnit() {
+        return textureUnit;
+    }
+
+    public void setTextureUnit(int textureUnit) {
+        // Function to check if textureUnit is valid. If not, changes it to GL_TEXTURE0
+        Function<Integer, Integer> getTextureUnit = (tu) -> {
+            for(int i = 0; i < 16; i++) {
+                if ( textureUnit == GL_TEXTURE0+i )
+                    return tu;
+            }
+            Logger.logError(tu + " is not a valid texture unit - using " + GL_TEXTURE0);
+            return GL_TEXTURE0;
+        };
+
+        // Set filter mode
+        this.textureUnit = getTextureUnit.apply(textureUnit);
     }
 }

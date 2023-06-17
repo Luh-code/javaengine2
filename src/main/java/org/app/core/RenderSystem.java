@@ -31,13 +31,9 @@ public class RenderSystem extends System {
         Mesh mesh = actor.getMesh();
         Material material = actor.getMaterial();
         ShaderProgram shaderProgram = material.getShaderProgram();
-        Texture texture = material.getTexture();
 
         // Bind texture if used
-        if ( texture != null ) {
-            glActiveTexture(GL_TEXTURE0);
-            glBindTexture(GL_TEXTURE_2D, texture.getTexture());
-        }
+        material.apply();
 
         shaderProgram.use();
         // Update shader uniforms if needed
