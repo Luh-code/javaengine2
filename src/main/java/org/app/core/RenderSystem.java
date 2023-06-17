@@ -62,6 +62,20 @@ public class RenderSystem extends System {
     }
 
     /**
+     * Actives depth test
+     */
+    public void activateDepthTest() {
+        glEnable(GL_DEPTH_TEST);
+    }
+
+    /**
+     * deactives depth test
+     */
+    public void deactivateDepthTest() {
+        glDisable(GL_DEPTH_TEST);
+    }
+
+    /**
      * Renders all Entities associated with this RenderSystem in a forward rendering process
      * Also renders the depth-buffer
      * @param window The window Handle of the current glfw window

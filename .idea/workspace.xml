@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="added a option to flip textures on Y axis when loading">
+    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="added model, view, and projection matrices">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/RenderSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/RenderSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/data/shader/ShaderProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/data/shader/ShaderProgram.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/shader/testShader.vert" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/shader/testShader.vert" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -416,7 +414,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686986021231</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="added model, view, and projection matrices">
+      <created>1686991831762</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1686991831762</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -431,7 +436,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Finished Hello Window Program" />
     <MESSAGE value="Added a safe variant of HexHelper::connect to HexHelper, named HexHelper::connect_s" />
     <MESSAGE value="Some HexHelper stuff" />
     <MESSAGE value="Finished Hello Triangle application" />
@@ -456,7 +460,8 @@
     <MESSAGE value="Added image reading (see https://github.com/LWJGL/lwjgl3/blob/master/modules/samples/src/test/java/org/lwjgl/demo/stb/Image.java)" />
     <MESSAGE value="Added textures and uv mapping" />
     <MESSAGE value="Added multi-texture support through texture units" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added multi-texture support through texture units" />
+    <MESSAGE value="added model, view, and projection matrices" />
+    <option name="LAST_COMMIT_MESSAGE" value="added model, view, and projection matrices" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

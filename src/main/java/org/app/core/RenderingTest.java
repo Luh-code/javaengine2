@@ -122,6 +122,56 @@ public class RenderingTest {
                 4, 5, 0, 0, 5, 1
         };
 
+        float[] cubeVertices4 = {
+            //  Translation             Color               UV
+                -0.5f, -0.5f, -0.5f,    1.f, .0f, .0f,      0.0f, 0.0f,
+                 0.5f, -0.5f, -0.5f,    0.f, .5f, .5f,      1.0f, 0.0f,
+                 0.5f,  0.5f, -0.5f,    .0f, .1f, .0f,      1.0f, 1.0f,
+                 0.5f,  0.5f, -0.5f,    .5f, .5f, .0f,      1.0f, 1.0f,
+                -0.5f,  0.5f, -0.5f,    0.f, .0f, 1.f,      0.0f, 1.0f,
+                -0.5f, -0.5f, -0.5f,    .5f, .5f, .0f,      0.0f, 0.0f,
+
+                -0.5f, -0.5f,  0.5f,    1.f, .0f, .0f,      0.0f, 0.0f,
+                 0.5f, -0.5f,  0.5f,    0.f, .5f, .5f,      1.0f, 0.0f,
+                 0.5f,  0.5f,  0.5f,    .0f, .1f, .0f,      1.0f, 1.0f,
+                 0.5f,  0.5f,  0.5f,    .5f, .5f, .0f,      1.0f, 1.0f,
+                -0.5f,  0.5f,  0.5f,    0.f, .0f, 1.f,      0.0f, 1.0f,
+                -0.5f, -0.5f,  0.5f,    .5f, .5f, .0f,      0.0f, 0.0f,
+
+                -0.5f,  0.5f,  0.5f,    1.f, .0f, .0f,      1.0f, 0.0f,
+                -0.5f,  0.5f, -0.5f,    0.f, .5f, .5f,      1.0f, 1.0f,
+                -0.5f, -0.5f, -0.5f,    .0f, .1f, .0f,      0.0f, 1.0f,
+                -0.5f, -0.5f, -0.5f,    .5f, .5f, .0f,      0.0f, 1.0f,
+                -0.5f, -0.5f,  0.5f,    0.f, .0f, 1.f,      0.0f, 0.0f,
+                -0.5f,  0.5f,  0.5f,    .5f, .5f, .0f,      1.0f, 0.0f,
+
+                 0.5f,  0.5f,  0.5f,    1.f, .0f, .0f,      1.0f, 0.0f,
+                 0.5f,  0.5f, -0.5f,    0.f, .5f, .5f,      1.0f, 1.0f,
+                 0.5f, -0.5f, -0.5f,    .0f, .1f, .0f,      0.0f, 1.0f,
+                 0.5f, -0.5f, -0.5f,    .5f, .5f, .0f,      0.0f, 1.0f,
+                 0.5f, -0.5f,  0.5f,    0.f, .0f, 1.f,      0.0f, 0.0f,
+                 0.5f,  0.5f,  0.5f,    .5f, .5f, .0f,      1.0f, 0.0f,
+
+                -0.5f, -0.5f, -0.5f,    1.f, .0f, .0f,      0.0f, 1.0f,
+                 0.5f, -0.5f, -0.5f,    0.f, .5f, .5f,      1.0f, 1.0f,
+                 0.5f, -0.5f,  0.5f,    .0f, .1f, .0f,      1.0f, 0.0f,
+                 0.5f, -0.5f,  0.5f,    .5f, .5f, .0f,      1.0f, 0.0f,
+                -0.5f, -0.5f,  0.5f,    0.f, .0f, 1.f,      0.0f, 0.0f,
+                -0.5f, -0.5f, -0.5f,    .5f, .5f, .0f,      0.0f, 1.0f,
+
+                -0.5f,  0.5f, -0.5f,    1.f, .0f, .0f,      0.0f, 1.0f,
+                 0.5f,  0.5f, -0.5f,    0.f, .5f, .5f,      1.0f, 1.0f,
+                 0.5f,  0.5f,  0.5f,    .0f, .1f, .0f,      1.0f, 0.0f,
+                 0.5f,  0.5f,  0.5f,    .5f, .5f, .0f,      1.0f, 0.0f,
+                -0.5f,  0.5f,  0.5f,    0.f, .0f, 1.f,      0.0f, 0.0f,
+                -0.5f,  0.5f, -0.5f,    .5f, .5f, .0f,      0.0f, 1.0f
+        };
+
+        int[] cubeIndices2 = new int[cubeVertices4.length/Vertex.getDataSize()];
+        for (int i = 0; i < cubeIndices2.length; i++) {
+            cubeIndices2[i] = i;
+        }
+
         Vertex[] quadVertices = {
                 new Vertex(new Vec3(.5, .5, .0), new Vec3(1.f, .0f, .0f), new Vec2(1.f, 1.f)),
                 new Vertex(new Vec3(.5, -.5, .0), new Vec3(.0f, 1.f, .0f), new Vec2(1.f, .0f)),
@@ -145,7 +195,7 @@ public class RenderingTest {
                 0, 1, 2,
         };
 
-        Mesh cubeMesh = new Mesh(cubeVertices3, cubeIndices);
+        Mesh cubeMesh = new Mesh(cubeVertices4, cubeIndices2);
         cubeMesh.genBuffers();
         ecs.setResource("cubeMesh", cubeMesh);
         Mesh quadMesh = new Mesh(quadVertices, quadIndices);
@@ -170,7 +220,7 @@ public class RenderingTest {
 
                 Mat4 model = new Mat4(1.0f);
                 model = glmi.rotate(model,
-                        (float)toRadians(-55.0f), new Vec3(1.0f, 0.0f, 0.0f));
+                        timeValue * (float)toRadians(50.0f), new Vec3(0.5f, 1.0f, 0.0f));
 
                 Mat4 view = new Mat4(1.0f);
                 view = glmi.translate(view, new Vec3(0.0f, 0.0f, -3.0f));
@@ -214,7 +264,7 @@ public class RenderingTest {
         Actor a = new Actor(
                 new Vec3(.0, .0, .0),
                 new Vec4(.0, .0, .0, .0),
-                ecs.getResource("quadMesh", Mesh.class),
+                ecs.getResource("cubeMesh", Mesh.class),
                 ecs.getResource("cubeMaterial", Material.class)
         );
 
@@ -230,6 +280,7 @@ public class RenderingTest {
 
         // Configure renderSystem
         renderSystem.activateFill();
+        renderSystem.activateDepthTest();
 
         // Main loop
         while ( !glfwWindowShouldClose(window) ) {
