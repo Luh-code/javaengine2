@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="Finished Hello Window Program">
+    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="Added multi-texture support through texture units">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,18 +63,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/media/para/Projects/triolingo&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "uv__mapping",
+    "last_opened_file_path": "/media/para/Projects/leEngine/javaengine",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "application.passwordSafe"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/ecs" />
@@ -227,7 +227,189 @@
       <option name="project" value="LOCAL" />
       <updated>1685362827222</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Added a safe variant of HexHelper::connect to HexHelper, named HexHelper::connect_s">
+      <created>1685365323620</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1685365323620</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Some HexHelper stuff">
+      <created>1685388394658</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1685388394658</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Finished Hello Triangle application">
+      <created>1685394478288</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1685394478288</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Fixed a few warnings">
+      <created>1685394636059</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1685394636059</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Added ECS">
+      <created>1685895458677</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1685895458677</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Added ECS">
+      <created>1686001220469</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1686001220469</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Added Mesh, Material, Texture, Vertex, Actor and Camera">
+      <created>1686163520731</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1686163520731</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Removed Generic Resources and Components, tested ECS, updated logger to have support for insets, added RenderingSystem(WIP)">
+      <created>1686300960784</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1686300960784</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Added GLManager and RenderingSystem, added Indexed draw calls">
+      <created>1686310522542</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1686310522543</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Added rendering modes to RenderSystem.java, added cleanup after completion, cleaned up console">
+      <created>1686311135176</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1686311135176</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Made Mesh AutoClosable">
+      <created>1686312153594</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1686312153594</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Small adjustments">
+      <created>1686595639278</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1686595639278</updated>
+    </task>
+    <task id="LOCAL-00023" summary="created Branch modularShaders">
+      <created>1686595829305</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1686595829305</updated>
+    </task>
+    <task id="LOCAL-00024" summary="added a more modular shader architecture">
+      <created>1686603876555</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1686603876555</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Added per-frame uniform updates">
+      <created>1686604120806</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1686604120806</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Updated and tested per-frame uniform updates">
+      <created>1686604818689</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1686604818689</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Implemented Vertex Color">
+      <created>1686606383128</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1686606383128</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Added additional helper methods to ShaderProgram.java to make updating uniforms easier">
+      <created>1686607371065</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1686607371065</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Added importing shaders from files and probably some other stuff I forgot">
+      <created>1686914493268</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1686914493268</updated>
+    </task>
+    <task id="LOCAL-00030" summary="cleanup">
+      <created>1686914647318</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1686914647318</updated>
+    </task>
+    <task id="LOCAL-00031" summary="cleanup">
+      <created>1686914735934</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1686914735934</updated>
+    </task>
+    <task id="LOCAL-00032" summary="added more insets and outsets into log">
+      <created>1686921587825</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1686921587825</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Added contructors for data arrays to Vertex and for Mesh. Added UV Attribute to Vertex">
+      <created>1686938883074</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1686938883074</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Added image reading (see https://github.com/LWJGL/lwjgl3/blob/master/modules/samples/src/test/java/org/lwjgl/demo/stb/Image.java)">
+      <created>1686943128864</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1686943128864</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Added textures and uv mapping">
+      <created>1686951027780</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1686951027780</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Added multi-texture support through texture units">
+      <created>1686986021231</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1686986021231</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -242,15 +424,32 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="lotta stuff" />
-    <MESSAGE value="fixed two warnings" />
-    <MESSAGE value="added documentation" />
-    <MESSAGE value="added a logger with support for console and file" />
-    <MESSAGE value="added an option to display the path to the log in the console" />
-    <MESSAGE value="added custom PrintStreams to logger for callbacks, added WindowManager.java" />
-    <MESSAGE value="Tweaks to the logger and window creation" />
     <MESSAGE value="Finished Hello Window Program" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished Hello Window Program" />
+    <MESSAGE value="Added a safe variant of HexHelper::connect to HexHelper, named HexHelper::connect_s" />
+    <MESSAGE value="Some HexHelper stuff" />
+    <MESSAGE value="Finished Hello Triangle application" />
+    <MESSAGE value="Fixed a few warnings" />
+    <MESSAGE value="Added ECS" />
+    <MESSAGE value="Added Mesh, Material, Texture, Vertex, Actor and Camera" />
+    <MESSAGE value="Removed Generic Resources and Components, tested ECS, updated logger to have support for insets, added RenderingSystem(WIP)" />
+    <MESSAGE value="Added GLManager and RenderingSystem, added Indexed draw calls" />
+    <MESSAGE value="Added rendering modes to RenderSystem.java, added cleanup after completion, cleaned up console" />
+    <MESSAGE value="Made Mesh AutoClosable" />
+    <MESSAGE value="Small adjustments" />
+    <MESSAGE value="created Branch modularShaders" />
+    <MESSAGE value="added a more modular shader architecture" />
+    <MESSAGE value="Added per-frame uniform updates" />
+    <MESSAGE value="Updated and tested per-frame uniform updates" />
+    <MESSAGE value="Implemented Vertex Color" />
+    <MESSAGE value="Added additional helper methods to ShaderProgram.java to make updating uniforms easier" />
+    <MESSAGE value="Added importing shaders from files and probably some other stuff I forgot" />
+    <MESSAGE value="cleanup" />
+    <MESSAGE value="added more insets and outsets into log" />
+    <MESSAGE value="Added contructors for data arrays to Vertex and for Mesh. Added UV Attribute to Vertex" />
+    <MESSAGE value="Added image reading (see https://github.com/LWJGL/lwjgl3/blob/master/modules/samples/src/test/java/org/lwjgl/demo/stb/Image.java)" />
+    <MESSAGE value="Added textures and uv mapping" />
+    <MESSAGE value="Added multi-texture support through texture units" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added multi-texture support through texture units" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
