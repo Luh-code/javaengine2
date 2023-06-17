@@ -1,5 +1,8 @@
 package org.app.core.data;
 
+import org.apache.commons.lang3.ArrayUtils;
+import org.app.utils.Logger;
+
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL42.*;
 
@@ -16,6 +19,27 @@ public class Mesh {
         this.indices = indices;
     }
 
+    public Mesh(float[] vertexData, int[] indices) {
+        // Check if the data supplied is satisfactory
+        int vertexAmt = vertexData.length/Vertex.getDataSize();
+        if ( vertexData.length%Vertex.getDataSize() != 0 ) {
+            Logger.logError("Wrong amt of vertex data supplied. Expected "
+                    + vertexAmt*Vertex.getDataSize() + " - received " + vertexData.length);
+        }
+
+        // Convert data into Vertices
+        Vertex[] vertices1 = new Vertex[vertexAmt];
+        for ( int i = 0; i < vertexAmt; i++ ) {
+            vertices1[i] = new Vertex(ArrayUtils.subarray(vertexData,
+                    i*Vertex.getDataSize(),
+                    (i+1)*Vertex.getDataSize()));
+        }
+
+        // Assign arrays to Attributes
+        this.vertices = vertices1;
+        this.indices = indices;
+    }
+
     public void genBuffers() {
         VAO = glGenVertexArrays();
         glBindVertexArray(VAO);
@@ -28,18 +52,20 @@ public class Mesh {
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
         glBufferData(GL_ELEMENT_ARRAY_BUFFER, this.getIndices(), GL_STATIC_DRAW);
 
-        glVertexAttribPointer(0, 3, GL_FLOAT, false, 6 * 4, 0);
+        glVertexAttribPointer(0, 3, GL_FLOAT, false, 8 * 4, 0);
         glEnableVertexAttribArray(0);
-        glVertexAttribPointer(1, 3, GL_FLOAT, false, 6 * 4, 3*4);
+        glVertexAttribPointer(1, 3, GL_FLOAT, false, 8 * 4, 3*4);
         glEnableVertexAttribArray(1);
+        glVertexAttribPointer(2, 2, GL_FLOAT, false, 8 * 4, 6*4);
+        glEnableVertexAttribArray(2);
     }
 
     public float[] getFloats() {
-        float[] floats = new float[vertices.length*6];
+        float[] floats = new float[vertices.length*Vertex.getDataSize()];
         for (int i = 0; i < vertices.length; i++) {
-            int offset = i*6;
+            int offset = i*Vertex.getDataSize();
             float[] vertex = vertices[i].getFloats();
-            System.arraycopy(vertex, 0, floats, offset, 6);
+            System.arraycopy(vertex, 0, floats, offset, Vertex.getDataSize());
         }
         return floats;
     }

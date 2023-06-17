@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="Added additional helper methods to ShaderProgram.java to make updating uniforms easier">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="Added textures and uv mapping">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/RenderSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/RenderSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/data/shader/Shader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/data/shader/Shader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/data/shader/ShaderProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/data/shader/ShaderProgram.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/data/shader/ShaderType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/data/shader/ShaderType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/data/Material.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/data/Material.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/data/Texture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/data/Texture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/shader/testShader.frag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/shader/testShader.frag" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +51,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="renderSystem" />
+        <entry key="$PROJECT_DIR$" value="modularShaders" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -81,7 +79,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;modularShaders&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;uv__mapping&quot;,
     &quot;last_opened_file_path&quot;: &quot;/media/para/Projects/leEngine/javaengine&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
@@ -152,19 +150,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="javaengine" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="javaengine" />
-      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -383,7 +368,56 @@
       <option name="project" value="LOCAL" />
       <updated>1686607371065</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Added importing shaders from files and probably some other stuff I forgot">
+      <created>1686914493268</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1686914493268</updated>
+    </task>
+    <task id="LOCAL-00030" summary="cleanup">
+      <created>1686914647318</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1686914647318</updated>
+    </task>
+    <task id="LOCAL-00031" summary="cleanup">
+      <created>1686914735934</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1686914735934</updated>
+    </task>
+    <task id="LOCAL-00032" summary="added more insets and outsets into log">
+      <created>1686921587825</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1686921587825</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Added contructors for data arrays to Vertex and for Mesh. Added UV Attribute to Vertex">
+      <created>1686938883074</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1686938883074</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Added image reading (see https://github.com/LWJGL/lwjgl3/blob/master/modules/samples/src/test/java/org/lwjgl/demo/stb/Image.java)">
+      <created>1686943128864</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1686943128864</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Added textures and uv mapping">
+      <created>1686951027780</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1686951027780</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -398,12 +432,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="lotta stuff" />
-    <MESSAGE value="fixed two warnings" />
-    <MESSAGE value="added documentation" />
-    <MESSAGE value="added a logger with support for console and file" />
-    <MESSAGE value="added an option to display the path to the log in the console" />
-    <MESSAGE value="added custom PrintStreams to logger for callbacks, added WindowManager.java" />
     <MESSAGE value="Tweaks to the logger and window creation" />
     <MESSAGE value="Finished Hello Window Program" />
     <MESSAGE value="Added a safe variant of HexHelper::connect to HexHelper, named HexHelper::connect_s" />
@@ -423,7 +451,13 @@
     <MESSAGE value="Updated and tested per-frame uniform updates" />
     <MESSAGE value="Implemented Vertex Color" />
     <MESSAGE value="Added additional helper methods to ShaderProgram.java to make updating uniforms easier" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added additional helper methods to ShaderProgram.java to make updating uniforms easier" />
+    <MESSAGE value="Added importing shaders from files and probably some other stuff I forgot" />
+    <MESSAGE value="cleanup" />
+    <MESSAGE value="added more insets and outsets into log" />
+    <MESSAGE value="Added contructors for data arrays to Vertex and for Mesh. Added UV Attribute to Vertex" />
+    <MESSAGE value="Added image reading (see https://github.com/LWJGL/lwjgl3/blob/master/modules/samples/src/test/java/org/lwjgl/demo/stb/Image.java)" />
+    <MESSAGE value="Added textures and uv mapping" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added textures and uv mapping" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

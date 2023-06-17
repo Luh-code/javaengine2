@@ -3,6 +3,7 @@ package org.app.core;
 import org.app.core.components.Actor;
 import org.app.core.data.Material;
 import org.app.core.data.Mesh;
+import org.app.core.data.Texture;
 import org.app.core.data.shader.ShaderProgram;
 import org.app.ecs.Entity;
 import org.app.ecs.ECS;
@@ -31,13 +32,17 @@ public class RenderSystem extends System {
         Material material = actor.getMaterial();
         ShaderProgram shaderProgram = material.getShaderProgram();
 
+        // Bind texture if used
+        material.apply();
+
         shaderProgram.use();
         // Update shader uniforms if needed
         shaderProgram.updateUniforms(this);
+
         // Bind the rest and render
         glBindVertexArray(mesh.getVAO());
         glDrawElements(GL_TRIANGLES, mesh.getIndices().length, GL_UNSIGNED_INT, 0);
-        glBindVertexArray(0);
+        //glBindVertexArray(0);
     }
 
     /**

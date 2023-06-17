@@ -1,11 +1,13 @@
 package org.app.core;
 
+import glm_.vec2.Vec2;
+import glm_.vec2.Vec2i;
 import glm_.vec3.Vec3;
-import glm_.vec3.Vec3i;
 import glm_.vec4.Vec4;
 import org.app.core.components.Actor;
 import org.app.core.data.Material;
 import org.app.core.data.Mesh;
+import org.app.core.data.Texture;
 import org.app.core.data.Vertex;
 import org.app.core.data.shader.Shader;
 import org.app.core.data.shader.ShaderProgram;
@@ -51,11 +53,13 @@ public class RenderingTest {
 
         // Set up ECS
         logDebug("Setting up ECS...");
+        insetLog();
         ECS ecs = new ECS();
 
         // Register Types
         ecs.registerResourceType_s(Mesh.class);
         ecs.registerResourceType_s(Material.class);
+        ecs.registerResourceType_s(Texture.class);
         ecs.registerComponent_s(Actor.class);
 
         // Register Systems
@@ -63,25 +67,44 @@ public class RenderingTest {
         Signature renderSystemSignature = new Signature();
         renderSystemSignature.flipBit(ecs.getComponentType(Actor.class));
         ecs.setSystemSignature(renderSystemSignature, RenderSystem.class);
+        outsetLog();
 
         // Define Resources
         logDebug("Setting up resources...");
+        insetLog();
         Vertex[] cubeVertices = {
-                new Vertex(new Vec3(-.5, -.5, -.5), new Vec3(1.f, .0f, .0f)),
-                new Vertex(new Vec3(.5, -.5, -.5), new Vec3(.5f, .5f, .0f)),
-                new Vertex(new Vec3(.5, .5, -.5), new Vec3(.0f, .1f, .0f)),
-                new Vertex(new Vec3(-.5, .5, -.5), new Vec3(0.f, .5f, .5f)),
-                new Vertex(new Vec3(-.5, -.5, .5), new Vec3(0.f, .0f, 1.f)),
-                new Vertex(new Vec3(.5, -.5, .5), new Vec3(.5f, .0f, .5f)),
-                new Vertex(new Vec3(.5, .5, .5), new Vec3(1.f, .0f, .0f)),
-                new Vertex(new Vec3(-.5, .5, .5), new Vec3(.5f, .5f, .0f)),
+                new Vertex(new Vec3(-.5, -.5, -.5), new Vec3(1.f, .0f, .0f), new Vec2(.0f, .0f)),
+                new Vertex(new Vec3(.5, -.5, -.5), new Vec3(.5f, .5f, .0f), new Vec2(1.f, .0f)),
+                new Vertex(new Vec3(.5, .5, -.5), new Vec3(.0f, .1f, .0f), new Vec2(1.f, 1.f)),
+                new Vertex(new Vec3(-.5, .5, -.5), new Vec3(0.f, .5f, .5f), new Vec2(.0f, 1.f)),
+                new Vertex(new Vec3(-.5, -.5, .5), new Vec3(0.f, .0f, 1.f), new Vec2(.0f, 1.f)),
+                new Vertex(new Vec3(.5, -.5, .5), new Vec3(.5f, .0f, .5f), new Vec2(1.f, 1.f)),
+                new Vertex(new Vec3(.5, .5, .5), new Vec3(1.f, .0f, .0f), new Vec2(1.f, .0f)),
+                new Vertex(new Vec3(-.5, .5, .5), new Vec3(.5f, .5f, .0f), new Vec2(.0f, .0f)),
         };
 
-        Vertex[] quadVertices = {
-                new Vertex(new Vec3(.5, .5, .0), new Vec3(1.f, .0f, .0f)),
-                new Vertex(new Vec3(.5, -.5, .0), new Vec3(.5f, .5f, .0f)),
-                new Vertex(new Vec3(-.5, -.5, .0), new Vec3(.0f, .1f, .0f)),
-                new Vertex(new Vec3(-.5, .5, .0), new Vec3(0.f, .5f, .5f)),
+        Vertex[] cubeVertices2 = {
+                //                       Translation            Color               UV
+                new Vertex( new float[] { -.5f, -.5f, -.5f,     1.f, .0f, .0f,      .0f, .0f} ),
+                new Vertex( new float[] {  .5f, -.5f, -.5f,     .5f, .5f, .0f,      1.f, .0f } ),
+                new Vertex( new float[] {  .5f,  .5f, -.5f,     .0f, .1f, .0f,      1.f, 1.f } ),
+                new Vertex( new float[] { -.5f,  .5f, -.5f,     0.f, .5f, .5f,      .0f, 1.f } ),
+                new Vertex( new float[] { -.5f, -.5f,  .5f,     0.f, .0f, 1.f,      .0f, 1.f }),
+                new Vertex( new float[] {  .5f, -.5f,  .5f,     .5f, .0f, .5f,      1.f, 1.f } ),
+                new Vertex( new float[] {  .5f,  .5f,  .5f,     1.f, .0f, .0f,      1.f, .0f } ),
+                new Vertex( new float[] { -.5f,  .5f,  .5f,     .5f, .5f, .0f,      .0f, .0f } ),
+        };
+
+        float[] cubeVertices3 = {
+            //  Translation             Color               UV
+                -.5f, -.5f, -.5f,       1.f, .0f, .0f,      .0f, .0f,
+                 .5f, -.5f, -.5f,       .5f, .5f, .0f,      1.f, .0f,
+                 .5f,  .5f, -.5f,       .0f, .1f, .0f,      1.f, 1.f,
+                -.5f,  .5f, -.5f,       0.f, .5f, .5f,      .0f, 1.f,
+                -.5f, -.5f,  .5f,       0.f, .0f, 1.f,      .0f, 1.f,
+                 .5f, -.5f,  .5f,       .5f, .0f, .5f,      1.f, 1.f,
+                 .5f,  .5f,  .5f,       1.f, .0f, .0f,      1.f, .0f,
+                -.5f,  .5f,  .5f,       .5f, .5f, .0f,      .0f, .0f,
         };
 
         int[] cubeIndices = {
@@ -93,14 +116,38 @@ public class RenderingTest {
                 4, 5, 0, 0, 5, 1
         };
 
+        Vertex[] quadVertices = {
+                new Vertex(new Vec3(.5, .5, .0), new Vec3(1.f, .0f, .0f), new Vec2(1.f, 1.f)),
+                new Vertex(new Vec3(.5, -.5, .0), new Vec3(.0f, 1.f, .0f), new Vec2(1.f, .0f)),
+                new Vertex(new Vec3(-.5, -.5, .0), new Vec3(.0f, .0f, .1f), new Vec2(.0f, .0f)),
+                new Vertex(new Vec3(-.5, .5, .0), new Vec3(1.f, 1.f, .0f), new Vec2(.0f, 1.f)),
+        };
+
         int[] quadIndices = {
                 0, 1, 3,
                 1, 2, 3
         };
 
-        Mesh cubeMesh = new Mesh(cubeVertices, cubeIndices);
+        float[] triangleVertices = {
+            //  Translation             Color               UV
+                 .0f,  .5f,  .0f,       1.f, .0f, .0f,      .5f, 1.f,
+                -.5f, -.5f,  .0f,       .0f, 1.f, .0f,      .0f, .0f,
+                 .5f, -.5f,  .0f,       .0f, .0f, 1.f,      1.f, .0f,
+        };
+
+        int[] triangleIndices = {
+                0, 1, 2,
+        };
+
+        Mesh cubeMesh = new Mesh(cubeVertices3, cubeIndices);
         cubeMesh.genBuffers();
         ecs.setResource("cubeMesh", cubeMesh);
+        Mesh quadMesh = new Mesh(quadVertices, quadIndices);
+        quadMesh.genBuffers();
+        ecs.setResource("quadMesh", quadMesh);
+        Mesh triangleMesh = new Mesh(triangleVertices, triangleIndices);
+        triangleMesh.genBuffers();
+        ecs.setResource("triangleMesh", triangleMesh);
 
         // Create the shader program
         ShaderProgram shaderProgram;
@@ -112,26 +159,46 @@ public class RenderingTest {
             shaderProgram = new ShaderProgram(vertexShader, fragmentShader, (rs, sp) -> {
                 float timeValue = (float) glfwGetTime();
                 float greenValue = (float) ((sin(timeValue) / 2.0f) + 0.5f);
-                sp.setFloat4("myColor", new Vec4(0.0f, greenValue, 0.0f, 1.0f));
+                //sp.setFloat4("myColor", new Vec4(0.0f, greenValue, 0.0f, 1.0f));
+                sp.setInt("texture1", 0);
+                sp.setInt("texture2", 1);
             });
         }
 
-        Material cubeMaterial = new Material(shaderProgram);
+        Texture wallTexture = new Texture(
+                "src/main/resources/textures/wall.jpg",
+                new Vec2i(GL_REPEAT, GL_REPEAT),
+                new Vec2i(GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR),
+                GL_TEXTURE0
+        );
+        ecs.setResource("wallTexture", wallTexture);
+        Texture wallTexture2 = new Texture(
+                "src/main/resources/textures/wall2.jpg",
+                new Vec2i(GL_REPEAT, GL_REPEAT),
+                new Vec2i(GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR),
+                GL_TEXTURE1
+        );
+        ecs.setResource("wallTexture2", wallTexture2);
+
+        Material cubeMaterial = new Material(shaderProgram, new Texture[] { wallTexture, wallTexture2 });
         cubeMaterial.compile();
         ecs.setResource("cubeMaterial", cubeMaterial);
+        outsetLog();
 
         // Create entities
         logDebug("Setting up entities...");
+        insetLog();
         Entity cube = ecs.createEntity();
 
         Actor a = new Actor(
                 new Vec3(.0, .0, .0),
                 new Vec4(.0, .0, .0, .0),
-                ecs.getResource("cubeMesh", Mesh.class),
+                ecs.getResource("quadMesh", Mesh.class),
                 ecs.getResource("cubeMaterial", Material.class)
         );
 
         ecs.addComponent(cube, a);
+        outsetLog();
 
         outsetLog();
         logInfo("Scene set up successfully");
