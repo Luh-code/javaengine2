@@ -38,25 +38,18 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="modularShaders" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$USER_HOME$/.jdks/corretto-17.0.7/lib/src.zip!/java.base/java/io/FilterOutputStream.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$USER_HOME$/.jdks/corretto-17.0.7/lib/src.zip!/java.base/java/io/PrintStream.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://$USER_HOME$/.jdks/corretto-17.0.7/lib/src.zip!/java.base/java/lang/Class.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$USER_HOME$/.jdks/corretto-17.0.7/lib/src.zip!/java.base/java/lang/System.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://$USER_HOME$/.jdks/corretto-17.0.7/lib/src.zip!/java.base/java/lang/reflect/Constructor.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$USER_HOME$/.jdks/corretto-17.0.7/lib/src.zip!/java.base/java/util/function/Function.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -92,9 +85,6 @@
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="org.app" />
     </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="org.app.core.components" />
-    </key>
   </component>
   <component name="RunManager" selected="Application.RenderingTest">
     <configuration name="LoggerTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -128,7 +118,7 @@
       <module name="javaengine.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.app.core.data.shader.*" />
+          <option name="PATTERN" value="org.app.core.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -151,10 +141,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.WindowManager" />
         <item itemvalue="Application.RenderingTest" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.WindowManager" />
         <item itemvalue="Application.LoggerTest" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
