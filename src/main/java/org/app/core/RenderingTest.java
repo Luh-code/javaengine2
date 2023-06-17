@@ -1,9 +1,12 @@
 package org.app.core;
 
+import glm_.mat4x4.Mat4;
+import glm_.mat4x4.Mat4d;
 import glm_.vec2.Vec2;
 import glm_.vec2.Vec2i;
 import glm_.vec3.Vec3;
 import glm_.vec4.Vec4;
+import glm_.*;
 import org.app.core.components.Actor;
 import org.app.core.data.Material;
 import org.app.core.data.Mesh;
@@ -22,11 +25,14 @@ import org.lwjgl.opengl.GL;
 import java.io.File;
 
 import static java.lang.Math.sin;
+import static java.lang.Math.toRadians;
 import static org.app.utils.Logger.*;
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL42.*;
 
 public class RenderingTest {
+    final static glm glmi = glm.INSTANCE;
+
     public static void main(String[] args) {
         // Set up logger
         Logger.activateLoggingToFile("logs/", true);
@@ -157,11 +163,24 @@ public class RenderingTest {
             File fragmentShaderFile = new File("src/main/resources/shader/testShader.frag");
             Shader fragmentShader = new Shader(ShaderType.SHADER_TYPE_FRAGMENT, fragmentShaderFile);
             shaderProgram = new ShaderProgram(vertexShader, fragmentShader, (rs, sp) -> {
+                //
                 float timeValue = (float) glfwGetTime();
-                float greenValue = (float) ((sin(timeValue) / 2.0f) + 0.5f);
-                //sp.setFloat4("myColor", new Vec4(0.0f, greenValue, 0.0f, 1.0f));
                 sp.setInt("texture1", 0);
                 sp.setInt("texture2", 1);
+
+                Mat4 model = new Mat4(1.0f);
+                model = glmi.rotate(model,
+                        (float)toRadians(-55.0f), new Vec3(1.0f, 0.0f, 0.0f));
+
+                Mat4 view = new Mat4(1.0f);
+                view = glmi.translate(view, new Vec3(0.0f, 0.0f, -3.0f));
+
+                Mat4 projection = glmi.perspective((float) toRadians(45.0f),
+                        1280.0f/720.0f, 0.1f, 100.0f);
+
+                sp.setMat4("model", model);
+                sp.setMat4("view", view);
+                sp.setMat4("projection", projection);
             });
         }
 

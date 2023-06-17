@@ -1,5 +1,14 @@
 package org.app.core.data.shader;
 
+import glm_.mat2x2.Mat2;
+import glm_.mat2x3.Mat2x3;
+import glm_.mat2x4.Mat2x4;
+import glm_.mat3x2.Mat3x2;
+import glm_.mat3x3.Mat3;
+import glm_.mat3x4.Mat3x4;
+import glm_.mat4x2.Mat4x2;
+import glm_.mat4x3.Mat4x3;
+import glm_.mat4x4.Mat4;
 import glm_.vec2.Vec2;
 import glm_.vec2.Vec2i;
 import glm_.vec2.Vec2ui;
@@ -137,12 +146,56 @@ public class ShaderProgram implements AutoCloseable {
         glUniform4ui(position, value.getX().toInt(), value.getY().toInt(), value.getZ().toInt(), value.getW().toInt());
     }
 
+    public void setMat2(String name, Mat2 value)
+    {
+        int position = getUniformLocation(name);
+        glUniformMatrix2fv(position, false, value.toFloatArray());
+    }
+    public void setMat3(String name, Mat3 value)
+    {
+        int position = getUniformLocation(name);
+        glUniformMatrix3fv(position, false, value.toFloatArray());
+    }
+    public void setMat4(String name, Mat4 value)
+    {
+        int position = getUniformLocation(name);
+        glUniformMatrix4fv(position, false, value.toFloatArray());
+    }
+    public void setMat2x3(String name, Mat2x3 value)
+    {
+        int position = getUniformLocation(name);
+        glUniformMatrix2x3fv(position, false, value.toFloatArray());
+    }
+    public void setMat3x2(String name, Mat3x2 value)
+    {
+        int position = getUniformLocation(name);
+        glUniformMatrix3x2fv(position, false, value.toFloatArray());
+    }
+    public void setMat2x4(String name, Mat2x4 value)
+    {
+        int position = getUniformLocation(name);
+        glUniformMatrix2x4fv(position, false, value.toFloatArray());
+    }
+    public void setMat4x2(String name, Mat4x2 value)
+    {
+        int position = getUniformLocation(name);
+        glUniformMatrix4x2fv(position, false, value.toFloatArray());
+    }
+    public void setMat3x4(String name, Mat3x4 value)
+    {
+        int position = getUniformLocation(name);
+        glUniformMatrix3x4fv(position, false, value.toFloatArray());
+    }
+    public void setMat4x3(String name, Mat4x3 value)
+    {
+        int position = getUniformLocation(name);
+        glUniformMatrix4x3fv(position, false, value.toFloatArray());
+    }
+
     /*
      TODO: Implement wrappers for glUniform1fv, glUniform2fv, glUniform3fv, glUniform4fv,
         glUniform1iv, glUniform2iv, glUniform3iv, glUniform4iv, glUniform1uiv, glUniform2uiv,
-        glUniform3uiv, glUniform4uiv, glUniformMatrix2fv, glUniformMatrix3fv, glUniformMatrix4fv,
-        glUniformMatrix2x3fv, glUniformMatrix3x2fv, glUniformMatrix2x4fv, glUniformMatrix4x2fv,
-        glUniformMatrix3x4fv, glUniformMatrix4x3fv
+        glUniform3uiv, glUniform4uiv
      */
 
     public void updateUniforms(RenderSystem renderSystem)
