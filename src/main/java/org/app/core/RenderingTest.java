@@ -169,14 +169,16 @@ public class RenderingTest {
                 "src/main/resources/textures/wall.jpg",
                 new Vec2i(GL_REPEAT, GL_REPEAT),
                 new Vec2i(GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR),
-                GL_TEXTURE0
+                GL_TEXTURE0,
+                false
         );
         ecs.setResource("wallTexture", wallTexture);
         Texture wallTexture2 = new Texture(
                 "src/main/resources/textures/wall2.jpg",
                 new Vec2i(GL_REPEAT, GL_REPEAT),
                 new Vec2i(GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR),
-                GL_TEXTURE1
+                GL_TEXTURE1,
+                false
         );
         ecs.setResource("wallTexture2", wallTexture2);
 

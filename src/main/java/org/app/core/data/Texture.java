@@ -40,7 +40,7 @@ public class Texture {
     private int textureUnit;
     public static int maxTextureUnits = 16;
 
-    public Texture(String file, Vec2i wrap, Vec2i filter, int textureUnit) {
+    public Texture(String file, Vec2i wrap, Vec2i filter, int textureUnit, boolean flipped) {
         setWrap(wrap);
         setFilter(filter);
         setTextureUnit(textureUnit);
@@ -61,6 +61,7 @@ public class Texture {
             IntBuffer h = stack.mallocInt(1);
             IntBuffer comp = stack.mallocInt(1);
 
+            stbi_set_flip_vertically_on_load(flipped);
             image = stbi_load(file, w, h, comp, 3);
 
 //            // Use info to read image metadata without decoding the entire image.
