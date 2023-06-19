@@ -8,6 +8,7 @@ import glm_.vec3.Vec3;
 import glm_.vec4.Vec4;
 import glm_.*;
 import org.app.core.components.Actor;
+import org.app.core.components.Camera;
 import org.app.core.data.Material;
 import org.app.core.data.Mesh;
 import org.app.core.data.Texture;
@@ -213,23 +214,38 @@ public class RenderingTest {
             File fragmentShaderFile = new File("src/main/resources/shader/testShader.frag");
             Shader fragmentShader = new Shader(ShaderType.SHADER_TYPE_FRAGMENT, fragmentShaderFile);
             shaderProgram = new ShaderProgram(vertexShader, fragmentShader, (rs, sp) -> {
-                //
+                // Get entity and variable for easier access
+                Entity entity = rs.getCurrentEntity();
+                Actor actor = ecs.getComponent(Actor.class, entity);
+                Camera camera = ecs.getComponent(Camera.class, rs.getCurrentCamera());
+
+                // Get time for animations
                 float timeValue = (float) glfwGetTime();
+
+                // Set texture uniforms
                 sp.setInt("texture1", 0);
                 sp.setInt("texture2", 1);
 
+                // Model-View-Projection
+                Vec3 adjustedTranslation = actor.getTranslation().plus(camera.getTranslation());
+                Vec4 adjustedRotation = actor.getRotation().
+
                 Mat4 model = new Mat4(1.0f);
-                model = glmi.rotate(model,
-                        timeValue * (float)toRadians(50.0f), new Vec3(0.5f, 1.0f, 0.0f));
+//                model = glmi.rotate(model,
+//                        timeValue * (float)toRadians(50.0f), new Vec3(0.5f, 1.0f, 0.0f));
+                model = glmi.rotate(model, actor.getRotation().getX(), new Vec3(1.0f, 0.0f, 0.0f));
+                model = glmi.rotate(model, actor.getRotation().getY(), new Vec3(0.0f, 1.0f, 0.0f));
+                model = glmi.rotate(model, actor.getRotation().getZ(), new Vec3(0.0f, 0.0f, 1.0f));
 
                 Mat4 view = new Mat4(1.0f);
-                view = glmi.translate(view, new Vec3(0.0f, 0.0f, -3.0f));
+                view = glmi.translate(view, actor.getTranslation());
 
                 Mat4 projection = glmi.perspective((float) toRadians(45.0f),
                         (float)GLManager.getScreenSize().getX()/(float)GLManager.getScreenSize().getY(),
                         0.1f, 100.0f
                 );
 
+                // Set Model-View-Projection uniforms
                 sp.setMat4("model", model);
                 sp.setMat4("view", view);
                 sp.setMat4("projection", projection);
@@ -264,13 +280,24 @@ public class RenderingTest {
         Entity cube = ecs.createEntity();
 
         Actor a = new Actor(
-                new Vec3(.0, .0, .0),
+                new Vec3(.0, .0, -3.0),
                 new Vec4(.0, .0, .0, .0),
                 ecs.getResource("cubeMesh", Mesh.class),
                 ecs.getResource("cubeMaterial", Material.class)
         );
 
         ecs.addComponent(cube, a);
+
+        Entity camera = ecs.createEntity();
+
+        Camera c = new Camera(
+                new Vec3(.0f, .0f, .0f),
+                new Vec4(.0f, .0f, .0f, .0f),
+                (float)toRadians(90.0f)
+        );
+
+        ecs.addComponent(camera, c);
+        renderSystem.setCurrentCamera(camera);
         outsetLog();
 
         outsetLog();

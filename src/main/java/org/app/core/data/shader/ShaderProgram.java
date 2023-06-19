@@ -216,6 +216,14 @@ public class ShaderProgram implements AutoCloseable {
         return fragmentShader;
     }
 
+    public BiConsumer<RenderSystem, ShaderProgram> getUniformUpdater() {
+        return uniformUpdater;
+    }
+
+    public void setUniformUpdater(BiConsumer<RenderSystem, ShaderProgram> uniformUpdater) {
+        this.uniformUpdater = uniformUpdater;
+    }
+
     @Override
     public void close() throws Exception {
         glDeleteProgram(shaderProgram);

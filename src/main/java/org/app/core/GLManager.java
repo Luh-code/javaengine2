@@ -72,7 +72,7 @@ public class GLManager {
 
         // Make the OPENGL context current
         glfwMakeContextCurrent(window);
-        glfwSetFramebufferSizeCallback(window, GLManager::framebuffer_size_callback);
+        glfwSetFramebufferSizeCallb﻿ack(window, GLManager::framebuffer_size_callback);
         // Enable V-Sync
         glfwSwapInterval(1);
 

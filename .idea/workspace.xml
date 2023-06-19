@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="added a spinning cube with correct uvs as demo">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="added dynamic window scale">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/GLManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/GLManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/RenderSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/RenderSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/components/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/components/Camera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/data/shader/ShaderProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/data/shader/ShaderProgram.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -429,7 +431,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687004597782</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="added dynamic window scale">
+      <created>1687006187323</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1687006187323</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -444,7 +453,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Some HexHelper stuff" />
     <MESSAGE value="Finished Hello Triangle application" />
     <MESSAGE value="Fixed a few warnings" />
     <MESSAGE value="Added ECS" />
@@ -469,7 +477,8 @@
     <MESSAGE value="Added multi-texture support through texture units" />
     <MESSAGE value="added model, view, and projection matrices" />
     <MESSAGE value="added a spinning cube with correct uvs as demo" />
-    <option name="LAST_COMMIT_MESSAGE" value="added a spinning cube with correct uvs as demo" />
+    <MESSAGE value="added dynamic window scale" />
+    <option name="LAST_COMMIT_MESSAGE" value="added dynamic window scale" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

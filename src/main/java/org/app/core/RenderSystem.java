@@ -15,6 +15,8 @@ import static org.lwjgl.opengl.GL42.*;
 
 public class RenderSystem extends System {
     private ECS ecs;
+    private Entity currentEntity;
+    private Entity currentCamera;
 
     public RenderSystem(ECS ecs) {
         this.ecs = ecs;
@@ -22,12 +24,11 @@ public class RenderSystem extends System {
 
     /**
      * Rendering function for forward rendering based on depth buffer information
-     * @param e The entity to be drawn. Any entity that is passed in here is assumed to have an Actor component
      */
-    private void drawElement(Entity e)
+    private void drawElement()
     {
         // Set up references for eoa
-        Actor actor = ecs.getComponent(Actor.class, e);
+        Actor actor = ecs.getComponent(Actor.class, currentEntity);
         Mesh mesh = actor.getMesh();
         Material material = actor.getMaterial();
         ShaderProgram shaderProgram = material.getShaderProgram();
@@ -86,13 +87,28 @@ public class RenderSystem extends System {
 
         for (Entity entity :
                 entities) {
-            drawElement(entity);
+            currentEntity = entity;
+            drawElement();
         }
 
         glfwSwapBuffers(window); // swap the color buffers
 
         // Poll for all new events
         glfwPollEvents();
+
+        currentEntity = null;
+    }
+
+    public Entity getCurrentEntity() {
+        return currentEntity;
+    }
+
+    public Entity getCurrentCamera() {
+        return currentCamera;
+    }
+
+    public void setCurrentCamera(Entity currentCamera) {
+        this.currentCamera = currentCamera;
     }
 
     public ECS getEcs() {
