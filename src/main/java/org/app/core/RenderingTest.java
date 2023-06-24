@@ -349,11 +349,19 @@ public class RenderingTest {
         Logger.deactivateLoggingToFile();
     }
 
+    private static float lastX = 640;
+    private static float lastY = 310;
+
+    private static float yaw = 0.0f;
+    private static float pitch = 0.0f;
+    private static boolean firstMouse = true;
+
     private static void processInput(long window, RenderSystem rs) {
-        float cameraSpeed = 10.0f;
+        float cameraSpeed = 10.0f * rs.getFrameDelta();
 
         Camera c = rs.getEcs().getComponent(Camera.class, rs.getCurrentCamera());
 
+        // Get keyboard input
         Vec3 translation = new Vec3(0.0f, 0.0f, 0.0f);
 
         if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
@@ -372,8 +380,38 @@ public class RenderingTest {
             c.lookAt(new Vec3(0.0f, 0.0f, 0.0f));
         }
 
-        translation = translation.times(rs.getFrameDelta());
-        Logger.logDebug(rs.getFrameDelta() + "");
+        // Get Mouse Input
+        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+        glfwSetCursorPosCallback(window, (handle, xpos, ypos) -> {
+            if (firstMouse) {
+                lastX = (float)xpos;
+                lastY = (float)ypos;
+                firstMouse = false;
+            }
+
+            float xoffset = (float)xpos - lastX;
+            float yoffset = lastY - (float)ypos;
+            lastX = (float)xpos;
+            lastY = (float)ypos;
+
+            float sensitivity = 0.3f;
+            xoffset *= sensitivity;
+            yoffset *= sensitivity;
+            yaw += xoffset;
+            pitch += yoffset;
+        });
+
+        if (pitch > 89.0f)
+            pitch = 89.0f;
+        if (pitch < -89.0f)
+            pitch = -89.0f;
+
+        // Assign computed values
+        Vec3 direction = new Vec3();
+        direction.setX((float)cos(toRadians(yaw)) * (float)cos(toRadians(pitch)));
+        direction.setY((float)sin(toRadians(pitch)));
+        direction.setZ((float)sin(toRadians(yaw)) * (float)cos(toRadians(pitch)));
+        c.setFront(direction.normalize());
 
         c.setTranslation(c.getTranslation().plus(translation));
         //c.setTarget(c.getTranslation().plus(c.getFront()));

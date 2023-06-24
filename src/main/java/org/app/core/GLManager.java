@@ -47,8 +47,10 @@ public class GLManager {
 
         // Set up a key callback to exit when key is pressed
         glfwSetKeyCallback(window, (wnd, key, scancode, action, mods) -> {
-            if ( key == GLFW_KEY_ESCAPE && action == GLFW_RELEASE )
+            if ( key == GLFW_KEY_ESCAPE && action == GLFW_RELEASE ) {
                 glfwSetWindowShouldClose(wnd, true);
+                glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+            }
         });
 
         // Get thread stack and push a new frame
@@ -72,7 +74,7 @@ public class GLManager {
 
         // Make the OPENGL context current
         glfwMakeContextCurrent(window);
-        glfwSetFramebufferSizeCallb﻿ack(window, GLManager::framebuffer_size_callback);
+        glfwSetFramebufferSizeCallback(window, GLManager::framebuffer_size_callback);
         // Enable V-Sync
         glfwSwapInterval(1);
 
