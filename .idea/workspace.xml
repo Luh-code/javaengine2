@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="Added camera turning">
+    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="Added IInputProtocol w. inline documentation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,9 +37,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -459,7 +459,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687609782077</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Added IInputProtocol w. inline documentation">
+      <created>1687613152218</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1687613152218</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -474,7 +481,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added Mesh, Material, Texture, Vertex, Actor and Camera" />
     <MESSAGE value="Removed Generic Resources and Components, tested ECS, updated logger to have support for insets, added RenderingSystem(WIP)" />
     <MESSAGE value="Added GLManager and RenderingSystem, added Indexed draw calls" />
     <MESSAGE value="Added rendering modes to RenderSystem.java, added cleanup after completion, cleaned up console" />
@@ -499,7 +505,8 @@
     <MESSAGE value="added Camera functionality, added lookAt" />
     <MESSAGE value="added key input and delta correction" />
     <MESSAGE value="Added camera turning" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added camera turning" />
+    <MESSAGE value="Added IInputProtocol w. inline documentation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added IInputProtocol w. inline documentation" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
