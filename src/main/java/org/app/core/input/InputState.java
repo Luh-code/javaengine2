@@ -1,7 +1,8 @@
 package org.app.core.input;
 
 public enum InputState {
-    PRESSED,
+    NONE,
+    TRIGGERED,
     RELEASED,
     ANALOG;
 
