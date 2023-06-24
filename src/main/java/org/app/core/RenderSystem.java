@@ -1,6 +1,7 @@
 package org.app.core;
 
 import org.app.core.components.Actor;
+import org.app.core.components.Camera;
 import org.app.core.data.Material;
 import org.app.core.data.Mesh;
 import org.app.core.data.Texture;
@@ -84,6 +85,9 @@ public class RenderSystem extends System {
     public void render(long window)
     {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear the framebuffer
+
+        Camera c = ecs.getComponent(Camera.class, getCurrentCamera());
+        c.updateCamera();
 
         for (Entity entity :
                 entities) {

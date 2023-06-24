@@ -25,8 +25,7 @@ import org.lwjgl.opengl.GL;
 
 import java.io.File;
 
-import static java.lang.Math.sin;
-import static java.lang.Math.toRadians;
+import static java.lang.Math.*;
 import static org.app.utils.Logger.*;
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL42.*;
@@ -68,6 +67,7 @@ public class RenderingTest {
         ecs.registerResourceType_s(Material.class);
         ecs.registerResourceType_s(Texture.class);
         ecs.registerComponent_s(Actor.class);
+        ecs.registerComponent_s(Camera.class);
 
         // Register Systems
         RenderSystem renderSystem = ecs.registerSystem_s(RenderSystem.class, ecs);
@@ -227,18 +227,17 @@ public class RenderingTest {
                 sp.setInt("texture2", 1);
 
                 // Model-View-Projection
-                Vec3 adjustedTranslation = actor.getTranslation().plus(camera.getTranslation());
-                Vec4 adjustedRotation = actor.getRotation().
-
                 Mat4 model = new Mat4(1.0f);
 //                model = glmi.rotate(model,
 //                        timeValue * (float)toRadians(50.0f), new Vec3(0.5f, 1.0f, 0.0f));
                 model = glmi.rotate(model, actor.getRotation().getX(), new Vec3(1.0f, 0.0f, 0.0f));
                 model = glmi.rotate(model, actor.getRotation().getY(), new Vec3(0.0f, 1.0f, 0.0f));
                 model = glmi.rotate(model, actor.getRotation().getZ(), new Vec3(0.0f, 0.0f, 1.0f));
+                model = glmi.translate(model, actor.getTranslation());
 
                 Mat4 view = new Mat4(1.0f);
-                view = glmi.translate(view, actor.getTranslation());
+                //view = glmi.translate(view, actor.getTranslation());
+                view = camera.getLookAt();
 
                 Mat4 projection = glmi.perspective((float) toRadians(45.0f),
                         (float)GLManager.getScreenSize().getX()/(float)GLManager.getScreenSize().getY(),
@@ -280,7 +279,7 @@ public class RenderingTest {
         Entity cube = ecs.createEntity();
 
         Actor a = new Actor(
-                new Vec3(.0, .0, -3.0),
+                new Vec3(.0, .0, 0.0),
                 new Vec4(.0, .0, .0, .0),
                 ecs.getResource("cubeMesh", Mesh.class),
                 ecs.getResource("cubeMaterial", Material.class)
@@ -288,12 +287,25 @@ public class RenderingTest {
 
         ecs.addComponent(cube, a);
 
+        Entity cube2 = ecs.createEntity();
+
+        Actor a2 = new Actor(
+                new Vec3(.0, .0, -2.0),
+                new Vec4(.0, .0, .0, .0),
+                ecs.getResource("cubeMesh", Mesh.class),
+                ecs.getResource("cubeMaterial", Material.class)
+        );
+
+        ecs.addComponent(cube2, a2);
+
         Entity camera = ecs.createEntity();
 
         Camera c = new Camera(
-                new Vec3(.0f, .0f, .0f),
+                new Vec3(0.0f, 0.0f, 3.0f),
                 new Vec4(.0f, .0f, .0f, .0f),
-                (float)toRadians(90.0f)
+                a.getTranslation(),
+                (float)toRadians(90.0f),
+                new Vec3(0.0f, 1.0f, 0.0f)
         );
 
         ecs.addComponent(camera, c);
@@ -313,6 +325,12 @@ public class RenderingTest {
 
         // Main loop
         while ( !glfwWindowShouldClose(window) ) {
+            float timeValue = (float) glfwGetTime();
+            float radius = 10.0f;
+            float camX = (float) sin(timeValue) * radius;
+            float camZ = (float) cos(timeValue) * radius;
+            c.setTranslation(new Vec3(camX, 0.0f, camZ));
+
             renderSystem.render(window);
         }
 

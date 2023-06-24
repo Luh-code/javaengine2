@@ -6,11 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="added dynamic window scale">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/GLManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/GLManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/RenderSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/RenderSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/components/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/components/Camera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/data/shader/ShaderProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/data/shader/ShaderProgram.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
