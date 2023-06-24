@@ -9,18 +9,20 @@ public class Camera extends Component {
     private Vec3 translation;
     private Vec3 target;
     private Vec3 direction;
+    private Vec3 front;
     private Vec4 rotation;
     private Vec3 upDirection;
     private Vec3 right;
     private Vec3 up;
     private float fov;
 
-    public Camera(Vec3 translation, Vec4 rotation, Vec3 target, float fov, Vec3 upDirection) {
+    public Camera(Vec3 translation, Vec4 rotation, Vec3 target, float fov, Vec3 upDirection, Vec3 front) {
         this.translation = translation;
         this.rotation = rotation;
         this.target = target;
         this.fov = fov;
         this.upDirection = upDirection;
+        this.front = front;
     }
 
     public void updateCamera() {
@@ -29,9 +31,13 @@ public class Camera extends Component {
         up = direction.cross(right);
     }
 
+    public void lookAt(Vec3 t) {
+        front = t.minus(translation).normalize();
+    }
+
     public Mat4 getLookAt() {
         glm glmi = glm.INSTANCE;
-        return glmi.lookAt(translation, target, upDirection);
+        return glmi.lookAt(translation, translation.plus(front), upDirection);
     }
 
     public Vec3 getTranslation() {
@@ -96,5 +102,13 @@ public class Camera extends Component {
 
     public void setFov(float fov) {
         this.fov = fov;
+    }
+
+    public Vec3 getFront() {
+        return front;
+    }
+
+    public void setFront(Vec3 front) {
+        this.front = front;
     }
 }

@@ -18,6 +18,8 @@ public class RenderSystem extends System {
     private ECS ecs;
     private Entity currentEntity;
     private Entity currentCamera;
+    private float frameDelta = 0.0f;
+    private float lastFrame = 0.0f;
 
     public RenderSystem(ECS ecs) {
         this.ecs = ecs;
@@ -84,6 +86,7 @@ public class RenderSystem extends System {
      */
     public void render(long window)
     {
+        //float frameBegin = (float)glfwGetTime();
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear the framebuffer
 
         Camera c = ecs.getComponent(Camera.class, getCurrentCamera());
@@ -101,6 +104,9 @@ public class RenderSystem extends System {
         glfwPollEvents();
 
         currentEntity = null;
+        float currentFrame = (float)glfwGetTime();
+        frameDelta = currentFrame - lastFrame;
+        lastFrame = currentFrame;
     }
 
     public Entity getCurrentEntity() {
@@ -122,5 +128,9 @@ public class RenderSystem extends System {
     public void setEcs(ECS ecs) {
         // TODO: When changing to a different ECS, the entity set of the RenderSystem should be cleared and repopulated with entities from the new ECS
         this.ecs = ecs;
+    }
+
+    public float getFrameDelta() {
+        return frameDelta;
     }
 }

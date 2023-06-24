@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="added dynamic window scale">
+    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="added Camera functionality, added lookAt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/RenderSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/RenderSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" afterDir="false" />
@@ -436,7 +436,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687006187323</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="added Camera functionality, added lookAt">
+      <created>1687597029256</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1687597029256</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -451,7 +458,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Finished Hello Triangle application" />
     <MESSAGE value="Fixed a few warnings" />
     <MESSAGE value="Added ECS" />
     <MESSAGE value="Added Mesh, Material, Texture, Vertex, Actor and Camera" />
@@ -476,7 +482,8 @@
     <MESSAGE value="added model, view, and projection matrices" />
     <MESSAGE value="added a spinning cube with correct uvs as demo" />
     <MESSAGE value="added dynamic window scale" />
-    <option name="LAST_COMMIT_MESSAGE" value="added dynamic window scale" />
+    <MESSAGE value="added Camera functionality, added lookAt" />
+    <option name="LAST_COMMIT_MESSAGE" value="added Camera functionality, added lookAt" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

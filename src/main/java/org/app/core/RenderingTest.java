@@ -305,7 +305,8 @@ public class RenderingTest {
                 new Vec4(.0f, .0f, .0f, .0f),
                 a.getTranslation(),
                 (float)toRadians(90.0f),
-                new Vec3(0.0f, 1.0f, 0.0f)
+                new Vec3(0.0f, 1.0f, 0.0f),
+                new Vec3(0.0f, 0.0f, -1.0f)
         );
 
         ecs.addComponent(camera, c);
@@ -325,11 +326,7 @@ public class RenderingTest {
 
         // Main loop
         while ( !glfwWindowShouldClose(window) ) {
-            float timeValue = (float) glfwGetTime();
-            float radius = 10.0f;
-            float camX = (float) sin(timeValue) * radius;
-            float camZ = (float) cos(timeValue) * radius;
-            c.setTranslation(new Vec3(camX, 0.0f, camZ));
+            processInput(window, renderSystem);
 
             renderSystem.render(window);
         }
@@ -350,5 +347,35 @@ public class RenderingTest {
 
         // Shut down logger
         Logger.deactivateLoggingToFile();
+    }
+
+    private static void processInput(long window, RenderSystem rs) {
+        float cameraSpeed = 10.0f;
+
+        Camera c = rs.getEcs().getComponent(Camera.class, rs.getCurrentCamera());
+
+        Vec3 translation = new Vec3(0.0f, 0.0f, 0.0f);
+
+        if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
+            translation = translation.plus(c.getFront().times(cameraSpeed));
+        }
+        if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
+            translation = translation.minus(c.getFront().times(cameraSpeed));
+        }
+        if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
+            translation = translation.minus(c.getFront().cross(c.getUpDirection()).normalize().times(cameraSpeed));
+        }
+        if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
+            translation = translation.plus(c.getFront().cross(c.getUpDirection()).normalize().times(cameraSpeed));
+        }
+        if (glfwGetKey(window, GLFW_KEY_T) == GLFW_PRESS) {
+            c.lookAt(new Vec3(0.0f, 0.0f, 0.0f));
+        }
+
+        translation = translation.times(rs.getFrameDelta());
+        Logger.logDebug(rs.getFrameDelta() + "");
+
+        c.setTranslation(c.getTranslation().plus(translation));
+        //c.setTarget(c.getTranslation().plus(c.getFront()));
     }
 }
