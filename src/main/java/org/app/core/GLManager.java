@@ -45,12 +45,12 @@ public class GLManager {
             Logger.logAndThrow("Failed to create GLFW window", RuntimeException.class);
 
         // Set up a key callback to exit when key is pressed
-        glfwSetKeyCallback(window, (wnd, key, scancode, action, mods) -> {
-            if ( key == GLFW_KEY_ESCAPE && action == GLFW_RELEASE ) {
-                glfwSetWindowShouldClose(wnd, true);
-                glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
-            }
-        });
+//        glfwSetKeyCallback(window, (wnd, key, scancode, action, mods) -> {
+//            if ( key == GLFW_KEY_ESCAPE && action == GLFW_RELEASE ) {
+//                glfwSetWindowShouldClose(wnd, true);
+//                glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+//            }
+//        });
 
         // Get thread stack and push a new frame
         try ( MemoryStack stack = stackPush() ) {

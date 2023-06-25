@@ -27,7 +27,7 @@ public class InputModule {
             Logger.logWarn("Re-registering input alias '" + inputAlias
                     + "' (analog=" + analog + ")");
         inputAliases.put(inputAlias, ++nextID);
-        revInputAliases.put(++nextID, inputAlias);
+        revInputAliases.put(nextID, inputAlias);
         InputState state = (analog ? InputState.ANALOG : InputState.RELEASED);
 //        state.setInputTick(inputTick);
         state.setValue(0.0f);

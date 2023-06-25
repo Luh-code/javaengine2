@@ -19,10 +19,9 @@ public class InputManager {
     public InputManager(int portCount) {
         this.inputModule = new InputModule();
         this.ports = new InputPort[portCount];
-        for (InputPort port :
-                ports) {
-            port = new InputPort();
-            HexHelper.connect_module(port, inputModule);
+        for (int i = 0; i < ports.length; ++i) {
+            ports[i] = new InputPort();
+            HexHelper.connect_module(ports[i], inputModule);
         }
         this.initialitzed = new BitSet(portCount);
     }
@@ -75,7 +74,7 @@ public class InputManager {
     public void initialize() {
         for (int i = 0; i < ports.length; ++i) {
             InputPort port = ports[i];
-            if ( port == null || !initialitzed.get(i) ) continue;
+            if ( port == null || initialitzed.get(i) ) continue;
             port.initialize();
             int test = port.test();
             if ( test > 0 )

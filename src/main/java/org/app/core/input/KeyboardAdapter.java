@@ -29,7 +29,7 @@ public class KeyboardAdapter extends Adapter<IInputProtocol> implements IInputPr
 
     @Override
     public void releaseInput(int id) {
-        getPort().triggerInput(id);
+        getPort().releaseInput(id);
     }
 
     @Override
@@ -44,7 +44,7 @@ public class KeyboardAdapter extends Adapter<IInputProtocol> implements IInputPr
         ArrayList<String> aliases1 = new ArrayList<>();
         for (Field f :
                 allFields) {
-            if ( f.getName().startsWith("GLFW_KEY") && f.getType() == Integer.class ) {
+            if ( f.getName().startsWith("GLFW_KEY") && f.getType() == int.class ) {
                 try {
                     keys1.add(f.getInt(GLFW.class));
                     aliases1.add(f.getName().substring(5));
@@ -65,7 +65,7 @@ public class KeyboardAdapter extends Adapter<IInputProtocol> implements IInputPr
         long window = GLManager.getWindow();
         glfwSetKeyCallback(window, (wnd, key, scancode, action, mods) -> {
             for (int i = 0; i < keys.length; ++i) {
-                if (key == keys[i]) {
+                if ( key == keys[i] ) {
                     switch (action) {
                         case GLFW_PRESS -> {
                             triggerInput(inputs[i]);

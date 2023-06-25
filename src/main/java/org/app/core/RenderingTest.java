@@ -16,6 +16,10 @@ import org.app.core.data.Vertex;
 import org.app.core.data.shader.Shader;
 import org.app.core.data.shader.ShaderProgram;
 import org.app.core.data.shader.ShaderType;
+import org.app.core.input.Action;
+import org.app.core.input.InputManager;
+import org.app.core.input.InputModule;
+import org.app.core.input.KeyboardAdapter;
 import org.app.ecs.ECS;
 import org.app.ecs.Entity;
 import org.app.ecs.Signature;
@@ -31,7 +35,8 @@ import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL42.*;
 
 public class RenderingTest {
-    final static glm glmi = glm.INSTANCE;
+    private final static glm glmi = glm.INSTANCE;
+    private static InputModule inputModule;
 
     public static void main(String[] args) {
         // Set up logger
@@ -53,6 +58,35 @@ public class RenderingTest {
 
         outsetLog();
         logInfo("OpenGL and GLFW set up successfully");
+
+        logInfo("Setting up inputs...");
+        insetLog();
+
+        // Create Input Manager
+        InputManager manager = new InputManager(1);
+        manager.plugInAdapter(0, new KeyboardAdapter());
+        manager.initialize();
+        inputModule = manager.getInputModule();
+
+        // Set up actions
+        inputModule.registerAction("Exit", new Action(new int[] {
+                inputModule.getInputID("KEY_ESCAPE")
+        }));
+        inputModule.registerAction("Forwards", new Action(new int[] {
+                inputModule.getInputID("KEY_W")
+        }));
+        inputModule.registerAction("Backwards", new Action(new int[] {
+                inputModule.getInputID("KEY_S")
+        }));
+        inputModule.registerAction("Left", new Action(new int[] {
+                inputModule.getInputID("KEY_A")
+        }));
+        inputModule.registerAction("Right", new Action(new int[] {
+                inputModule.getInputID("KEY_D")
+        }));
+
+        outsetLog();
+        logInfo("Inputs set up successfully");
 
         logInfo("Setting up scene...");
         insetLog();
@@ -359,24 +393,31 @@ public class RenderingTest {
     private static void processInput(long window, RenderSystem rs) {
         float cameraSpeed = 10.0f * rs.getFrameDelta();
 
+        inputModule.tick();
+
+        if ( inputModule.isActionTriggered("Exit") ) {
+            glfwSetWindowShouldClose(window, true);
+            glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+        }
+
         Camera c = rs.getEcs().getComponent(Camera.class, rs.getCurrentCamera());
 
         // Get keyboard input
         Vec3 translation = new Vec3(0.0f, 0.0f, 0.0f);
 
-        if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
+        if ( inputModule.isActionTriggered("Forwards") ) {
             translation = translation.plus(c.getFront().times(cameraSpeed));
         }
-        if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
+        if ( inputModule.isActionTriggered("Backwards") ) {
             translation = translation.minus(c.getFront().times(cameraSpeed));
         }
-        if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
+        if ( inputModule.isActionTriggered("Left") ) {
             translation = translation.minus(c.getFront().cross(c.getUpDirection()).normalize().times(cameraSpeed));
         }
-        if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
+        if ( inputModule.isActionTriggered("Right") ) {
             translation = translation.plus(c.getFront().cross(c.getUpDirection()).normalize().times(cameraSpeed));
         }
-        if (glfwGetKey(window, GLFW_KEY_T) == GLFW_PRESS) {
+        if ( inputModule.isInputTriggered("KEY_T") ) {
             c.lookAt(new Vec3(0.0f, 0.0f, 0.0f));
         }
 

@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="Added more methods to InputModule and added Actions">
+    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="Added Keyboard adapter and InputManager">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/GLManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/GLManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/input/IInputProtocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/input/IInputProtocol.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/input/InputManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/input/InputManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/input/InputModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/input/InputModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/input/InputPort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/input/InputPort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/hexagonal/HexHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/hexagonal/HexHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/input/KeyboardAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/input/KeyboardAdapter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +99,7 @@
       <recent name="org.app" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.KeyboardAdapter">
+  <component name="RunManager" selected="Application.RenderingTest">
     <configuration name="KeyboardAdapter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.app.core.input.KeyboardAdapter" />
       <module name="javaengine.main" />
@@ -499,7 +499,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687628949371</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="Added Keyboard adapter and InputManager">
+      <created>1687683748438</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1687683748438</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -514,7 +521,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added rendering modes to RenderSystem.java, added cleanup after completion, cleaned up console" />
     <MESSAGE value="Made Mesh AutoClosable" />
     <MESSAGE value="Small adjustments" />
     <MESSAGE value="created Branch modularShaders" />
@@ -539,7 +545,19 @@
     <MESSAGE value="Added IInputProtocol w. inline documentation" />
     <MESSAGE value="Added InputPort, InputModule and InputState" />
     <MESSAGE value="Added more methods to InputModule and added Actions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added more methods to InputModule and added Actions" />
+    <MESSAGE value="Added Keyboard adapter and InputManager" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Keyboard adapter and InputManager" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/app/core/input/InputModule.java</url>
+          <line>106</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
