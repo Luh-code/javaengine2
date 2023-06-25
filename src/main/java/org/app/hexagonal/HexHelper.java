@@ -1,5 +1,7 @@
 package org.app.hexagonal;
 
+import org.app.ecs.ECSModule;
+import org.app.ecs.ECSPort;
 import org.app.utils.Logger;
 
 import java.lang.reflect.InvocationTargetException;
@@ -105,5 +107,10 @@ public class HexHelper {
     public static <M, A> void disconnect_module(Port<M, A> port)
     {
         port.setModule(null);
+    }
+
+    @SuppressWarnings("unused")
+    public static <M, A, P extends Port<M, A>> void link_module(P port, LinkedModule<P> module) {
+        module.setPort(port);
     }
 }

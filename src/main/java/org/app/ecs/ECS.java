@@ -358,7 +358,6 @@ public class ECS {
     }
 
     //--- Entity Manager ---
-
     public Entity createEntity() {
         return entityManager.createEntity();
     }

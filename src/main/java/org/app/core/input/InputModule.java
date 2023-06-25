@@ -5,9 +5,6 @@ import org.app.utils.Logger;
 
 import java.util.*;
 
-import static java.lang.Math.max;
-import static java.lang.Math.min;
-
 public class InputModule {
     private Map<String, Integer> inputAliases = new HashMap<>();
     private Map<Integer, String> revInputAliases = new HashMap<>();

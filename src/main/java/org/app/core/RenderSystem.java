@@ -6,6 +6,7 @@ import org.app.core.data.Material;
 import org.app.core.data.Mesh;
 import org.app.core.data.Texture;
 import org.app.core.data.shader.ShaderProgram;
+import org.app.ecs.ECSAdapter;
 import org.app.ecs.Entity;
 import org.app.ecs.ECS;
 import org.app.ecs.System;
@@ -15,13 +16,13 @@ import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL42.*;
 
 public class RenderSystem extends System {
-    private ECS ecs;
+    private ECSAdapter ecs;
     private Entity currentEntity;
     private Entity currentCamera;
     private float frameDelta = 0.0f;
     private float lastFrame = 0.0f;
 
-    public RenderSystem(ECS ecs) {
+    public RenderSystem(ECSAdapter ecs) {
         this.ecs = ecs;
     }
 
@@ -121,12 +122,12 @@ public class RenderSystem extends System {
         this.currentCamera = currentCamera;
     }
 
-    public ECS getEcs() {
+    public ECSAdapter getEcs() {
         return ecs;
     }
 
-    public void setEcs(ECS ecs) {
-        // TODO: When changing to a different ECS, the entity set of the RenderSystem should be cleared and repopulated with entities from the new ECS
+    public void setEcs(ECSAdapter ecs) {
+        // TODO: When changing to a different ECSAdapter, the entity set of the RenderSystem should be cleared and repopulated with entities from the new ECS
         this.ecs = ecs;
     }
 
