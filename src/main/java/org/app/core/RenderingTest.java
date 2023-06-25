@@ -1,7 +1,6 @@
 package org.app.core;
 
 import glm_.mat4x4.Mat4;
-import glm_.mat4x4.Mat4d;
 import glm_.vec2.Vec2;
 import glm_.vec2.Vec2i;
 import glm_.vec3.Vec3;
@@ -61,8 +60,8 @@ public class RenderingTest {
 
         // Create Input Manager
         InputManager manager = new InputManager(2);
-        manager.plugInAdapter(0, new KeyboardAdapter());
-        manager.plugInAdapter(1, new MouseAdapter());
+        manager.connectAdapter(0, new KeyboardAdapter());
+        manager.connectAdapter(1, new MouseAdapter());
         manager.initialize();
         inputModule = manager.getInputModule();
 

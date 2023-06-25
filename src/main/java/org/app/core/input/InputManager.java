@@ -26,7 +26,7 @@ public class InputManager {
         this.initialitzed = new BitSet(portCount);
     }
 
-    public void plugInAdapter(int port, Adapter<IInputProtocol> adapter) {
+    public void connectAdapter(int port, Adapter<IInputProtocol> adapter) {
         if ( port < 0 || port > ports.length ) {
             Logger.logError(String.format(
                     "Couldn't plug adapter '%s' into port(index) '%d', as it is out of range",
@@ -49,7 +49,7 @@ public class InputManager {
         this.initialitzed.set(port, false);
     }
 
-    public void unplugAdapter(int port) {
+    public void disconnectAdapter(int port) {
         if ( port < 0 || port > ports.length ) {
             Logger.logError(String.format(
                     "Couldn't unplug the adapter from port(index) '%d', as it is out of range",
