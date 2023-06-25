@@ -12,13 +12,13 @@ public interface IInputProtocol extends ControlledProtocol {
     int registerInput(String inputAlias, boolean analog);
 
     /**
-     * Triggers input of the input according to the ID. If input is already triggered, it will be reset to just pressed
+     * Triggers input of the input according to the ID. If input is already triggered, nothing will happen
      * @param id The id of the input to be triggered
      */
     void triggerInput(int id);
 
     /**
-     * Releases input of the input according to the ID. In input is already released, it will be reset to just released
+     * Releases input of the input according to the ID. In input is already released, nothing will happen
      * @param id The id of the input to be released
      */
     void releaseInput(int id);
@@ -29,4 +29,9 @@ public interface IInputProtocol extends ControlledProtocol {
      * @param value The new value for the analog input
      */
     void analogUpdate(int id, float value);
+
+    /**
+     * Initializes the adapter
+     */
+    void initialize();
 }

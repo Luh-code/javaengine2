@@ -8,7 +8,7 @@ import java.util.*;
 import static java.lang.Math.max;
 import static java.lang.Math.min;
 
-public class InputModule implements IInputProtocol {
+public class InputModule {
     private Map<String, Integer> inputAliases = new HashMap<>();
     private Map<Integer, String> revInputAliases = new HashMap<>();
     private Map<Integer, InputState> inputStates = new HashMap<>();
@@ -20,7 +20,6 @@ public class InputModule implements IInputProtocol {
     private Map<String, Action> actionAliases = new HashMap<>();
     private Map<Action, String> revActionAliases = new HashMap<>();
 
-    @Override
     public int registerInput(String inputAlias, boolean analog) {
         if( inputAlias == null )
             Logger.logAndThrow("Tried to register input with empty alias!", RuntimeException.class);
@@ -37,13 +36,14 @@ public class InputModule implements IInputProtocol {
         return nextID;
     }
 
-    @Override
     public void triggerInput(int id) {
         if ( !inputStates.containsKey(id) ) {
             Logger.logError("Tried to trigger input for invalid ID: '" + id + "'");
             return;
         }
         InputState state = inputStates.get(id);
+        if ( state == InputState.TRIGGERED )
+            return;
         if ( state != InputState.ANALOG )
             state = InputState.TRIGGERED;
         else
@@ -54,24 +54,24 @@ public class InputModule implements IInputProtocol {
         inputQueue.add(new Pair<>(id, state));
     }
 
-    @Override
     public void releaseInput(int id) {
         if ( !inputStates.containsKey(id)  ) {
             Logger.logError("Tried to release input for invalid ID: '" + id + "'");
             return;
         }
         InputState state = inputStates.get(id);
+        if ( state == InputState.RELEASED )
+            return;
         if ( state != InputState.ANALOG )
             state = InputState.RELEASED;
         else
-            Logger.logWarn("Tried to release analog input: '" + id + "', setting value to 0.0f");
+            Logger.logWarn("Tried to release analog input: '" + id + "', setting value to -1.0f");
 //        state.setInputTick(inputTick);
-        state.setValue(0.0f);
+        state.setValue(-1.0f);
 //        inputStates.put(id, state);
         inputQueue.add(new Pair<>(id, state));
     }
 
-    @Override
     public void analogUpdate(int id, float value) {
         if ( !inputStates.containsKey(id)  ) {
             Logger.logError("Tried to update analog input for invalid ID: '" + id + "'");
@@ -97,7 +97,6 @@ public class InputModule implements IInputProtocol {
         }
     }
 
-    @Override
     public int test() {
         return 0;
     }
@@ -157,7 +156,7 @@ public class InputModule implements IInputProtocol {
         if ( !inputStates.containsKey(id) )
             Logger.logAndThrow("Tried to retrieve analog input from invalid ID: '" + id + "'", RuntimeException.class);
         if ( inputStates.get(id) != InputState.ANALOG )
-            Logger.logWarn("Tried to retrieve analog input from binary input, returning 1.0f or 0.0f");
+            Logger.logWarn("Tried to retrieve analog input from binary input, returning 1.0f or -1.0f");
         return inputStates.get(id).getValue();
     }
 

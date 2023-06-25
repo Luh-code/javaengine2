@@ -3,7 +3,7 @@ package org.app.core.input;
 import org.app.hexagonal.Port;
 import org.app.hexagonal.test.IHelloWorldProtocol;
 
-public class InputPort extends Port<InputModule, IHelloWorldProtocol> implements IInputProtocol {
+public class InputPort extends Port<InputModule, IInputProtocol> implements IInputProtocol {
     @Override
     public int registerInput(String inputAlias, boolean analog) {
         return getModule().registerInput(inputAlias, analog);
@@ -22,6 +22,11 @@ public class InputPort extends Port<InputModule, IHelloWorldProtocol> implements
     @Override
     public void analogUpdate(int id, float value) {
         getModule().analogUpdate(id, value);
+    }
+
+    @Override
+    public void initialize() {
+        ((IInputProtocol)getAdapter()).initialize();
     }
 
     @Override

@@ -20,10 +20,9 @@ import static org.lwjgl.system.MemoryUtil.NULL;
 
 public class GLManager {
     private static Vec2i screenSize = new Vec2i(1280, 720);
+    private static long window;
 
     public static long init() {
-        long window;
-
         // Set error callback to Logger::logError
         GLFWErrorCallback.createPrint(Logger.getErrorStream()).set();
 
@@ -41,7 +40,7 @@ public class GLManager {
         Logger.logDebug("Using OpenGL 4.2");
 
         // Create window
-        window = glfwCreateWindow(1280, 720, "Java Engine", NULL, NULL);
+        window = glfwCreateWindow(screenSize.getX(), screenSize.getY(), "Java Engine", NULL, NULL);
         if ( window == NULL )
             Logger.logAndThrow("Failed to create GLFW window", RuntimeException.class);
 
@@ -139,5 +138,9 @@ public class GLManager {
 
     public static Vec2i getScreenSize() {
         return screenSize;
+    }
+
+    public static long getWindow() {
+        return window;
     }
 }
