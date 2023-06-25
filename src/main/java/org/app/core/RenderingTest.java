@@ -16,10 +16,7 @@ import org.app.core.data.Vertex;
 import org.app.core.data.shader.Shader;
 import org.app.core.data.shader.ShaderProgram;
 import org.app.core.data.shader.ShaderType;
-import org.app.core.input.Action;
-import org.app.core.input.InputManager;
-import org.app.core.input.InputModule;
-import org.app.core.input.KeyboardAdapter;
+import org.app.core.input.*;
 import org.app.ecs.ECS;
 import org.app.ecs.Entity;
 import org.app.ecs.Signature;
@@ -63,26 +60,38 @@ public class RenderingTest {
         insetLog();
 
         // Create Input Manager
-        InputManager manager = new InputManager(1);
+        InputManager manager = new InputManager(2);
         manager.plugInAdapter(0, new KeyboardAdapter());
+        manager.plugInAdapter(1, new MouseAdapter());
         manager.initialize();
         inputModule = manager.getInputModule();
 
         // Set up actions
         inputModule.registerAction("Exit", new Action(new int[] {
-                inputModule.getInputID("KEY_ESCAPE")
+                inputModule.getInputID("KEY_ESCAPE"),
         }));
         inputModule.registerAction("Forwards", new Action(new int[] {
-                inputModule.getInputID("KEY_W")
+                inputModule.getInputID("KEY_W"),
+                inputModule.getInputID("KEY_UP"),
         }));
         inputModule.registerAction("Backwards", new Action(new int[] {
-                inputModule.getInputID("KEY_S")
+                inputModule.getInputID("KEY_S"),
+                inputModule.getInputID("KEY_DOWN"),
         }));
         inputModule.registerAction("Left", new Action(new int[] {
-                inputModule.getInputID("KEY_A")
+                inputModule.getInputID("KEY_A"),
+                inputModule.getInputID("KEY_LEFT"),
         }));
         inputModule.registerAction("Right", new Action(new int[] {
-                inputModule.getInputID("KEY_D")
+                inputModule.getInputID("KEY_D"),
+                inputModule.getInputID("KEY_RIGHT"),
+        }));
+
+        inputModule.registerAction("MouseXAxis", new Action(new int[] {
+                inputModule.getInputID("MOUSE_X_AXIS"),
+        }));
+        inputModule.registerAction("MouseYAxis", new Action(new int[] {
+                inputModule.getInputID("MOUSE_Y_AXIS"),
         }));
 
         outsetLog();
@@ -391,14 +400,9 @@ public class RenderingTest {
     private static boolean firstMouse = true;
 
     private static void processInput(long window, RenderSystem rs) {
-        float cameraSpeed = 10.0f * rs.getFrameDelta();
+        float cameraSpeed = 8.0f * rs.getFrameDelta();
 
         inputModule.tick();
-
-        if ( inputModule.isActionTriggered("Exit") ) {
-            glfwSetWindowShouldClose(window, true);
-            glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
-        }
 
         Camera c = rs.getEcs().getComponent(Camera.class, rs.getCurrentCamera());
 
@@ -417,30 +421,28 @@ public class RenderingTest {
         if ( inputModule.isActionTriggered("Right") ) {
             translation = translation.plus(c.getFront().cross(c.getUpDirection()).normalize().times(cameraSpeed));
         }
-        if ( inputModule.isInputTriggered("KEY_T") ) {
-            c.lookAt(new Vec3(0.0f, 0.0f, 0.0f));
-        }
 
         // Get Mouse Input
         glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-        glfwSetCursorPosCallback(window, (handle, xpos, ypos) -> {
-            if (firstMouse) {
-                lastX = (float)xpos;
-                lastY = (float)ypos;
-                firstMouse = false;
-            }
+        float xpos = inputModule.getAnalogActionValue("MouseXAxis");
+        float ypos = inputModule.getAnalogActionValue("MouseYAxis");
 
-            float xoffset = (float)xpos - lastX;
-            float yoffset = lastY - (float)ypos;
-            lastX = (float)xpos;
-            lastY = (float)ypos;
+        if (firstMouse) {
+            lastX = xpos;
+            lastY = ypos;
+            firstMouse = false;
+        }
 
-            float sensitivity = 0.3f;
-            xoffset *= sensitivity;
-            yoffset *= sensitivity;
-            yaw += xoffset;
-            pitch += yoffset;
-        });
+        float xoffset = xpos - lastX;
+        float yoffset = lastY - ypos;
+        lastX = xpos;
+        lastY = ypos;
+
+        float sensitivity = 0.2f;
+        xoffset *= sensitivity;
+        yoffset *= sensitivity;
+        yaw += xoffset;
+        pitch += yoffset;
 
         if (pitch > 89.0f)
             pitch = 89.0f;
@@ -456,5 +458,15 @@ public class RenderingTest {
 
         c.setTranslation(c.getTranslation().plus(translation));
         //c.setTarget(c.getTranslation().plus(c.getFront()));
+
+        if ( inputModule.isInputTriggered("KEY_T") ) {
+            c.lookAt(new Vec3(0.0f, 0.0f, 0.0f));
+        }
+
+        if ( inputModule.isActionTriggered("Exit") ) {
+            glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+            glfwSetWindowShouldClose(window, true);
+        }
+
     }
 }

@@ -17,6 +17,8 @@ public class InputModule {
 
     private int inputTick = 0;
 
+    private float binaryToAnalogSpeed = 30.0f;
+
     private Map<String, Action> actionAliases = new HashMap<>();
     private Map<Action, String> revActionAliases = new HashMap<>();
 
@@ -28,7 +30,7 @@ public class InputModule {
                     + "' (analog=" + analog + ")");
         inputAliases.put(inputAlias, ++nextID);
         revInputAliases.put(nextID, inputAlias);
-        InputState state = (analog ? InputState.ANALOG : InputState.RELEASED);
+        InputState state = new InputState((analog ? InputMode.ANALOG : InputMode.RELEASED));
 //        state.setInputTick(inputTick);
         state.setValue(0.0f);
         inputQueue.add(new Pair<>(nextID, state));
@@ -42,14 +44,15 @@ public class InputModule {
             return;
         }
         InputState state = inputStates.get(id);
-        if ( state == InputState.TRIGGERED )
+        InputMode mode = state.getMode();
+        if ( mode == InputMode.TRIGGERED )
             return;
-        if ( state != InputState.ANALOG )
-            state = InputState.TRIGGERED;
+        if ( mode != InputMode.ANALOG )
+            state.setMode(InputMode.TRIGGERED);
         else
             Logger.logWarn("Tried to trigger analog input: '" + id + "', setting value to 1.0f");
 //        state.setInputTick(inputTick);
-        state.setValue(1.0f);
+        state.setValue(binaryToAnalogSpeed);
 //        inputStates.put(id, state);
         inputQueue.add(new Pair<>(id, state));
     }
@@ -60,14 +63,15 @@ public class InputModule {
             return;
         }
         InputState state = inputStates.get(id);
-        if ( state == InputState.RELEASED )
+        InputMode mode = state.getMode();
+        if ( mode == InputMode.RELEASED )
             return;
-        if ( state != InputState.ANALOG )
-            state = InputState.RELEASED;
+        if ( mode != InputMode.ANALOG )
+            state.setMode(InputMode.RELEASED);
         else
             Logger.logWarn("Tried to release analog input: '" + id + "', setting value to -1.0f");
 //        state.setInputTick(inputTick);
-        state.setValue(-1.0f);
+        state.setValue(-binaryToAnalogSpeed);
 //        inputStates.put(id, state);
         inputQueue.add(new Pair<>(id, state));
     }
@@ -78,7 +82,8 @@ public class InputModule {
             return;
         }
         InputState state = inputStates.get(id);
-        if ( state != InputState.ANALOG )
+        InputMode mode = state.getMode();
+        if ( mode != InputMode.ANALOG )
             Logger.logWarn("Tried to update analog input for binary input: '" + id + "'");
 //        state.setInputTick(inputTick);
         state.setValue(value);
@@ -116,7 +121,7 @@ public class InputModule {
     public boolean isInputTriggered(int id) {
         if ( !inputStates.containsKey(id) )
             Logger.logAndThrow("Tried to retrieve input from invalid ID: '" + id + "'", RuntimeException.class);
-        return inputStates.get(id) == InputState.TRIGGERED;
+        return inputStates.get(id).getMode() == InputMode.TRIGGERED;
     }
 
     public boolean isInputTriggered(String alias) {
@@ -125,7 +130,7 @@ public class InputModule {
     public boolean isInputReleased(int id) {
         if ( !inputStates.containsKey(id) )
             Logger.logAndThrow("Tried to retrieve input from invalid ID: '" + id + "'", RuntimeException.class);
-        return inputStates.get(id) == InputState.RELEASED;
+        return inputStates.get(id).getMode() == InputMode.RELEASED;
     }
 
     public boolean isInputReleased(String alias) {
@@ -135,7 +140,7 @@ public class InputModule {
     public boolean isInputJustTriggered(int id) {
         if ( !inputStates.containsKey(id) )
             Logger.logAndThrow("Tried to retrieve input from invalid ID: '" + id + "'", RuntimeException.class);
-        return inputStates.get(id) == InputState.TRIGGERED && inputStates.get(id).getInputTick() == inputTick;
+        return inputStates.get(id).getMode() == InputMode.TRIGGERED && inputStates.get(id).getInputTick() == inputTick;
     }
 
     public boolean isInputJustTriggered(String alias) {
@@ -145,7 +150,7 @@ public class InputModule {
     public boolean isInputJustReleased(int id) {
         if ( !inputStates.containsKey(id) )
             Logger.logAndThrow("Tried to retrieve input from invalid ID: '" + id + "'", RuntimeException.class);
-        return inputStates.get(id) == InputState.RELEASED && inputStates.get(id).getInputTick() == inputTick;
+        return inputStates.get(id).getMode() == InputMode.RELEASED && inputStates.get(id).getInputTick() == inputTick;
     }
 
     public boolean isInputJustReleased(String alias) {
@@ -155,8 +160,8 @@ public class InputModule {
     public float getAnalogInputValue(int id) {
         if ( !inputStates.containsKey(id) )
             Logger.logAndThrow("Tried to retrieve analog input from invalid ID: '" + id + "'", RuntimeException.class);
-        if ( inputStates.get(id) != InputState.ANALOG )
-            Logger.logWarn("Tried to retrieve analog input from binary input, returning 1.0f or -1.0f");
+        if ( inputStates.get(id).getMode() != InputMode.ANALOG )
+            Logger.logWarn("Tried to retrieve analog input from binary input");
         return inputStates.get(id).getValue();
     }
 
@@ -167,7 +172,7 @@ public class InputModule {
     public boolean hasAnalogInputChanged(int id) {
         if ( !inputStates.containsKey(id) )
             Logger.logAndThrow("Tried to retrieve input from invalid ID: '" + id + "'", RuntimeException.class);
-        if ( inputStates.get(id) != InputState.ANALOG )
+        if ( inputStates.get(id).getMode() != InputMode.ANALOG )
             Logger.logWarn("Tried to check change in input from binary input");
         return inputStates.get(id).getInputTick() == inputTick;
     }
@@ -211,7 +216,8 @@ public class InputModule {
         for (int id :
                 a.getInputs()) {
             InputState state = inputStates.get(id);
-            if ( state == InputState.TRIGGERED )
+            InputMode mode = state.getMode();
+            if ( mode == InputMode.TRIGGERED )
                 if ( isInputTriggered(id) ) return true;
         }
         return false;
@@ -225,7 +231,8 @@ public class InputModule {
         for (int id :
                 a.getInputs()) {
             InputState state = inputStates.get(id);
-            if ( state == InputState.RELEASED )
+            InputMode mode = state.getMode();
+            if ( mode == InputMode.RELEASED )
                 if ( isInputTriggered(id) ) return true;
         }
         return false;
@@ -239,7 +246,8 @@ public class InputModule {
         for (int id :
                 a.getInputs()) {
             InputState state = inputStates.get(id);
-            if ( state == InputState.TRIGGERED )
+            InputMode mode = state.getMode();
+            if ( mode == InputMode.TRIGGERED )
                 if ( isInputJustTriggered(id) ) return true;
         }
         return false;
@@ -253,7 +261,8 @@ public class InputModule {
         for (int id :
                 a.getInputs()) {
             InputState state = inputStates.get(id);
-            if ( state == InputState.RELEASED )
+            InputMode mode = state.getMode();
+            if ( mode == InputMode.RELEASED )
                 if ( isInputJustReleased(id) ) return true;
         }
         return false;
@@ -269,19 +278,17 @@ public class InputModule {
         for (int id :
                 a.getInputs()) {
             InputState state = inputStates.get(id);
-            if ( state == InputState.ANALOG ) {
+            InputMode mode = state.getMode();
+            if ( mode == InputMode.ANALOG ) {
                 hasAnalog = true;
                 value += getAnalogInputValue(id);
             }
         }
         if ( hasAnalog ) {
-            if ( value > 0)
-                return min(value, 1.0f);
-            else
-                return max(value, -1.0f);
+            return value;
         }
-        Logger.logWarn("Tried to retrieve analog value from binary action: '" + a + "', retrieving 1.0f or 0.0f");
-        return (isActionTriggered(a) ? 1.0f : 0.0f);
+        Logger.logWarn("Tried to retrieve analog value from binary action: '" + a + "'");
+        return (isActionTriggered(a) ? binaryToAnalogSpeed : 0.0f);
     }
 
     public float getAnalogActionValue(String alias) {

@@ -1,13 +1,14 @@
 package org.app.core.input;
 
-public enum InputState {
-    NONE,
-    TRIGGERED,
-    RELEASED,
-    ANALOG;
-
+public class InputState {
     private int inputTick;
     private float value;
+
+    private InputMode mode;
+
+    public InputState(InputMode mode) {
+        this.mode = mode;
+    }
 
     public int getInputTick() {
         return inputTick;
@@ -23,5 +24,13 @@ public enum InputState {
 
     public void setValue(float value) {
         this.value = value;
+    }
+
+    public InputMode getMode() {
+        return mode;
+    }
+
+    public void setMode(InputMode mode) {
+        this.mode = mode;
     }
 }
