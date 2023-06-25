@@ -1,6 +1,7 @@
 package org.app.core;
 
 import org.app.core.components.Actor;
+import org.app.core.components.Camera;
 import org.app.core.data.Material;
 import org.app.core.data.Mesh;
 import org.app.core.data.Texture;
@@ -15,6 +16,10 @@ import static org.lwjgl.opengl.GL42.*;
 
 public class RenderSystem extends System {
     private ECS ecs;
+    private Entity currentEntity;
+    private Entity currentCamera;
+    private float frameDelta = 0.0f;
+    private float lastFrame = 0.0f;
 
     public RenderSystem(ECS ecs) {
         this.ecs = ecs;
@@ -22,12 +27,11 @@ public class RenderSystem extends System {
 
     /**
      * Rendering function for forward rendering based on depth buffer information
-     * @param e The entity to be drawn. Any entity that is passed in here is assumed to have an Actor component
      */
-    private void drawElement(Entity e)
+    private void drawElement()
     {
         // Set up references for eoa
-        Actor actor = ecs.getComponent(Actor.class, e);
+        Actor actor = ecs.getComponent(Actor.class, currentEntity);
         Mesh mesh = actor.getMesh();
         Material material = actor.getMaterial();
         ShaderProgram shaderProgram = material.getShaderProgram();
@@ -62,23 +66,59 @@ public class RenderSystem extends System {
     }
 
     /**
+     * Actives depth test
+     */
+    public void activateDepthTest() {
+        glEnable(GL_DEPTH_TEST);
+    }
+
+    /**
+     * deactives depth test
+     */
+    public void deactivateDepthTest() {
+        glDisable(GL_DEPTH_TEST);
+    }
+
+    /**
      * Renders all Entities associated with this RenderSystem in a forward rendering process
      * Also renders the depth-buffer
      * @param window The window Handle of the current glfw window
      */
     public void render(long window)
     {
+        //float frameBegin = (float)glfwGetTime();
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear the framebuffer
+
+        Camera c = ecs.getComponent(Camera.class, getCurrentCamera());
+        c.updateCamera();
 
         for (Entity entity :
                 entities) {
-            drawElement(entity);
+            currentEntity = entity;
+            drawElement();
         }
 
         glfwSwapBuffers(window); // swap the color buffers
 
         // Poll for all new events
         glfwPollEvents();
+
+        currentEntity = null;
+        float currentFrame = (float)glfwGetTime();
+        frameDelta = currentFrame - lastFrame;
+        lastFrame = currentFrame;
+    }
+
+    public Entity getCurrentEntity() {
+        return currentEntity;
+    }
+
+    public Entity getCurrentCamera() {
+        return currentCamera;
+    }
+
+    public void setCurrentCamera(Entity currentCamera) {
+        this.currentCamera = currentCamera;
     }
 
     public ECS getEcs() {
@@ -88,5 +128,9 @@ public class RenderSystem extends System {
     public void setEcs(ECS ecs) {
         // TODO: When changing to a different ECS, the entity set of the RenderSystem should be cleared and repopulated with entities from the new ECS
         this.ecs = ecs;
+    }
+
+    public float getFrameDelta() {
+        return frameDelta;
     }
 }

@@ -45,7 +45,7 @@ public class HexHelper {
         // Connect adapter to port
         connect(port, adapter);
 
-        // Run test
+        // Check for test
         Method m;
         try {
             m = ((A) port).getClass().getMethod("test");

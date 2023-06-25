@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="Added multi-texture support through texture units">
+    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="Fixed up KeyboardAdapter and transitioned RenderingTest to use Actions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/input/InputModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/input/InputModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/input/InputState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/input/InputState.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,13 +40,18 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="model_view_projection" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
@@ -55,6 +63,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectId" id="2Q9lV1lkrKsVYj9lqYj78ncYdV7" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -63,18 +74,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "uv__mapping",
-    "last_opened_file_path": "/media/para/Projects/leEngine/javaengine",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "application.passwordSafe"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;input__mapping&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/media/para/Projects/leEngine/javaengine&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/ecs" />
@@ -87,6 +98,19 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.RenderingTest">
+    <configuration name="KeyboardAdapter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.app.core.input.KeyboardAdapter" />
+      <module name="javaengine.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.app.core.input.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="LoggerTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.app.utils.LoggerTest" />
       <module name="javaengine.main" />
@@ -141,6 +165,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.KeyboardAdapter" />
         <item itemvalue="Application.RenderingTest" />
         <item itemvalue="Application.WindowManager" />
         <item itemvalue="Application.LoggerTest" />
@@ -409,7 +434,84 @@
       <option name="project" value="LOCAL" />
       <updated>1686986021231</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="added model, view, and projection matrices">
+      <created>1686991831762</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1686991831762</updated>
+    </task>
+    <task id="LOCAL-00038" summary="added a spinning cube with correct uvs as demo">
+      <created>1687004597782</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1687004597782</updated>
+    </task>
+    <task id="LOCAL-00039" summary="added dynamic window scale">
+      <created>1687006187323</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1687006187323</updated>
+    </task>
+    <task id="LOCAL-00040" summary="added Camera functionality, added lookAt">
+      <created>1687597029256</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1687597029256</updated>
+    </task>
+    <task id="LOCAL-00041" summary="added key input and delta correction">
+      <created>1687605996346</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1687605996346</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Added camera turning">
+      <created>1687609782077</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1687609782077</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Added IInputProtocol w. inline documentation">
+      <created>1687613152218</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1687613152218</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Added InputPort, InputModule and InputState">
+      <created>1687621840195</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1687621840195</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Added more methods to InputModule and added Actions">
+      <created>1687628949371</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1687628949371</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Added Keyboard adapter and InputManager">
+      <created>1687683748438</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1687683748438</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Fixed up KeyboardAdapter and transitioned RenderingTest to use Actions">
+      <created>1687687550090</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1687687550090</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -424,17 +526,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Finished Hello Window Program" />
-    <MESSAGE value="Added a safe variant of HexHelper::connect to HexHelper, named HexHelper::connect_s" />
-    <MESSAGE value="Some HexHelper stuff" />
-    <MESSAGE value="Finished Hello Triangle application" />
-    <MESSAGE value="Fixed a few warnings" />
-    <MESSAGE value="Added ECS" />
-    <MESSAGE value="Added Mesh, Material, Texture, Vertex, Actor and Camera" />
-    <MESSAGE value="Removed Generic Resources and Components, tested ECS, updated logger to have support for insets, added RenderingSystem(WIP)" />
-    <MESSAGE value="Added GLManager and RenderingSystem, added Indexed draw calls" />
-    <MESSAGE value="Added rendering modes to RenderSystem.java, added cleanup after completion, cleaned up console" />
-    <MESSAGE value="Made Mesh AutoClosable" />
     <MESSAGE value="Small adjustments" />
     <MESSAGE value="created Branch modularShaders" />
     <MESSAGE value="added a more modular shader architecture" />
@@ -449,7 +540,34 @@
     <MESSAGE value="Added image reading (see https://github.com/LWJGL/lwjgl3/blob/master/modules/samples/src/test/java/org/lwjgl/demo/stb/Image.java)" />
     <MESSAGE value="Added textures and uv mapping" />
     <MESSAGE value="Added multi-texture support through texture units" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added multi-texture support through texture units" />
+    <MESSAGE value="added model, view, and projection matrices" />
+    <MESSAGE value="added a spinning cube with correct uvs as demo" />
+    <MESSAGE value="added dynamic window scale" />
+    <MESSAGE value="added Camera functionality, added lookAt" />
+    <MESSAGE value="added key input and delta correction" />
+    <MESSAGE value="Added camera turning" />
+    <MESSAGE value="Added IInputProtocol w. inline documentation" />
+    <MESSAGE value="Added InputPort, InputModule and InputState" />
+    <MESSAGE value="Added more methods to InputModule and added Actions" />
+    <MESSAGE value="Added Keyboard adapter and InputManager" />
+    <MESSAGE value="Fixed up KeyboardAdapter and transitioned RenderingTest to use Actions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed up KeyboardAdapter and transitioned RenderingTest to use Actions" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/app/core/input/KeyboardAdapter.java</url>
+          <line>73</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/app/core/input/MouseAdapter.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

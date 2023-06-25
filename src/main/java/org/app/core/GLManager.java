@@ -1,7 +1,9 @@
 package org.app.core;
 
+import glm_.vec2.Vec2i;
 import org.app.utils.Logger;
 import org.lwjgl.glfw.GLFWErrorCallback;
+import org.lwjgl.glfw.GLFWFramebufferSizeCallback;
 import org.lwjgl.glfw.GLFWVidMode;
 import org.lwjgl.system.MemoryStack;
 
@@ -17,9 +19,10 @@ import static org.lwjgl.system.MemoryStack.stackPush;
 import static org.lwjgl.system.MemoryUtil.NULL;
 
 public class GLManager {
-    public static long init() {
-        long window;
+    private static Vec2i screenSize = new Vec2i(1280, 720);
+    private static long window;
 
+    public static long init() {
         // Set error callback to Logger::logError
         GLFWErrorCallback.createPrint(Logger.getErrorStream()).set();
 
@@ -37,15 +40,17 @@ public class GLManager {
         Logger.logDebug("Using OpenGL 4.2");
 
         // Create window
-        window = glfwCreateWindow(1280, 720, "Java Engine", NULL, NULL);
+        window = glfwCreateWindow(screenSize.getX(), screenSize.getY(), "Java Engine", NULL, NULL);
         if ( window == NULL )
             Logger.logAndThrow("Failed to create GLFW window", RuntimeException.class);
 
         // Set up a key callback to exit when key is pressed
-        glfwSetKeyCallback(window, (wnd, key, scancode, action, mods) -> {
-            if ( key == GLFW_KEY_ESCAPE && action == GLFW_RELEASE )
-                glfwSetWindowShouldClose(wnd, true);
-        });
+//        glfwSetKeyCallback(window, (wnd, key, scancode, action, mods) -> {
+//            if ( key == GLFW_KEY_ESCAPE && action == GLFW_RELEASE ) {
+//                glfwSetWindowShouldClose(wnd, true);
+//                glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+//            }
+//        });
 
         // Get thread stack and push a new frame
         try ( MemoryStack stack = stackPush() ) {
@@ -68,6 +73,7 @@ public class GLManager {
 
         // Make the OPENGL context current
         glfwMakeContextCurrent(window);
+        glfwSetFramebufferSizeCallback(window, GLManager::framebuffer_size_callback);
         // Enable V-Sync
         glfwSwapInterval(1);
 
@@ -123,5 +129,18 @@ public class GLManager {
         Objects.requireNonNull(glfwSetErrorCallback(null)).free();
 
         Logger.logDebug("Window destroyed");
+    }
+
+    public static void framebuffer_size_callback(long window, int w, int h) {
+        glViewport(0, 0, w, h);
+        screenSize = new Vec2i(w, h);
+    }
+
+    public static Vec2i getScreenSize() {
+        return screenSize;
+    }
+
+    public static long getWindow() {
+        return window;
     }
 }
