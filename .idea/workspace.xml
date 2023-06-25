@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="Added ECSPort, ECSAdapter and ECSModule">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="Added more stuff related to ECS">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/RenderSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/RenderSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/input/InputManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/input/InputManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/ecs/ECSModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/ecs/ECSModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/hexagonal/HexHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/hexagonal/HexHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/ecs/ECSAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/ecs/ECSAdapter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,13 +183,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1684773698705</updated>
-    </task>
-    <task id="LOCAL-00002" summary="fixed two warnings">
-      <created>1685195095580</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1685195095580</updated>
     </task>
     <task id="LOCAL-00003" summary="added documentation">
       <created>1685196440614</created>
@@ -529,7 +520,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687710896257</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Added more stuff related to ECS">
+      <created>1687724134251</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1687724134251</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -544,7 +542,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added per-frame uniform updates" />
     <MESSAGE value="Updated and tested per-frame uniform updates" />
     <MESSAGE value="Implemented Vertex Color" />
     <MESSAGE value="Added additional helper methods to ShaderProgram.java to make updating uniforms easier" />
@@ -569,7 +566,8 @@
     <MESSAGE value="Refactored input states, added MouseAdapter" />
     <MESSAGE value="Added IECSProtocol" />
     <MESSAGE value="Added ECSPort, ECSAdapter and ECSModule" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added ECSPort, ECSAdapter and ECSModule" />
+    <MESSAGE value="Added more stuff related to ECS" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added more stuff related to ECS" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

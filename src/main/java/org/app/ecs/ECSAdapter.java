@@ -5,6 +5,10 @@ import org.app.hexagonal.Adapter;
 public class ECSAdapter extends Adapter<IECSProtocol> implements IECSProtocol {
     private ECS ecs;
 
+    public ECSAdapter() {
+        this.ecs = new ECS();
+    }
+
     @Override
     public Entity createEntity() {
         return ecs.createEntity();

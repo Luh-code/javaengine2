@@ -16,9 +16,7 @@ import org.app.core.data.shader.Shader;
 import org.app.core.data.shader.ShaderProgram;
 import org.app.core.data.shader.ShaderType;
 import org.app.core.input.*;
-import org.app.ecs.ECS;
-import org.app.ecs.Entity;
-import org.app.ecs.Signature;
+import org.app.ecs.*;
 import org.app.utils.Logger;
 import org.lwjgl.Version;
 import org.lwjgl.opengl.GL;
@@ -102,7 +100,9 @@ public class RenderingTest {
         // Set up ECS
         logDebug("Setting up ECS...");
         insetLog();
-        ECS ecs = new ECS();
+        ECSManager ecsManager = new ECSManager();
+        ecsManager.connectAdapter(new ECSAdapter());
+        ECSAdapter ecs = (ECSAdapter) ecsManager.getAdapter();
 
         // Register Types
         ecs.registerResourceType_s(Mesh.class);
