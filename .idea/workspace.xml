@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="Refactored input states, added MouseAdapter">
+    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="Added IECSProtocol">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/input/InputModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/input/InputModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/ecs/ECS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/ecs/ECS.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,9 +37,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -86,6 +84,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.app.ecs" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/ecs" />
       <recent name="$PROJECT_DIR$/lib/ecs/shared" />
@@ -517,7 +518,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687690984568</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Added IECSProtocol">
+      <created>1687709943482</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1687709943482</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -532,7 +540,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="created Branch modularShaders" />
     <MESSAGE value="added a more modular shader architecture" />
     <MESSAGE value="Added per-frame uniform updates" />
     <MESSAGE value="Updated and tested per-frame uniform updates" />
@@ -557,7 +564,8 @@
     <MESSAGE value="Added Keyboard adapter and InputManager" />
     <MESSAGE value="Fixed up KeyboardAdapter and transitioned RenderingTest to use Actions" />
     <MESSAGE value="Refactored input states, added MouseAdapter" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored input states, added MouseAdapter" />
+    <MESSAGE value="Added IECSProtocol" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added IECSProtocol" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
