@@ -130,6 +130,10 @@ dependencies {
     implementation 'org.apache.commons:commons-lang3:3.0'
     implementation 'commons-io:commons-io:2.13.0'
     implementation 'kotlin.graphics:unsigned:3.3.32'
+
+    // https://mvnrepository.com/artifact/de.javagl/obj
+    implementation 'de.javagl:obj:0.4.0'
+
 }
 
 test {
