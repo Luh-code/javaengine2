@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="Fixed Bugs and refactored RenderingTest to use the new hexagonal ECS">
+    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="added wavefront loader">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/data/loading/ModelLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/data/loading/ModelLoader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,21 +74,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;wavefront__model__loading&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/media/para/Projects/leEngine/javaengine&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "wavefront__model__loading",
+    "last_opened_file_path": "/media/para/Projects/leEngine/javaengine/src/main/resources/models",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.app.ecs" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/models" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/ecs" />
@@ -181,13 +187,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1684773698705</updated>
-    </task>
-    <task id="LOCAL-00004" summary="added documentation">
-      <created>1685196546521</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1685196546521</updated>
     </task>
     <task id="LOCAL-00005" summary="added documentation">
       <created>1685196838770</created>
@@ -525,7 +524,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687724535499</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="added wavefront loader">
+      <created>1687787857724</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1687787857725</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -540,7 +546,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implemented Vertex Color" />
     <MESSAGE value="Added additional helper methods to ShaderProgram.java to make updating uniforms easier" />
     <MESSAGE value="Added importing shaders from files and probably some other stuff I forgot" />
     <MESSAGE value="cleanup" />
@@ -565,7 +570,8 @@
     <MESSAGE value="Added ECSPort, ECSAdapter and ECSModule" />
     <MESSAGE value="Added more stuff related to ECS" />
     <MESSAGE value="Fixed Bugs and refactored RenderingTest to use the new hexagonal ECS" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed Bugs and refactored RenderingTest to use the new hexagonal ECS" />
+    <MESSAGE value="added wavefront loader" />
+    <option name="LAST_COMMIT_MESSAGE" value="added wavefront loader" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

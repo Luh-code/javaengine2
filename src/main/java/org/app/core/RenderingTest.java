@@ -12,6 +12,8 @@ import org.app.core.data.Material;
 import org.app.core.data.Mesh;
 import org.app.core.data.Texture;
 import org.app.core.data.Vertex;
+import org.app.core.data.loading.ModelFormat;
+import org.app.core.data.loading.ModelLoader;
 import org.app.core.data.shader.Shader;
 import org.app.core.data.shader.ShaderProgram;
 import org.app.core.data.shader.ShaderType;
@@ -238,7 +240,8 @@ public class RenderingTest {
                 0, 1, 2,
         };
 
-        Mesh cubeMesh = new Mesh(cubeVertices4, cubeIndices2);
+        //Mesh cubeMesh = new Mesh(cubeVertices4, cubeIndices2);
+        Mesh cubeMesh = ModelLoader.loadModel(new File("src/main/resources/models/cube.obj"), ModelFormat.OBJ);
         cubeMesh.genBuffers();
         ecs.setResource("cubeMesh", cubeMesh);
         Mesh quadMesh = new Mesh(quadVertices, quadIndices);
