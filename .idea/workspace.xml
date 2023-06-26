@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="Refactored Obj loading">
+    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="Added test models">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,15 +39,15 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="ECS_hexagonal" />
+        <entry key="$PROJECT_DIR$" value="wavefront_model_loading" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -76,7 +76,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "wavefront__model__loading",
+    "git-widget-placeholder": "scenes",
     "last_opened_file_path": "/media/para/Projects/leEngine/javaengine/src/main/resources/models",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
@@ -146,7 +146,7 @@
       <module name="javaengine.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.app.core.*" />
+          <option name="PATTERN" value="org.app.core.options.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -185,13 +185,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1684773698705</updated>
-    </task>
-    <task id="LOCAL-00006" summary="added a logger with support for console and file">
-      <created>1685205817675</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1685205817675</updated>
     </task>
     <task id="LOCAL-00007" summary="added an option to display the path to the log in the console">
       <created>1685219856390</created>
@@ -529,7 +522,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687793323818</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="Added test models">
+      <created>1687803577666</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1687803577666</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -544,7 +544,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added importing shaders from files and probably some other stuff I forgot" />
     <MESSAGE value="cleanup" />
     <MESSAGE value="added more insets and outsets into log" />
     <MESSAGE value="Added contructors for data arrays to Vertex and for Mesh. Added UV Attribute to Vertex" />
@@ -569,7 +568,8 @@
     <MESSAGE value="Fixed Bugs and refactored RenderingTest to use the new hexagonal ECS" />
     <MESSAGE value="added wavefront loader" />
     <MESSAGE value="Refactored Obj loading" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored Obj loading" />
+    <MESSAGE value="Added test models" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added test models" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
