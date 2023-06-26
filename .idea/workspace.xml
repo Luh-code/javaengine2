@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="added wavefront loader">
+    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="Refactored Obj loading">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/data/loading/ModelLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/data/loading/ModelLoader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,13 +185,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1684773698705</updated>
-    </task>
-    <task id="LOCAL-00005" summary="added documentation">
-      <created>1685196838770</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1685196838770</updated>
     </task>
     <task id="LOCAL-00006" summary="added a logger with support for console and file">
       <created>1685205817675</created>
@@ -531,7 +522,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687787857725</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="Refactored Obj loading">
+      <created>1687793323818</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1687793323818</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -546,7 +544,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added additional helper methods to ShaderProgram.java to make updating uniforms easier" />
     <MESSAGE value="Added importing shaders from files and probably some other stuff I forgot" />
     <MESSAGE value="cleanup" />
     <MESSAGE value="added more insets and outsets into log" />
@@ -571,7 +568,8 @@
     <MESSAGE value="Added more stuff related to ECS" />
     <MESSAGE value="Fixed Bugs and refactored RenderingTest to use the new hexagonal ECS" />
     <MESSAGE value="added wavefront loader" />
-    <option name="LAST_COMMIT_MESSAGE" value="added wavefront loader" />
+    <MESSAGE value="Refactored Obj loading" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored Obj loading" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
