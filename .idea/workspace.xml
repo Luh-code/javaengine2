@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="Added more stuff related to ECS">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/RenderSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/RenderSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/ecs/ECSAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/ecs/ECSAdapter.java" afterDir="false" />
+    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="Fixed Bugs and refactored RenderingTest to use the new hexagonal ECS">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,16 +37,16 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="input_mapping" />
+        <entry key="$PROJECT_DIR$" value="ECS_hexagonal" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -77,7 +75,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;ECS__hexagonal&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;wavefront__model__loading&quot;,
     &quot;last_opened_file_path&quot;: &quot;/media/para/Projects/leEngine/javaengine&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
@@ -183,13 +181,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1684773698705</updated>
-    </task>
-    <task id="LOCAL-00003" summary="added documentation">
-      <created>1685196440614</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1685196440614</updated>
     </task>
     <task id="LOCAL-00004" summary="added documentation">
       <created>1685196546521</created>
@@ -527,7 +518,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687724134251</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="Fixed Bugs and refactored RenderingTest to use the new hexagonal ECS">
+      <created>1687724535498</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1687724535499</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -542,7 +540,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated and tested per-frame uniform updates" />
     <MESSAGE value="Implemented Vertex Color" />
     <MESSAGE value="Added additional helper methods to ShaderProgram.java to make updating uniforms easier" />
     <MESSAGE value="Added importing shaders from files and probably some other stuff I forgot" />
@@ -567,7 +564,8 @@
     <MESSAGE value="Added IECSProtocol" />
     <MESSAGE value="Added ECSPort, ECSAdapter and ECSModule" />
     <MESSAGE value="Added more stuff related to ECS" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added more stuff related to ECS" />
+    <MESSAGE value="Fixed Bugs and refactored RenderingTest to use the new hexagonal ECS" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed Bugs and refactored RenderingTest to use the new hexagonal ECS" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
