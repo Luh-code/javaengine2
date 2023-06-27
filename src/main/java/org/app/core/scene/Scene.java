@@ -76,9 +76,13 @@ public class Scene {
         Logger.logInfo("Registering resources...");
         Logger.insetLog();
 
-        Mesh gun = ModelLoader.loadModel(new File("src/main/resources/models/bru.obj"), ModelFormat.OBJ);
+        Mesh gun = ModelLoader.loadModel(new File("src/main/resources/models/bru.obj"), ModelFormat.OBJ2);
         gun.genBuffers();
         ecs.setResource("gunMesh", gun);
+
+        Mesh man = ModelLoader.loadModel(new File("src/main/resources/models/IronMan.obj"), ModelFormat.OBJ3);
+        man.genBuffers();
+        ecs.setResource("manMesh", man);
 
         ShaderProgram shaderProgram;
         {
@@ -141,7 +145,7 @@ public class Scene {
         );
         ecs.setResource("wallTexture2", wallTexture2);
 
-        Material basicMaterial = new Material(shaderProgram, new Texture[] { wallTexture, wallTexture2 });
+        Material basicMaterial = new Material(shaderProgram, new Texture[] { wallTexture, wallTexture });
         basicMaterial.compile();
         ecs.setResource("basicMaterial", basicMaterial);
 
@@ -165,9 +169,9 @@ public class Scene {
         Entity e2 = ecs.createEntity();
 
         Actor a2 = new Actor(
-                new Vec3(.0, .0, -2.0),
+                new Vec3(.0, .0, -80.0),
                 new Vec4(.0, .0, .0, .0),
-                ecs.getResource("gunMesh", Mesh.class),
+                ecs.getResource("manMesh", Mesh.class),
                 ecs.getResource("basicMaterial", Material.class)
         );
 

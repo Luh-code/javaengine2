@@ -109,8 +109,10 @@ public class SceneTest {
     private static float pitch = 0.0f;
     private static boolean firstMouse = true;
 
+    private static boolean mouseLocked = true;
+
     private static void processInput(long window, RenderSystem rs) {
-        float cameraSpeed = 8.0f * rs.getFrameDelta();
+        float cameraSpeed = 24.0f * rs.getFrameDelta();
 
         inputModule.tick();
 
@@ -132,8 +134,13 @@ public class SceneTest {
             translation = translation.plus(c.getFront().cross(c.getUpDirection()).normalize().times(cameraSpeed));
         }
 
+        if ( inputModule.isActionJustTriggered("ToggleMouseLock") ) {
+            mouseLocked = !mouseLocked;
+        }
+
         // Get Mouse Input
-        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+        if ( mouseLocked ) glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+        else glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
         float xpos = inputModule.getAnalogActionValue("MouseXAxis");
         float ypos = inputModule.getAnalogActionValue("MouseYAxis");
 

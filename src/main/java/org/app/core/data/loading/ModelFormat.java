@@ -1,5 +1,6 @@
 package org.app.core.data.loading;
 
 public enum ModelFormat {
-    OBJ;
+    OBJ2,
+    OBJ3;
 }

@@ -109,6 +109,10 @@ public class SceneManager {
         Logger.logInfo("Scene manager set up");
     }
 
+    public void saveScene(Connection conn) {
+
+    }
+
     public InputManager getInputManager() {
         return inputManager;
     }
