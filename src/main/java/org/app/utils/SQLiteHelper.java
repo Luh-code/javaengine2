@@ -1,6 +1,7 @@
 package org.app.utils;
 
 import java.io.File;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -55,6 +56,13 @@ public class SQLiteHelper {
                     location.getAbsolutePath()
             ));
             return connectToDB(location);
+        }
+        else {
+            try {
+                location.createNewFile();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
         String url = getURL(location);
 
