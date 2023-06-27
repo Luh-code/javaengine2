@@ -3,6 +3,9 @@ package org.app.ecs;
 import org.app.hexagonal.AdapterStatus;
 import org.app.hexagonal.LinkedModule;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
 public class ECSModule extends LinkedModule<ECSPort> implements IECSProtocol {
     @Override
     public Entity createEntity() {
@@ -107,6 +110,11 @@ public class ECSModule extends LinkedModule<ECSPort> implements IECSProtocol {
     @Override
     public void entityDestroyed(Entity e) {
         getPort().entityDestroyed(e);
+    }
+
+    @Override
+    public PreparedStatement[] getSaveQueries(Connection conn) {
+        return getPort().getSaveQueries(conn);
     }
 
     @Override

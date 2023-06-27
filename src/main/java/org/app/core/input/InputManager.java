@@ -5,6 +5,13 @@ import org.app.hexagonal.HexHelper;
 import org.app.hexagonal.PortStatus;
 import org.app.utils.Logger;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.BitSet;
 
 import static org.app.hexagonal.HexHelper.CONNECTION_EXCEPTION;
@@ -84,6 +91,87 @@ public class InputManager {
                 Logger.logError(String.format("Port '%s' has returned an error: %d",
                         port, test));
             initialitzed.set(i, true);
+        }
+    }
+
+    public void saveConfiguration(Connection conn) {
+        StringBuilder mode = new StringBuilder();
+        mode.append("INSERT INTO inputmode VALUES");
+        mode.append(String.format(
+                "(%s), (%s), (%s)",
+                InputMode.TRIGGERED.toString(),
+                InputMode.RELEASED.toString(),
+                InputMode.ANALOG.toString()
+        ));
+
+        StringBuilder input = new StringBuilder();
+        input.append("INSERT INTO input VALUES");
+
+        for (Integer key :
+                inputModule.getRevInputAliases().keySet()) {
+            input.append(String.format(
+                    "(%d, %s, %s),",
+                    key, inputModule.getRevInputAliases().get(key),
+                    inputModule.getInputStates().get(key).toString()
+            ));
+        }
+        input.delete(input.length()-2, input.length()-1);
+
+        StringBuilder action = new StringBuilder();
+        action.append("INSERT INTO action VALUES");
+        for (String key :
+                inputModule.getActionAliases().keySet()) {
+            action.append(String.format(
+                    "(%s),",
+                    key
+            ));
+        }
+        action.delete(input.length()-2, input.length()-1);
+
+        StringBuilder action2input = new StringBuilder();
+        action2input.append("INSERT INTO action2input VALUES");
+        for (String key :
+                inputModule.getActionAliases().keySet()) {
+            int[] inputs = inputModule.getActionAliases().get(key)
+                    .getInputs();
+            for (int i = 0; i < inputs.length; ++i) {
+                action2input.append(String.format(
+                        "(%s, $d),",
+                        key, inputs[i]
+                ));
+            }
+        }
+        action2input.delete(input.length()-2, input.length()-1);
+
+
+        try {
+            PreparedStatement modeStmt = conn.prepareCall(mode.toString());
+
+            PreparedStatement inputStmt = conn.prepareCall(input.toString());
+
+            PreparedStatement actionStmt = conn.prepareCall(action.toString());
+//            int idx = 1;
+//            for (String key :
+//                    inputModule.getActionAliases().keySet()) {
+//
+//                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//                ObjectOutputStream oos = new ObjectOutputStream(baos);
+//                oos.writeObject(inputModule.getActionAliases().get(key));
+//
+//                byte[] objAsBytes = baos.toByteArray();
+//
+//                ByteArrayInputStream bais = new ByteArrayInputStream(objAsBytes);
+//                actionStmt.setBinaryStream(idx, bais, (long) objAsBytes.length);
+//                ++idx;
+//            }
+            PreparedStatement action2inputStmt = conn.prepareCall(action2input.toString());
+
+            modeStmt.executeUpdate();
+            inputStmt.executeUpdate();
+            actionStmt.executeUpdate();
+            action2inputStmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 

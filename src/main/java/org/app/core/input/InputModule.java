@@ -291,4 +291,24 @@ public class InputModule {
     public float getAnalogActionValue(String alias) {
         return getAnalogActionValue(getAction(alias));
     }
+
+    public Map<String, Integer> getInputAliases() {
+        return inputAliases;
+    }
+
+    public Map<Integer, String> getRevInputAliases() {
+        return revInputAliases;
+    }
+
+    public Map<Integer, InputState> getInputStates() {
+        return inputStates;
+    }
+
+    public Map<String, Action> getActionAliases() {
+        return actionAliases;
+    }
+
+    public Map<Action, String> getRevActionAliases() {
+        return revActionAliases;
+    }
 }

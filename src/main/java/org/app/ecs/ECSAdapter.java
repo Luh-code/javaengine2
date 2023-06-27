@@ -2,6 +2,9 @@ package org.app.ecs;
 
 import org.app.hexagonal.Adapter;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
 public class ECSAdapter extends Adapter<IECSProtocol> implements IECSProtocol {
     private ECS ecs;
 
@@ -112,6 +115,11 @@ public class ECSAdapter extends Adapter<IECSProtocol> implements IECSProtocol {
     @Override
     public void entityDestroyed(Entity e) {
         ecs.entityDestroyed(e);
+    }
+
+    @Override
+    public PreparedStatement[] getSaveQueries(Connection conn) {
+        return ecs.getSaveQueries(conn);
     }
 
     @Override
