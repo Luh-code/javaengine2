@@ -98,7 +98,7 @@ public class InputManager {
         StringBuilder mode = new StringBuilder();
         mode.append("INSERT INTO inputmode VALUES");
         mode.append(String.format(
-                "(%s), (%s), (%s)",
+                "('%s'), ('%s'), ('%s')",
                 InputMode.TRIGGERED.toString(),
                 InputMode.RELEASED.toString(),
                 InputMode.ANALOG.toString()
@@ -109,24 +109,26 @@ public class InputManager {
 
         for (Integer key :
                 inputModule.getRevInputAliases().keySet()) {
+            InputMode inputMode = inputModule.getInputStates().get(key).getMode();
+            if ( inputMode == InputMode.TRIGGERED ) inputMode = InputMode.RELEASED;
             input.append(String.format(
-                    "(%d, %s, %s),",
+                    "(%d, '%s', '%s'),",
                     key, inputModule.getRevInputAliases().get(key),
-                    inputModule.getInputStates().get(key).toString()
+                    inputMode.toString()
             ));
         }
-        input.delete(input.length()-2, input.length()-1);
+        input.delete(input.length()-1, input.length());
 
         StringBuilder action = new StringBuilder();
         action.append("INSERT INTO action VALUES");
         for (String key :
                 inputModule.getActionAliases().keySet()) {
             action.append(String.format(
-                    "(%s),",
+                    "('%s'),",
                     key
             ));
         }
-        action.delete(input.length()-2, input.length()-1);
+        action.delete(action.length()-1, action.length());
 
         StringBuilder action2input = new StringBuilder();
         action2input.append("INSERT INTO action2input VALUES");
@@ -136,20 +138,44 @@ public class InputManager {
                     .getInputs();
             for (int i = 0; i < inputs.length; ++i) {
                 action2input.append(String.format(
-                        "(%s, $d),",
+                        "('%s', %d),",
                         key, inputs[i]
                 ));
             }
         }
-        action2input.delete(input.length()-2, input.length()-1);
+        action2input.delete(action2input.length()-1, action2input.length());
 
+        Logger.logDebug("Mode: " + mode.toString());
+        Logger.logDebug("Input: " + input.toString());
+        Logger.logDebug("Action: " + action.toString());
+        Logger.logDebug("Action2Input: " + action2input.toString());
 
+        PreparedStatement modeStmt = null;
         try {
-            PreparedStatement modeStmt = conn.prepareCall(mode.toString());
+            modeStmt = conn.prepareStatement(mode.toString());
 
-            PreparedStatement inputStmt = conn.prepareCall(input.toString());
+            modeStmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
-            PreparedStatement actionStmt = conn.prepareCall(action.toString());
+        PreparedStatement inputStmt = null;
+        try {
+            inputStmt = conn.prepareStatement(input.toString());
+
+            inputStmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        PreparedStatement actionStmt = null;
+        try {
+            actionStmt = conn.prepareStatement(action.toString());
+
+            actionStmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 //            int idx = 1;
 //            for (String key :
 //                    inputModule.getActionAliases().keySet()) {
@@ -164,11 +190,9 @@ public class InputManager {
 //                actionStmt.setBinaryStream(idx, bais, (long) objAsBytes.length);
 //                ++idx;
 //            }
-            PreparedStatement action2inputStmt = conn.prepareCall(action2input.toString());
+        try {
+            PreparedStatement action2inputStmt = conn.prepareStatement(action2input.toString());
 
-            modeStmt.executeUpdate();
-            inputStmt.executeUpdate();
-            actionStmt.executeUpdate();
             action2inputStmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);

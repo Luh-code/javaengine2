@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="A lot of SQLite stuff">
+    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="mehr sqlite">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/input/InputManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/input/InputManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/utils/SQLiteHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/utils/SQLiteHelper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -187,13 +187,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1684773698705</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Tweaks to the logger and window creation">
-      <created>1685360079962</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1685360079962</updated>
     </task>
     <task id="LOCAL-00010" summary="Finished Hello Window Program">
       <created>1685362827221</created>
@@ -531,7 +524,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687825409955</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="mehr sqlite">
+      <created>1687826397357</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1687826397358</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -546,7 +546,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added contructors for data arrays to Vertex and for Mesh. Added UV Attribute to Vertex" />
     <MESSAGE value="Added image reading (see https://github.com/LWJGL/lwjgl3/blob/master/modules/samples/src/test/java/org/lwjgl/demo/stb/Image.java)" />
     <MESSAGE value="Added textures and uv mapping" />
     <MESSAGE value="Added multi-texture support through texture units" />
@@ -571,7 +570,18 @@
     <MESSAGE value="Added test models" />
     <MESSAGE value="Added EngineOptions, Scene and SceneManager" />
     <MESSAGE value="A lot of SQLite stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="A lot of SQLite stuff" />
+    <MESSAGE value="mehr sqlite" />
+    <option name="LAST_COMMIT_MESSAGE" value="mehr sqlite" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.StringIndexOutOfBoundsException" package="java.lang" />
+          <option name="timeStamp" value="16" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

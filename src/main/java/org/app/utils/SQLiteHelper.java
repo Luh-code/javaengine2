@@ -64,16 +64,39 @@ public class SQLiteHelper {
                 throw new RuntimeException(e);
             }
         }
-        String url = getURL(location);
 
         Connection conn;
         try {
-            conn = DriverManager.getConnection(url);
+            conn = DriverManager.getConnection(getURL(location));
+        } catch (SQLException e) {
+            Logger.logAndThrow(String.format(
+                    "Tried to connect to SQLite database at '%s', but failed",
+                    getURL(location)
+            ), new RuntimeException(e));
+            throw new RuntimeException();
+        }
 
+        try {
             createAdapterTable(conn);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        try {
             createInputModeTable(conn);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        try {
             createInputTable(conn);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        try {
             createActionTable(conn);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        try {
             createAction2InputTable(conn);
 
             Logger.logDebug(String.format(
@@ -81,12 +104,9 @@ public class SQLiteHelper {
                     location.getAbsolutePath()
             ));
         } catch (SQLException e) {
-            Logger.logAndThrow(String.format(
-                    "Tried to connect to SQLite database at '%s', but failed",
-                    url
-            ), RuntimeException.class);
-            throw new RuntimeException();
+            throw new RuntimeException(e);
         }
+
         return conn;
     }
 
@@ -128,7 +148,7 @@ public class SQLiteHelper {
 
     public static void createActionTable(Connection conn) throws SQLException {
         String sql = """
-                CREATE TABLE Adapter (
+                CREATE TABLE Action (
                 ActionID TEXT(256) PRIMARY KEY
                 )""";
 
@@ -139,7 +159,7 @@ public class SQLiteHelper {
 
     public static void createAction2InputTable(Connection conn) throws SQLException {
         String sql = """
-                CREATE TABLE Adapter (
+                CREATE TABLE Action2Input (
                 ActionID TEXT(256),
                 InputID TEXT(256),
                 PRIMARY KEY (ActionID, InputID)
