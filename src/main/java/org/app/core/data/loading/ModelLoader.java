@@ -134,7 +134,7 @@ public class ModelLoader {
     public static Mesh loadModel(File path, ModelFormat format) {
         Mesh m;
         switch (format) {
-            case OBJ -> {
+            case OBJ2 -> {
                 Obj obj;
                 try {
                     obj = ObjUtils.convertToRenderable(ObjReader.read(new FileInputStream(path)));
@@ -145,6 +145,35 @@ public class ModelLoader {
                 IntBuffer indices = ObjData.getFaceVertexIndices(obj);
                 FloatBuffer vertices = ObjData.getVertices(obj);
                 FloatBuffer uvCoords = ObjData.getTexCoords(obj, 2);
+                FloatBuffer normals = ObjData.getVertices(obj);
+
+                Vertex[] vertices1 = new Vertex[vertices.limit()/3];
+                for (int i = 0; i < vertices1.length; ++i) {
+                    int vec3idx = i*3;
+                    int vec2idx = i*2;
+                    vertices1[i] = new Vertex(
+                            new Vec3(vertices.get(vec3idx), vertices.get(vec3idx+1), vertices.get(vec3idx+2)),
+                            new Vec3(),
+                            new Vec2(uvCoords.get(vec2idx), uvCoords.get(vec2idx+1))
+                    );
+                }
+
+                int[] indices1 = new int[indices.remaining()];
+                indices.get(indices1);
+                m = new Mesh(vertices1, indices1);
+                //return loadOBJ(path);
+            }
+            case OBJ3 -> {
+                Obj obj;
+                try {
+                    obj = ObjUtils.convertToRenderable(ObjReader.read(new FileInputStream(path)));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+
+                IntBuffer indices = ObjData.getFaceVertexIndices(obj);
+                FloatBuffer vertices = ObjData.getVertices(obj);
+                FloatBuffer uvCoords = ObjData.getTexCoords(obj, 3);
                 FloatBuffer normals = ObjData.getVertices(obj);
 
                 Vertex[] vertices1 = new Vertex[vertices.limit()/3];

@@ -243,7 +243,7 @@ public class RenderingTest {
         };
 
         //Mesh cubeMesh = new Mesh(cubeVertices4, cubeIndices2);
-        Mesh cubeMesh = ModelLoader.loadModel(new File("src/main/resources/models/bru.obj"), ModelFormat.OBJ);
+        Mesh cubeMesh = ModelLoader.loadModel(new File("src/main/resources/models/bru.obj"), ModelFormat.OBJ2);
         cubeMesh.genBuffers();
         ecs.setResource("cubeMesh", cubeMesh);
         Mesh quadMesh = new Mesh(quadVertices, quadIndices);

@@ -4,14 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="mehr sqlite">
+    <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="fixed it">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/RenderSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/RenderSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/data/loading/ModelFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/data/loading/ModelFormat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/data/loading/ModelLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/data/loading/ModelLoader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/scene/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/scene/Scene.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/scene/SceneManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/scene/SceneManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/utils/SQLiteHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/utils/SQLiteHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/scene/SceneTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/scene/SceneTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/input.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql/input.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/textures/Endress.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +84,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;scenes&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/media/para/Projects/leEngine/javaengine/src/main/resources/models&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/PRINe/Projekt/WikiRun&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
@@ -97,11 +99,11 @@
       <recent name="$PROJECT_DIR$/src/main/resources/models" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\dev\javaengine2\src\main\resources\textures" />
       <recent name="D:\dev\javaengine2\src\main\resources\sql" />
       <recent name="$PROJECT_DIR$/src/main/java/ecs" />
       <recent name="$PROJECT_DIR$/lib/ecs/shared" />
       <recent name="$PROJECT_DIR$/lib/ecs" />
-      <recent name="$PROJECT_DIR$/build/classes/java/main/ecs" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="org.app" />
@@ -191,13 +193,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1684773698705</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Finished Hello Window Program">
-      <created>1685362827221</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1685362827222</updated>
     </task>
     <task id="LOCAL-00011" summary="Added a safe variant of HexHelper::connect to HexHelper, named HexHelper::connect_s">
       <created>1685365323620</created>
@@ -535,7 +530,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687826397358</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="fixed it">
+      <created>1687846516323</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1687846516324</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -550,7 +552,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added image reading (see https://github.com/LWJGL/lwjgl3/blob/master/modules/samples/src/test/java/org/lwjgl/demo/stb/Image.java)" />
     <MESSAGE value="Added textures and uv mapping" />
     <MESSAGE value="Added multi-texture support through texture units" />
     <MESSAGE value="added model, view, and projection matrices" />
@@ -575,7 +576,8 @@
     <MESSAGE value="Added EngineOptions, Scene and SceneManager" />
     <MESSAGE value="A lot of SQLite stuff" />
     <MESSAGE value="mehr sqlite" />
-    <option name="LAST_COMMIT_MESSAGE" value="mehr sqlite" />
+    <MESSAGE value="fixed it" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed it" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
