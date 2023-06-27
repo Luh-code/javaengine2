@@ -7,7 +7,10 @@
     <list default="true" id="c2d47a29-da1d-42ab-b3cb-e6396afd307c" name="Changes" comment="mehr sqlite">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/input/InputManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/input/InputManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/RenderSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/RenderSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/RenderingTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/scene/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/scene/Scene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/core/scene/SceneManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/core/scene/SceneManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/utils/SQLiteHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/utils/SQLiteHelper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -94,6 +97,7 @@
       <recent name="$PROJECT_DIR$/src/main/resources/models" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\dev\javaengine2\src\main\resources\sql" />
       <recent name="$PROJECT_DIR$/src/main/java/ecs" />
       <recent name="$PROJECT_DIR$/lib/ecs/shared" />
       <recent name="$PROJECT_DIR$/lib/ecs" />
@@ -103,7 +107,7 @@
       <recent name="org.app" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.RenderingTest">
+  <component name="RunManager" selected="Application.SceneTest">
     <configuration name="KeyboardAdapter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.app.core.input.KeyboardAdapter" />
       <module name="javaengine.main" />
@@ -130,12 +134,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.app.hexagonal.test.Main" />
+    <configuration name="RenderingTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.app.core.RenderingTest" />
       <module name="javaengine.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.app.hexagonal.test.*" />
+          <option name="PATTERN" value="org.app.core.options.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -143,12 +147,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RenderingTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.app.core.RenderingTest" />
+    <configuration name="SceneTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.app.core.scene.SceneTest" />
       <module name="javaengine.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.app.core.options.*" />
+          <option name="PATTERN" value="org.app.core.scene.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -171,11 +175,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.SceneTest" />
         <item itemvalue="Application.KeyboardAdapter" />
         <item itemvalue="Application.RenderingTest" />
         <item itemvalue="Application.WindowManager" />
         <item itemvalue="Application.LoggerTest" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>

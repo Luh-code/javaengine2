@@ -379,7 +379,8 @@ public class RenderingTest {
         }
 
         Connection conn = SQLiteHelper.createInputDB(new File("input.db"));
-        manager.saveConfiguration(conn);
+        if ( conn != null )
+            manager.saveConfiguration(conn);
 
         outsetLog();
         logInfo("Program finished");

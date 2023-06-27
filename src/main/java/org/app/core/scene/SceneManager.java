@@ -6,8 +6,12 @@ import org.app.core.input.Action;
 import org.app.core.input.IInputProtocol;
 import org.app.core.input.InputManager;
 import org.app.ecs.ECSManager;
+import org.app.ecs.ECSPort;
 import org.app.hexagonal.Adapter;
+import org.app.utils.Logger;
+import org.app.utils.SQLiteHelper;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,10 +21,13 @@ import java.util.ArrayList;
 public class SceneManager {
     private InputManager inputManager;
     private ECSManager ecsManager;
+    private ECSPort ecs;
 
     private Scene currentScene;
 
     private RenderSystem renderSystem;
+
+    private boolean primed = false;
 
     public SceneManager(Adapter<IInputProtocol>[] inputAdapters) {
         inputManager = new InputManager(inputAdapters.length);
@@ -28,13 +35,15 @@ public class SceneManager {
             inputManager.connectAdapter(i, inputAdapters[i]);
         }
         inputManager.initialize();
+
+        ecsManager = new ECSManager();
     }
 
     private void setupInputs(Connection conn) {
         try {
             PreparedStatement actionStmt;
             ResultSet actionResultSet;
-            actionStmt = conn.prepareCall("""
+            actionStmt = conn.prepareStatement("""
                     SELECT * FROM action
                     """);
             actionResultSet = actionStmt.executeQuery();
@@ -44,12 +53,12 @@ public class SceneManager {
 
                 PreparedStatement a2iStmt;
                 ResultSet a2iResultSet;
-                a2iStmt = conn.prepareCall("""
-                        SELECT action.alias, action2input.inputID
-                        FROM action2input JOIN action
-                        WHERE action2input IS ?
+                a2iStmt = conn.prepareStatement("""
+                        SELECT *
+                        FROM Action2Input
+                        WHERE Action2Input.ActionID IS ?
                         """);
-                a2iStmt.setInt(1, actionResultSet.getInt(0));
+                a2iStmt.setString(1, alias);
                 a2iResultSet = a2iStmt.executeQuery();
                 ArrayList<Integer> actionInputs = new ArrayList<>();
                 while (a2iResultSet.next()) {
@@ -70,7 +79,49 @@ public class SceneManager {
 
     public void setScene(Scene scene) {
         this.currentScene = scene;
-        ecsManager.swapAdapter(scene.getEcs());
-        this.renderSystem = scene.getRenderSystem();
+        primed = true;
+        Logger.logInfo("Scene set");
+    }
+
+    public void init() {
+        if (!primed) {
+            Logger.logError("Tried to initialize SceneManager without it being set up");
+            return;
+        }
+        Logger.logInfo("Setting up scene manager...");
+        Logger.insetLog();
+
+        this.ecsManager.connectAdapter(this.currentScene.getEcsAdapter());
+        this.ecs = (ECSPort) ecsManager.getAdapter().getPort();
+
+        this.currentScene.init();
+
+        ecsManager.swapAdapter(currentScene.getEcsAdapter());
+        this.renderSystem = this.currentScene.getRenderSystem();
+
+
+        // TEMPORARY
+
+        setupInputs(SQLiteHelper.connectToDB(
+                new File("src/main/resources/sql/input.db")));
+
+        Logger.outsetLog();
+        Logger.logInfo("Scene manager set up");
+    }
+
+    public InputManager getInputManager() {
+        return inputManager;
+    }
+
+    public RenderSystem getRenderSystem() {
+        return renderSystem;
+    }
+
+    public ECSPort getEcs() {
+        return ecs;
+    }
+
+    public Scene getCurrentScene() {
+        return currentScene;
     }
 }

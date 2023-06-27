@@ -52,18 +52,24 @@ public class SQLiteHelper {
     public static Connection createInputDB(File location) {
         if ( location.exists() ) {
             Logger.logWarn(String.format(
-                    "Tried to create database at '%s', but file already exists - assuming it to be valid",
+                    "Tried to create database at '%s', but file already exists - overwriting",
                     location.getAbsolutePath()
             ));
-            return connectToDB(location);
-        }
-        else {
-            try {
-                location.createNewFile();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+            if ( !location.delete() ) {
+                Logger.logError(String.format(
+                        "Tried to delete file at '%s', but failed",
+                        location.getAbsolutePath()
+                ));
+                return null;
             }
+            //return connectToDB(location);
         }
+        try {
+            location.createNewFile();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
 
         Connection conn;
         try {
