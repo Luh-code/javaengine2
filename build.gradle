@@ -134,6 +134,12 @@ dependencies {
     // https://mvnrepository.com/artifact/de.javagl/obj
     implementation 'de.javagl:obj:0.4.0'
 
+    implementation 'org.json:org.json:chargebee-1.0'
+
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-collections4
+    implementation 'org.apache.commons:commons-collections4:4.4'
+
+    implementation 'org.xerial:sqlite-jdbc:3.42.0.0'
 }
 
 test {

@@ -2,6 +2,9 @@ package org.app.ecs;
 
 import org.app.hexagonal.Port;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
 public class ECSPort extends Port<ECSModule, IECSProtocol> implements IECSProtocol {
 
     @Override
@@ -107,6 +110,11 @@ public class ECSPort extends Port<ECSModule, IECSProtocol> implements IECSProtoc
     @Override
     public void entityDestroyed(Entity e) {
         ((IECSProtocol)getAdapter()).entityDestroyed(e);
+    }
+
+    @Override
+    public PreparedStatement[] getSaveQueries(Connection conn) {
+        return ((IECSProtocol)getAdapter()).getSaveQueries(conn);
     }
 
     @Override

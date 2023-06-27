@@ -2,6 +2,9 @@ package org.app.ecs;
 
 import org.app.hexagonal.ControlledProtocol;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
 public interface IECSProtocol extends ControlledProtocol {
     // Entities
     Entity createEntity();
@@ -33,4 +36,6 @@ public interface IECSProtocol extends ControlledProtocol {
 
     // General
     void entityDestroyed(Entity e);
+
+    PreparedStatement[] getSaveQueries(Connection conn);
 }

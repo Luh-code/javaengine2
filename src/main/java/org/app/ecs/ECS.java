@@ -1,11 +1,13 @@
 package org.app.ecs;
 
+import org.apache.commons.collections4.CollectionUtils;
+
 import java.lang.reflect.Array;
 import java.lang.reflect.InvocationTargetException;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Queue;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.*;
 
 import static org.app.utils.Logger.*;
 import java.lang.reflect.Constructor;
@@ -482,5 +484,47 @@ public class ECS {
     public void entityDestroyed(Entity e) {
         componentManager.entityDestroyed(e);
         systemManager.entityDestroyed(e);
+    }
+
+    public PreparedStatement[] getSaveQueries(Connection conn) {
+        StringBuilder entityQuery = new StringBuilder();
+        entityQuery.append("INSERT INTO entity VALUES");
+        ArrayList<Entity> availableEntities = new ArrayList<>();
+        for (int i = 0; i < MAX_ENTITIES; i++) {
+            availableEntities.add(new Entity(i));
+        }
+        ArrayList<Entity> entityResult = (ArrayList<Entity>) CollectionUtils.subtract(
+                availableEntities,
+                entityManager.availableEntities.stream().toList()
+        );
+        for (int i = 0; i < entityResult.size(); ++i) {
+            entityQuery.append("(?)");
+            if ( i+1 < entityResult.size() ) entityQuery.append(",");
+        }
+
+        PreparedStatement entityStatement;
+        try {
+            entityStatement = conn.prepareStatement(entityQuery.toString());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        for (int i = 0; i < entityResult.size(); ++i) {
+            int i2 = i*2;
+            try {
+                entityStatement.setInt(i+1, entityResult.get(i).getId());
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+
+        StringBuilder componentTypeQuery = new StringBuilder();
+        componentTypeQuery.append("INSERT INTO componenttype VALUES");
+
+
+        return new PreparedStatement[] {
+                entityStatement
+        };
     }
 }

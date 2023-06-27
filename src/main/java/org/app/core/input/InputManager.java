@@ -5,6 +5,13 @@ import org.app.hexagonal.HexHelper;
 import org.app.hexagonal.PortStatus;
 import org.app.utils.Logger;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.BitSet;
 
 import static org.app.hexagonal.HexHelper.CONNECTION_EXCEPTION;
@@ -84,6 +91,111 @@ public class InputManager {
                 Logger.logError(String.format("Port '%s' has returned an error: %d",
                         port, test));
             initialitzed.set(i, true);
+        }
+    }
+
+    public void saveConfiguration(Connection conn) {
+        StringBuilder mode = new StringBuilder();
+        mode.append("INSERT INTO inputmode VALUES");
+        mode.append(String.format(
+                "('%s'), ('%s'), ('%s')",
+                InputMode.TRIGGERED.toString(),
+                InputMode.RELEASED.toString(),
+                InputMode.ANALOG.toString()
+        ));
+
+        StringBuilder input = new StringBuilder();
+        input.append("INSERT INTO input VALUES");
+
+        for (Integer key :
+                inputModule.getRevInputAliases().keySet()) {
+            InputMode inputMode = inputModule.getInputStates().get(key).getMode();
+            if ( inputMode == InputMode.TRIGGERED ) inputMode = InputMode.RELEASED;
+            input.append(String.format(
+                    "(%d, '%s', '%s'),",
+                    key, inputModule.getRevInputAliases().get(key),
+                    inputMode.toString()
+            ));
+        }
+        input.delete(input.length()-1, input.length());
+
+        StringBuilder action = new StringBuilder();
+        action.append("INSERT INTO action VALUES");
+        for (String key :
+                inputModule.getActionAliases().keySet()) {
+            action.append(String.format(
+                    "('%s'),",
+                    key
+            ));
+        }
+        action.delete(action.length()-1, action.length());
+
+        StringBuilder action2input = new StringBuilder();
+        action2input.append("INSERT INTO action2input VALUES");
+        for (String key :
+                inputModule.getActionAliases().keySet()) {
+            int[] inputs = inputModule.getActionAliases().get(key)
+                    .getInputs();
+            for (int i = 0; i < inputs.length; ++i) {
+                action2input.append(String.format(
+                        "('%s', %d),",
+                        key, inputs[i]
+                ));
+            }
+        }
+        action2input.delete(action2input.length()-1, action2input.length());
+
+        Logger.logDebug("Mode: " + mode.toString());
+        Logger.logDebug("Input: " + input.toString());
+        Logger.logDebug("Action: " + action.toString());
+        Logger.logDebug("Action2Input: " + action2input.toString());
+
+        PreparedStatement modeStmt = null;
+        try {
+            modeStmt = conn.prepareStatement(mode.toString());
+
+            modeStmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        PreparedStatement inputStmt = null;
+        try {
+            inputStmt = conn.prepareStatement(input.toString());
+
+            inputStmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        PreparedStatement actionStmt = null;
+        try {
+            actionStmt = conn.prepareStatement(action.toString());
+
+            actionStmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+//            int idx = 1;
+//            for (String key :
+//                    inputModule.getActionAliases().keySet()) {
+//
+//                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//                ObjectOutputStream oos = new ObjectOutputStream(baos);
+//                oos.writeObject(inputModule.getActionAliases().get(key));
+//
+//                byte[] objAsBytes = baos.toByteArray();
+//
+//                ByteArrayInputStream bais = new ByteArrayInputStream(objAsBytes);
+//                actionStmt.setBinaryStream(idx, bais, (long) objAsBytes.length);
+//                ++idx;
+//            }
+        try {
+            PreparedStatement action2inputStmt = conn.prepareStatement(action2input.toString());
+
+            action2inputStmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 

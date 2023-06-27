@@ -20,10 +20,12 @@ import org.app.core.data.shader.ShaderType;
 import org.app.core.input.*;
 import org.app.ecs.*;
 import org.app.utils.Logger;
+import org.app.utils.SQLiteHelper;
 import org.lwjgl.Version;
 import org.lwjgl.opengl.GL;
 
 import java.io.File;
+import java.sql.Connection;
 
 import static java.lang.Math.*;
 import static org.app.utils.Logger.*;
@@ -376,6 +378,10 @@ public class RenderingTest {
             renderSystem.render(window);
         }
 
+        Connection conn = SQLiteHelper.createInputDB(new File("input.db"));
+        if ( conn != null )
+            manager.saveConfiguration(conn);
+
         outsetLog();
         logInfo("Program finished");
 
@@ -425,7 +431,7 @@ public class RenderingTest {
         }
 
         // Get Mouse Input
-        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+        //glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
         float xpos = inputModule.getAnalogActionValue("MouseXAxis");
         float ypos = inputModule.getAnalogActionValue("MouseYAxis");
 
