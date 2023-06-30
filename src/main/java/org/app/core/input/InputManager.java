@@ -202,4 +202,8 @@ public class InputManager {
     public InputModule getInputModule() {
         return inputModule;
     }
+
+    public void setInputModule(InputModule inputModule) {
+        this.inputModule = inputModule;
+    }
 }

@@ -80,9 +80,12 @@ public class Scene {
         gun.genBuffers();
         ecs.setResource("gunMesh", gun);
 
-        Mesh man = ModelLoader.loadModel(new File("src/main/resources/models/IronMan.obj"), ModelFormat.OBJ3);
-        man.genBuffers();
-        ecs.setResource("manMesh", man);
+//        Mesh man = ModelLoader.loadModel(new File("src/main/resources/models/IronMan.obj"), ModelFormat.OBJ3);
+//        man.genBuffers();
+//        ecs.setResource("manMesh", man);
+        Mesh cube = ModelLoader.loadModel(new File("src/main/resources/models/cube.obj"), ModelFormat.OBJ2);
+        cube.genBuffers();
+        ecs.setResource("cubeMesh", cube);
 
         ShaderProgram shaderProgram;
         {
@@ -145,9 +148,30 @@ public class Scene {
         );
         ecs.setResource("wallTexture2", wallTexture2);
 
-        Material basicMaterial = new Material(shaderProgram, new Texture[] { wallTexture, wallTexture });
+        Material basicMaterial = new Material(shaderProgram, new Texture[] { wallTexture, wallTexture2 });
         basicMaterial.compile();
         ecs.setResource("basicMaterial", basicMaterial);
+
+        Texture gunTexture1 = new Texture(
+          "src/main/resources/textures/Sniper_KSR_29_Col.jpg",
+          new Vec2i(GL_REPEAT, GL_REPEAT),
+          new Vec2i(GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR),
+          GL_TEXTURE0,
+          false
+        );
+        ecs.setResource("gunTexture1", gunTexture1);
+        Texture gunTexture2 = new Texture(
+          "src/main/resources/textures/Sniper_KSR_29_Col.jpg",
+          new Vec2i(GL_REPEAT, GL_REPEAT),
+          new Vec2i(GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR),
+          GL_TEXTURE1,
+          false
+        );
+        ecs.setResource("gunTexture2", gunTexture2);
+
+        Material gunMaterial = new Material(shaderProgram, new Texture[] { gunTexture1, gunTexture2 });
+        gunMaterial.compile();
+        ecs.setResource("gunMaterial", gunMaterial);
 
         Logger.outsetLog();
         Logger.logInfo("Resources registered");
@@ -161,7 +185,7 @@ public class Scene {
                 new Vec3(.0, .0, 0.0),
                 new Vec4(.0, .0, .0, .0),
                 ecs.getResource("gunMesh", Mesh.class),
-                ecs.getResource("basicMaterial", Material.class)
+                ecs.getResource("gunMaterial", Material.class)
         );
 
         ecs.addComponent(e1, a1);
@@ -169,9 +193,9 @@ public class Scene {
         Entity e2 = ecs.createEntity();
 
         Actor a2 = new Actor(
-                new Vec3(.0, .0, -80.0),
+                new Vec3(.0, .0, -4.0),
                 new Vec4(.0, .0, .0, .0),
-                ecs.getResource("manMesh", Mesh.class),
+                ecs.getResource("cubeMesh", Mesh.class),
                 ecs.getResource("basicMaterial", Material.class)
         );
 

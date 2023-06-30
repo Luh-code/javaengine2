@@ -14,7 +14,7 @@ public class Material {
 
     public void compile()
     {
-        shaderProgram.compile(false);
+        shaderProgram.compile(true);
         if ( textures != null ) {
             for (Texture texture : textures) {
                 if (texture != null)
